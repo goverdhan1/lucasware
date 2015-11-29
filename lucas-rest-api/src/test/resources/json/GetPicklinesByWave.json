@@ -1,0 +1,49 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "chart": {
+            "Completed": [
+                {
+                    "value": "26",
+                    "label": "Wave1"
+                },
+                {
+                    "value": "12",
+                    "label": "Wave2"
+                },
+                {
+                    "value": "24",
+                    "label": "Wave3"
+                },
+                {
+                    "value": "13",
+                    "label": "Wave4"
+                }
+            ],
+            "Total": [
+                {
+                    "value": "26",
+                    "label": "Wave1"
+                },
+                {
+                    "value": "24",
+                    "label": "Wave2"
+                },
+                {
+                    "value": "25",
+                    "label": "Wave3"
+                },
+                {
+                    "value": "25",
+                    "label": "Wave4"
+                }
+            ]
+        }
+    }
+}

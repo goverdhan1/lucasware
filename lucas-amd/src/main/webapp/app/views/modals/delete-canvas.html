@@ -1,0 +1,9 @@
+<div class="deleteCanvasModal">
+    <div class="modal-body">
+        <h4>{{ 'canvas.doYouReallyWantToDelete' | translate }} '{{canvas.canvasName}}'?</h4>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" id="btn-delete-canvas-yes" data-ng-click="deleteCanvas()" translate ="{{ 'core.yes' }}"></button>
+        <button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+    </div>
+</div>

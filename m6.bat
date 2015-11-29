@@ -1,0 +1,1 @@
+mvn clean install -Palltests  -DLUCAS_ENCRYPTION_PASSWORD=Hn4UKcorcdoQIFyby1BAs7ZQVmBm+NRk

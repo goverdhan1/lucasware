@@ -1,0 +1,22 @@
+<div>
+    <div class="modal-header">
+        <h4 translate="{{ 'aboutModal.aboutLucasware' }}"></h4>
+    </div>
+    <div class="modal-body">
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th id="hBuild" translate="{{ 'aboutModal.buildNumber' }}"></th>
+                    <th id="hTime" translate="{{ 'aboutModal.timestamp' }}"></th>
+                </tr>
+                <tr>
+                    <td id="rBuild">{{buildNumber}}</td>
+                    <td id="rTime">{{buildTimestamp}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" value="ok" data-ng-click="closeModal()" translate="{{ 'button.ok' }}"></button>
+    </div>
+</div>

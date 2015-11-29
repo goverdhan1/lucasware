@@ -1,0 +1,1241 @@
+/*body{
+ padding-bottom: 70px;
+ }
+ .mainContent {
+ margin-top: 60px;
+ }
+ .well {
+ min-height: 700px;
+ }
+ */
+
+.overflowAuto {
+	overflow: auto;
+}
+
+.moveData select {
+    overflow: auto;
+    width:100%;
+}
+.moveData select option {
+    padding: 10px 5px;
+}
+
+.container-full {
+	margin: 0 auto;
+	width: 100%;
+}
+
+.container-full-tab {
+    margin:  0 auto;
+    width: 90%;
+}
+
+.clearer {
+	clear: both;
+}
+.screenName a {
+	width: 110px;
+	height: 70px !important;
+	overflow: hidden;
+	margin: 0 5px 20px 0;
+}
+.selectCanvasModal .modal-dialog {
+	width: 100% !important;
+}
+.eai-message-segment-window .modal-dialog {
+  width: 700px;
+}
+.selectCanvasModal .modal-header, .selectCanvasModal .modal-body {
+	padding-bottom: 0 !important;
+	border-bottom: 0 !important;
+}
+
+.footerNav {
+	white-space: nowrap;
+	overflow-x: auto;
+}
+.footerNav li {
+	float: none;
+	display: inline;
+}
+.footerNav li a {
+	display: inline-block;
+}
+.widget-panel {
+	border: solid 1px #ccc;
+	position: absolute !important;
+	min-height: 80px;
+	min-width: 80px;
+	/*z-index: 1 !important;*/
+}
+
+.widget-panel .panel-heading {
+	/*cursor: crosshair;*/
+}
+.widget-panel-maximized .panel-body {
+	min-height: 600px;
+}
+
+/*
+	Targets IE 10-11 `min-height` bug which is causing the CSS3 Flex box model to break
+*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	.widget-panel-maximized .panel-body {
+		height: 600px;
+	}
+}
+
+.widget-panel-maximized .panel-body .ngViewport {
+	/*height: auto !important;*/
+}
+/*.widget-panel-maximized .panel-body .pieChartContainer svg {
+ width: auto !important;
+ height: auto !important;
+ }*/
+.resizeWidget {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	cursor: nesw-resize;
+}
+
+textarea {
+    resize : none;
+}
+
+.setactive {
+	z-index: 1;
+}
+
+/* Have to set height explicity on ui-view
+ to prevent collapsing during animation*/
+/*.well[ui-view]{
+ height: 65px;
+ }
+
+ .ui-view-container {
+ position: relative;
+ }
+
+ [ui-view].ng-enter, [ui-view].ng-leave {
+ position: absolute;
+ left: 0;
+ right: 0;
+ -webkit-transition:all .5s ease-in-out;
+ -moz-transition:all .5s ease-in-out;
+ -o-transition:all .5s ease-in-out;
+ transition:all .5s ease-in-out;
+ }
+
+ [ui-view].ng-enter {
+ opacity: 0;
+ -webkit-transform:scale3d(0.5, 0.5, 0.5);
+ -moz-transform:scale3d(0.5, 0.5, 0.5);
+ transform:scale3d(0.5, 0.5, 0.5);
+ }
+
+ [ui-view].ng-enter-active {
+ opacity: 1;
+ -webkit-transform:scale3d(1, 1, 1);
+ -moz-transform:scale3d(1, 1, 1);
+ transform:scale3d(1, 1, 1);
+ }
+
+ [ui-view].ng-leave {
+ opacity: 1;
+ -webkit-transform:translate3d(0, 0, 0);
+ -moz-transform:translate3d(0, 0, 0);
+ transform:translate3d(0, 0, 0);
+ }
+
+ [ui-view].ng-leave-active {
+ opacity: 0;
+ -webkit-transform:translate3d(100px, 0, 0);
+ -moz-transform:translate3d(100px, 0, 0);
+ transform:translate3d(100px, 0, 0);
+ }*/
+
+.translate-cloak {
+	display: none;
+}
+
+.gridDetail .ngViewport {
+	height: 400px;
+}
+
+#lineChart {
+
+}
+
+.listenContainer {
+	position: absolute;
+	bottom: -28px;
+	left: 0;
+	z-index: 1;
+}
+
+/* Very Small devices (phones, less than 768) */
+@media (max-width: 767px) {
+	.widget-panel {
+		position: relative;
+		float: left;
+		clear: both;
+		top: 0 !important;
+		left: 0 !important;
+	}
+	.filterContainer {
+		position: absolute;
+		bottom: -44px;
+		z-index: 2;
+	}
+	.navbar-fixed-top, .navbar-fixed-bottom {
+		position: static !important;
+	}
+	.localeContainer .pull-right {
+		float: none !important;
+	}
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+	.widget-panel {
+		position: relative;
+		float: left;
+		clear: both;
+		top: 0 !important;
+		left: 0 !important;
+	}
+	.filterContainer {
+		position: absolute;
+		bottom: -44px;
+		z-index: 2;
+	}
+	.navbar-fixed-top, .navbar-fixed-bottom {
+		position: static !important;
+	}
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199px) {
+	/*.widget-panel {
+	 position: relative;
+	 float: left;
+	 clear: both;
+	 top: 0 !important;
+	 left: 0 !important;
+	 }
+	 .filterContainer {
+	 position: absolute;
+	 bottom: -44px;
+	 z-index: 2;
+	 }
+	 .navbar-fixed-top, .navbar-fixed-bottom {
+	 position: static !important;
+	 }*/
+	#canvasContainer {
+		padding: 70px 30px 80px 30px;
+	}
+	.filterContainer {
+		position: absolute;
+		z-index: 1;
+		top: 42px;
+		width: 100%;
+	}
+	.gridStyle {
+		margin-top: 40px;
+	}
+
+	.searchGrid .gridStyle,
+    .searchUserGrid .gridStyle {
+        margin-top: 10px;
+    }
+    .underline{
+        border-bottom: 1px solid #ccc !important;
+    }
+
+	body {
+		padding-bottom: 30px;
+	}
+	#detailCont {
+		/*min-height: 550px;
+		min-width: 1200px;
+		position: relative;*/
+	}
+	.chartContainer svg {
+		height: 50% !important;
+		margin: 0 !important;
+		width: auto !important;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	#canvasContainer {
+		padding: 70px 30px 80px 30px;
+	}
+	.filterContainer {
+		position: absolute;
+		z-index: 2;
+		top: 42px;
+		width: 100%;
+	}
+	.gridStyle {
+		/*margin-top: 40px;*/
+	}
+
+	.searchGrid .gridStyle,
+    .searchUserGrid .gridStyle {
+        margin-top: 10px;
+    }
+
+
+	body {
+		padding-bottom: 30px;
+	}
+	#detailCont {
+		/*min-height: 550px;
+		min-width: 1200px;*/
+		/*position: relative;*/
+	}
+	/*.chartContainer svg {
+	 margin: 0 !important;
+	 height: 400px !important;
+	 }
+	 .chartContainer .verticalChart svg {
+	 height: 350px !important;
+	 }*/
+	.chartContainerMaximized svg {
+		margin: 0 !important;
+		height: 450px !important;
+	}
+	.formContainerMaximized form {
+		width: 100% !important;
+		height: 450px !important;
+		overflow: auto;
+	}
+	.alert-success {
+		position: absolute;
+		z-index: 1;
+		width: 95%;
+	}
+}
+
+
+.modal-header .close {
+    margin-top: -9px;
+}
+
+/*.alert.ng-leave{
+    -webkit-transition: 1s linear all;
+    -moz-transition: 1s linear all;
+    -o-transition: 1s linear all;
+    transition: 1s linear all;
+}
+
+.alert.ng-leave {
+    opacity:1;
+}
+.alert.ng-leave.ng-leave-active {
+    opacity:0;
+}
+
+.alert.alert-success {
+    position: static;
+    width: 100%;
+}*/
+
+
+.totalgriditems {
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+.widget-group a{
+    display: block;
+    overflow: hidden;
+}
+
+.widget-group p {
+    word-wrap: break-word;
+}
+
+
+.notification-panel {
+	position: absolute;
+    /* To make notifications come at the top (in case of authentication or authorization error) */
+	z-index: 4000;
+	width: 40%;
+	right: 22%;
+	top: 45%;
+}
+
+.multi-edit {
+    background-color: rgba(0, 113, 255, 0.06);
+}
+
+.multi-edit .bar {
+    background-color: rgba(255, 255, 76, 0.73);
+}
+
+.display-grey {
+    color: #d3d3d3;
+}
+
+.link-disabled {
+    pointer-events : none;
+}
+
+.filterContainer {
+    width: 95%;
+}
+
+.user-group-widget form,
+.group-maintenance-widget form{
+    overflow: auto;
+	padding-right: 15px;
+}
+.user-group-widget .buttons,
+.group-maintenance-widget .buttons {
+	padding-top: 50px;
+}
+.user-group-widget select,
+.group-maintenance-widget select {
+	overflow: auto;
+	width:100%;
+}
+.user-group-widget select option,
+.group-maintenance-widget select option {
+	padding: 10px 5px;
+}
+
+/*This enables both x anx y axis to be clickable*/
+#pickline-chart-widget svg .nvd3 .nv-axis {
+	cursor: pointer;
+	pointer-events: auto;
+}
+/*This enables only x axis to be clickable*/
+/*#pickline-chart-widget svg .nvd3 .nv-x .nv-axis {
+	cursor: pointer;
+	pointer-events: auto;
+}*/
+/*This enables only y axis to be clickable*/
+/*#pickline-chart-widget svg .nvd3 .nv-y .nv-axis {
+	cursor: pointer;
+	pointer-events: auto;
+}*/
+
+.myPreferences label {
+	font-weight: normal;
+}
+.myPreferences label span{
+	font-weight: bold;
+}
+
+/* flex box styles*/
+.display-flex {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.flex1 {
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+}
+
+.flex2 {
+	-ms-flex: 2;
+	-webkit-flex: 2;
+	flex: 2;
+}
+
+.flex3 {
+	-ms-flex: 3;
+	-webkit-flex: 3;
+	flex: 3;
+}
+
+.flex4 {
+	-ms-flex: 4;
+	-webkit-flex: 4;
+	flex: 4;
+}
+
+.flex5 {
+	-ms-flex: 5;
+	-webkit-flex: 5;
+	flex: 5;
+}
+
+.flex6 {
+	-ms-flex: 6;
+	-webkit-flex: 6;
+	flex: 6;
+}
+
+.display-flex-row {
+	-ms-flex-direction: row;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+}
+
+.display-flex-column {
+	-ms-flex-direction: column;
+	-webkit-flex-direction: column;
+	flex-direction: column;
+}
+
+.flex-aligncenter {
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+}
+
+.selectLayoutCanvas hr{
+	border: 1px solid;
+	margin-left: -15px;
+	margin-right: -15px;
+}
+
+.selectLayoutCanvas .createCanvasWrapper {
+	margin-top: 15px;
+}
+.selectLayoutCanvas .modal-body {
+	padding: 0 30px 10px 30px;
+}
+.selectLayoutCanvas .modal-body .heading {
+	margin-bottom: 20px;
+}
+.selectLayoutCanvas ul.canvasMenu {
+	margin: 0 0 20px 0;
+	padding: 0;
+}
+.selectLayoutCanvas ul.canvasMenu li.active {
+	background: darkblue;
+}
+.selectLayoutCanvas ul.canvasMenu li{
+	float: left;
+	list-style: none;
+	padding: 10px;
+	background: lightblue;
+}
+
+.selectLayoutCanvas ul.canvasMenu li a {
+	cursor: pointer;
+}
+.selectLayoutCanvas ul.canvasMenu li:hover {
+	background: darkblue;
+}
+
+.selectLayoutCanvas ul.canvasMenu li img {
+	width: 44px;
+}
+
+.selectLayoutCanvas .canvaslayout {
+	background: #FEFEFE;
+	border: 1px solid;
+	width: 100%;
+	height: 200px;
+}
+
+.selectLayoutCanvas .canvaslayout1 {
+}
+
+.selectLayoutCanvas .canvaslayout2 {
+}
+
+.selectLayoutCanvas .canvaslayout2 .column {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout3 {
+	flex-direction: column;
+}
+
+.selectLayoutCanvas .canvaslayout3 .column {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout4 .column,
+.selectLayoutCanvas .canvaslayout5 .column {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout4 .column .line,
+.selectLayoutCanvas .canvaslayout5 .column .line {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout6 .line {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout7 {
+	flex-direction: column;
+}
+
+.selectLayoutCanvas .canvaslayout7 .column {
+	border: 1px solid;
+}
+
+.selectLayoutCanvas .canvaslayout8 {
+}
+
+.selectLayoutCanvas .canvaslayout8 .column {
+	border: 1px solid;
+}
+
+
+#widgetsPallette .modal-body {
+	padding: 20px 30px;
+}
+
+#widgetsPallette .modal-footer {
+	margin-top:0;
+}
+
+#widgetsPallette .modal-body h4.heading{
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 17px;
+	margin-top: 0;
+}
+
+#widgetsPallette .menu {
+	border: 1px solid;
+}
+
+#widgetsPallette .menu ul{
+	width: 100%;
+}
+
+#widgetsPallette .menu .nav-pills>li {
+	 float: none;
+}
+
+#widgetsPallette .menu .nav-pills>li+li {
+	margin-left: 0;
+}
+
+#widgetsPallette .menu .nav-pills>li>a {
+	border-radius: 0;
+	padding: 5px 15px;
+}
+
+#widgetsPallette .content {
+	border-right: 1px solid;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+}
+
+#widgetsPallette .content .widget {
+	margin: 0;
+	padding: 0;
+}
+
+#widgetsPallette .content .widget li{
+	background-color: lightblue;
+	list-style: none;
+	border: 1px solid;
+	padding: 5px 10px;
+}
+#widgetsPallette .content .widget li.active,
+#widgetsPallette .content .widget li:hover {
+	background-color: #428bca;
+}
+#widgetsPallette .content .widget h2 {
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0 0 2px 0;
+}
+
+#widgetsPallette .widget .content  {
+	border:none;
+}
+
+#widgetsPallette .content .content p {
+	line-height: 20px;
+}
+
+.topLeft img, .topLeft ul{
+	float: left;
+}
+
+.selectedHierarchy{
+    background-color: #66afe9 !important;
+}
+.remove-icon{
+    color:#d4d4d4;
+}
+.remove-icon:hover{
+    color:#212121;
+}
+
+/*
+ * Canvas Changes
+ overwrite other changes if needed
+*/
+
+.widget-panel  {
+	position: static !important;
+	float: none;
+}
+
+html,
+body {
+	padding: 0 !important;
+	margin: 0 !important;
+	height: 100%;
+}
+
+body {
+	overflow: auto;
+}
+
+.uiViewMainCanvas {
+	min-height: 100%;
+	overflow: hidden;
+}
+
+.uiViewContentCanvas {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	overflow: hidden;
+	margin-top: 40px;
+}
+
+/*
+	Targets IE 10-11 `min-height` bug which is causing the CSS3 Flex box model to break
+*/
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+	body {
+  		display: flex;
+  		flex-direction: column;
+  		height: 100vh;
+	}
+
+	.uiViewMainCanvas {
+		flex: 1 0 auto !important;
+	}
+
+	.uiViewContentCanvas {
+		flex: 1 0 auto !important;
+	}
+}
+
+#canvasContainer {
+	padding: 0 !important;
+}
+
+.header {
+	position: fixed !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	min-height: 40px;
+	height: 40px;
+	-webkit-transition: all .25s ease-in-out;
+	-moz-transition: all .25s ease-in-out;
+	-o-transition: all .25s ease-in-out;
+	transition: all .25s ease-in-out;
+}
+
+.hideHeader {
+	-webkit-transform: translateY(-100%);
+	-ms-transform: translateY(-100%);
+	transform: translateY(-100%);
+}
+
+.showHeader {
+	-webkit-transform: translateY(0);
+	-ms-transform: translateY(0);
+	transform: translateY(0);
+}
+
+@media (min-width: 768px) {
+	/* hide load a widget inside top right menu */
+	.topright li#load-widget {
+		display: none;
+	}
+}
+
+@media (max-width: 767px) {
+	/* move load a widget on to right side menu */
+	.topLeft ul {
+		display: none;
+	}
+	.topright li#load-widget {
+		display: block;
+	}
+}
+
+footer {
+	position: static !important;
+	padding: 0 !important;
+	margin: 0 !important;
+	height: 30px;
+	overflow: hidden;
+}
+
+footer .navbar-fixed-top,
+footer .navbar-fixed-bottom {
+	position: static !important;
+}
+
+.resizable-helper {
+	background: black;
+	opacity: 0.2;
+	z-index: 10000 !important;
+}
+.tile-container {
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	align-items: stretch;
+}
+
+.tile {
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	display: flex;
+	align-self: stretch;
+	max-width: 100%;
+	background: white;
+}
+
+.sub-tile {
+	-ms-flex: 1;
+	-webkit-flex: 1;
+	flex: 1;
+	align-self: stretch;
+	border: 5px solid darkgreen;
+	margin: 0;
+}
+
+.bottomleft {
+	padding: 0 0 0 15px;
+}
+
+.resizeTabBar ul {
+	float: left;
+}
+.resizeTabBar button{
+	float: right;
+}
+/*
+	hide options, they will be made visible basedon the calculation of visible items
+*/
+.resizeTabBar .tabs li{
+	display: none;
+}
+.resizeTabBar ul.options li .btn-group {
+	display: flex;
+}
+.resizeTabBar ul.options li .btn-group a{
+	flex: 1;
+}
+
+.resizeTabBar ul.options {
+	position: fixed;
+	left: initial;
+	bottom: 30px;
+	right: 0;
+}
+
+/*override*/
+.resizeTabSet ul.options,
+.menuoptions {
+	position: static;
+	float: none;
+}
+
+.menuoptions li {
+  position: relative;
+  display: block;
+}
+
+.resizeTabSetContainer .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+  border-bottom-color: #fff;
+}
+.resizeTabSetContainer .nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+  border: 1px solid #ddd;
+    border-bottom: none;
+
+}
+.resizeTabSetContainer .nav-tabs.nav-justified>li>a {
+  border-bottom: 1px solid #ddd;
+  border-radius: 4px 4px 0 0;
+}
+
+.resizeTabSet button {
+	width: 100%;
+}
+
+.resizeTabSet button .caret {
+	float: right;
+	margin-top: 6px;
+}
+
+.device-mobile .resizeTabSetContainer .nav > li,
+.device-tablet .resizeTabSetContainer .nav-tabs.nav-justified>li {
+	display: none;
+}
+
+.device-mobile .resizeTabSet,
+.device-tablet .resizeTabSet {
+	display: block;
+}
+
+.device-mobile .resizeTabSet .nav > li,
+.device-tablet .resizeTabSet .nav > li{
+	display: block;
+	width: 100%;
+}
+
+.device-desktop .resizeTabSet {
+	display: none;
+}
+
+.device-desktop .resizeTabSetContainer .nav > li,
+.device-desktop .resizeTabSetContainer .nav-tabs.nav-justified>li {
+	display: table-cell;
+	width: 1%;
+}
+
+/* hide groups */
+.createEditUserForm .resizeTabSet li:last-child  {
+	display: none !important;
+}
+
+.resizeTabSetContainer .form-horizontal {
+	height: 100%;
+}
+
+/*
+ Add the contents of these classes to grid containers to make them flexible
+.display-flex
+.display-flex-column
+.flex1
+ */
+
+.widgetloader {
+	position: relative;
+}
+
+.gridStyle{
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+}
+.ui-grid-viewport{
+	width: 100%;
+}
+.ui-grid-render-container {
+	height: 100%;
+}
+
+.width-15 {
+	width: 15px;
+}
+
+.width-25 {
+	width: 25px;
+}
+
+.width-50 {
+	width: 50px;
+}
+
+.width-100 {
+	width: 100px;
+}
+
+.filter-dropdown li a:hover{
+    color: #ffffff;
+    background-color: #428bca;
+}
+
+[ng-drag] {
+    -moz-user-select: -moz-none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: move;
+}
+
+[ng-drag].drag-over {
+    border: solid 1px red;
+}
+
+[ng-drag].dragging {
+    opacity: 0.5;
+}
+
+[ng-drop].drag-enter {
+    border: solid 5px red;
+}
+
+footer .btn-lg, .btn-group-lg>.btn {
+  padding: 0 10px;
+}
+
+.group-maintenance-widget .form-inline .form-control {
+  display: inline-block;
+  width: auto;
+  vertical-align: middle;
+}
+
+.device-mobile .packFactorHierarchy tr span button,
+.device-tablet .packFactorHierarchy tr span button {
+	margin-bottom: 10px;
+}
+.searchUserGridActionButtons, .searchGroupGridActionButtons
+{
+	display: inline-block;
+}
+
+.widget-panel-maximized{
+	width: 100%;
+}
+
+.canvas-remove-icon {
+	float: right;
+	cursor: pointer;
+    top: 10px;
+    right: 20px;
+    z-index: 100;
+}
+
+.canvas-permissions-revoked .canvas-remove-icon{
+	color: white;
+}
+
+.nav-pills >li.canvas-permissions-revoked.active>a,
+.nav-pills >li.canvas-permissions-revoked.active>a:hover,
+.nav-pills >li.canvas-permissions-revoked.active>a:focus {
+	background-color: red;
+}
+
+.nav-pills >li.canvas-already-loaded span {
+	display: none;
+}
+
+.nav-pills >li.canvas-already-loaded.active>a,
+.nav-pills >li.canvas-already-loaded.active>a:hover,
+.nav-pills >li.canvas-already-loaded.active>a:focus {
+	background-color: gray;
+	pointer-events: none;
+}
+
+#select-canvas-modal h4 {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+#select-canvas-modal .nav-pills a {
+	word-wrap: break-word;
+}
+
+#select-canvas-modal .available-box {
+	background-color: #428bca;
+}
+
+#select-canvas-modal .open-box {
+	background-color: gray;
+}
+
+#select-canvas-modal .permissions-revoked-box {
+	background-color: red;
+}
+
+.colorbox {
+	margin-right: 5px;
+}
+.colorbox div.box {
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #000;
+	margin-right: 5px;
+}
+.colorbox span {
+	float: right;
+}
+.tweaked-margin-right {
+    margin-right: 5px;
+}
+.open>.dropdown-menu {
+  display: block !important;
+}
+
+#createNewCanvas .modal-body {
+    padding-left: 25px;
+}
+
+.ui-grid-header, .ui-grid-top-panel{
+	width: 100% !important;
+}
+
+.ui-grid-render-container{
+	overflow: hidden;
+}
+.ui-grid-viewport
+{
+	width: 100% !important;
+}
+
+.ui-grid-pinned-container .ui-grid-header
+{
+	width: 29px;
+}
+.ui-grid-pinned-container .ui-grid-top-panel
+{
+	height: 60px;
+}
+
+.ui-grid-pinned-container
+{
+	z-index: 100;
+	position: absolute;
+	height: 100% !important;
+}
+.ui-grid-render-container-body
+{
+	margin-left: 29px;
+}
+
+.device-mobile .ui-grid-render-container {
+width: 88% !important;
+}
+.device-tablet .ui-grid-render-container {
+width: 92% !important;
+}
+.device-desktop .ui-grid-render-container {
+	width: 95.5% !important;
+}
+.device-desktop.full-width .ui-grid-render-container{
+	width: 97.6% !important;
+}
+.widget-panel-maximized .ui-grid-render-container
+{
+	width: 97.8% !important;
+}
+.gridFooter{
+	display: block;
+	clear: both;
+	position: absolute;
+	bottom: 0;
+}
+
+.pause-auto-refresh
+{
+	color: red;
+	font-style: italic;
+}
+
+.moveDataGrid:first-child .gridStyle {
+	margin-left: 15px;
+}
+
+.moveDataGrid:last-child .gridStyle {
+	margin-right: 15px;
+}
+
+.moveDataGrid .leftColumn,
+.moveDataGrid .rightColumn {
+	height: 340px;
+}
+
+.moveDataGrid .buttons {
+    width: 100px;
+    float: left;
+    text-align: center;
+ }
+
+.moveDataGrid .gridStyle {
+
+}
+
+.center-aligned {
+	text-align: center;
+}
+.widgetInteractions {
+	margin-top: 10px;
+}
+
+.widgetInteractions .row {
+	margin-left: 0;
+	padding: 5px 0;
+}
+
+.widgetInteractions .add-row {
+	margin-bottom: 10px;
+}
+
+input[type="text"].ui-grid-custom-filter-input, .ui-grid-custom-filter-input {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    width: 125px;
+    border: 1px solid #d4d4d4;
+    -webkit-border-top-right-radius: 0px;
+    -webkit-border-bottom-right-radius: 0;
+    -webkit-border-bottom-left-radius: 0;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-radius-topright: 0px;
+    -moz-border-radius-bottomright: 0;
+    -moz-border-radius-bottomleft: 0;
+    -moz-border-radius-topleft: 0;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    -moz-background-clip: padding-box;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+}
+input[type="text"].ui-grid-custom-filter-input:hover, .ui-grid-custom-filter-input:hover {
+    border: 1px solid #d4d4d4;
+}
+.italic
+{font-style: italic;}
+
+@media (max-width: 642px) {
+	.moveDataGrid .leftColumn,
+	.moveDataGrid .rightColumn,
+	.moveDataGrid .buttons {
+		width: 100%;
+	}
+	
+	.moveDataGrid .leftColumn {
+		margin-top: 40px;
+	}
+	
+	.moveDataGrid .buttons {
+		margin: -40px auto 0 auto;
+	    width: 220px;
+	    float: none;
+	}
+	
+	.moveDataGrid .buttons > div {
+		float: left;
+		margin: 10px;
+	}
+}
+
+.disabled {
+	pointer-events:none;
+}

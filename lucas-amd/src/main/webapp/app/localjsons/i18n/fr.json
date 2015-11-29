@@ -1,0 +1,405 @@
+{
+    "responseId": "1",
+    "data": {
+        "aboutModal": {
+            "aboutLucasware": "FR.missingTranslation-About Lucasware",
+            "buildNumber": "FR.missingTranslation-Build Number",
+            "timeStamp": "FR.missingTranslation-Timestamp"
+        },
+
+        "button": {
+            "ok": "FR.missingTranslation-OK",
+            "cancel": "FR.missingTranslation-Cancel",
+            "allPosts": "Tous les messages",
+            "about": "Sur",
+            "addNewCanvas": "FR.missingTranslation-AddNewCanvas",
+            "createNewCanvas": "FR.missingTranslation-Create New Canvas",
+            "saveCanvas": "FR.missingTranslation: Save Canvas",
+            "saveWidget": "FR.missingTranslation: Save Widget",
+            "addLevel": "FR.missingTranslation: Add Level"
+        },
+
+        "canvas": {
+            "assignmentManagement": "Gestion des affectations",
+            "movementAnalysis": "FR.missingTranslation-Movement Analysis",
+            "overviewWarehouse": "FR.missingTranslation-Overview Warehouse",
+            "performance": "FR.missingTranslation-Performance",
+            "pickDensity": "FR.missingTranslation-Pick Density",
+            "pickMonitoring": "Choisissez surveillance",
+            "pickMonitoringAlternative": "FR.missingTranslation-Pick Monitoring Alternative",
+            "productivity": "PFR.missingTranslation-roductivity",
+            "qcMetricsOverview": "FR.missingTranslation-QC Metrics Overview",
+            "throughput": "FR.missingTranslation-Throughput",
+            "userPerformance": "FR.missingTranslation-User Performance",
+            "editModeFor": "FR.missingTranslation-Edit mode for",
+            "doYouReallyWantToClose": "FR.missingTranslation-Do you really want to close",
+            "doYouReallyWantToDelete": "FR.missingTranslation-Are you sure you want to delete",
+            "name": "FR.missingTranslation-Name:",
+            "id": "FR.missingTranslation-ID:",
+            "shortName": "FR.missingTranslation-shortName:",
+            "type": "FR.missingTranslation-type:",
+            "subtype": "FR.missingTranslation-subtype:"
+        },
+        "cog": {
+            "changeDateFormat": "FR.missingTranslation: Change Date Format",
+            "showOrHideGridColumns": "FR.missingTranslation: Show / Hide Grid Columns",
+            "checkedColumnsAreBeingShownNow": "FR.missingTranslation: Checked columns are being shown now.",
+            "chartOrientation": "FR.missingTranslation: Chart Orientation",
+            "orientation" : {
+                "value" : {
+                    "h" : "Horizontal",
+                    "v" : "Vertical"
+                }
+            },
+            "changeListensForList": "FR.missingTranslation: Update Listens For List",
+            "reactToMap":{
+                "heading": "FR.missingTranslation: React To Map",
+                "text": "Select one or more item(s) in the list to move it to Listens For List. Note: You can't add the same item."
+            },
+            "listensForList":{
+                "heading": "FR.missingTranslation: Listens for list",
+                "text": "Select one or more item(s) in the list to remove it from Listens For List."
+            },
+            "autoRefresh": {
+                "settings": "FR.missingTranslation-Automatic Refresh Settings",
+                "override": "FR.missingTranslation-Override Settings",
+                "enabled": "FR.missingTranslation-Refresh Enabled",
+                "frequency": "FR.missingTranslation-Frequency (seconds)",
+                "invalidRefreshInterval": "FR.missingTranslation-Refresh frequency cannot be less than 20 seconds"
+            }
+        },
+
+        "core": {
+            "edit": "FR.missingTranslation-Edit",
+            "close": "proche",
+            "cancel": "FR.missingTranslation-Cancel",
+            "continue": "FR.missingTranslation-Continue",
+            "delete": "FR.missingTranslation-Delete",
+            "error": "FR.missingTranslation-Error",
+            "save": "FR.missingTranslation-Save",
+            "saveAs": "FR.missingTranslation-Save As",
+            "yes": "FR.missingTranslation-Yes",
+            "no": "FR.missingTranslation-No",
+            "chartsAndGraphs": "FR.missingTranslation-Charts and Graphs",
+            "description": "FR.missingTranslation-Description",
+            "type": "FR.missingTranslation-Type",
+            "pickList": "FR.missingTranslation-Pick List",
+            "putawayList": "FR.missingTranslation-Putaway List",
+            "search": "FR.missingTranslation-Search:",
+            "sortBy": "FR.missingTranslation-Sort by:",
+            "alphabetical": "FR.missingTranslation-Alphabetical",
+            "status": "FR.missingTranslation-Status",
+            "from": "FR.missingTranslation-from:",
+            "regionDetails": "FR.missingTranslation-Region Details",
+            "backToRegionsList": "FR.missingTranslation-Back to Regions List",
+            "listOfWarehouses": "FR.missingTranslation-List of Warehouses",
+            "regionList": "FR.missingTranslation-Region List",
+            "details": "FR.missingTranslation-Details",
+            "warehouseDetails": "FR.missingTranslation-Warehouse Details",
+            "region": "FR.missingTranslation-region",
+            "warehouseList": "FR.missingTranslation-Warehouse List",
+            "warehouse": "FR.missingTranslation-Warehouse",
+            "thisWarehouseBelongsToRegionWithId": "FR.missingTranslation-This warehouse belongs to region with id:",
+            "usersList": "FR.missingTranslation-Users List",
+            "all": "FR.missingTranslation-All",
+            "active": "FR.missingTranslation-Active",
+            "inactive": "FR.missingTranslation-Inactive",
+            "filter": "FR.missingTranslation-Filter",
+            "filterBy": "FR.missingTranslation-Filter By:",
+            "clearAllFilters": "FR.missingTranslation-Clear All Filters",
+            "forceUpdate" : "FR.missingTranslation-Force Update",
+            "resetToFactory" : "FR.missingTranslation: Reset to Factory",
+            "unsavedChanges" : "FR.missingTranslation-Unsaved Changes",
+            "confirmDiscardChanges" : "FR.missingTranslation-Unsaved changes will be lost. Do you wish to continue?",
+            "saving" : "FR.missingTranslation-Saving...",
+            "components":"FR.missingTranslation-Component",
+            "abbreviations": "FR.missingTranslation-Abbreviation",
+            "actions":"FR.missingTranslation-Actions",
+            "noDataFound": "FR.missingTranslation-No Data Found",
+            "category" : "FR.missingTranslation-Category",
+            "subcategory" : "FR.missingTranslation-Sub-Category",
+            "reviewChangesConfirm":"FR.missingTranslation-Review Changes and Confirm",
+            "locusLogin":"FR.missingTranslation-Locus Login :",
+            "selectChangesSave": "FR.missingTranslation-Select the changes to save",
+            "previousValue": "FR.missingTranslation-Previous Value",
+            "newValue": "FR.missingTranslation-New Value",
+            "selectAll": "FR.missingTranslation-Select All",
+            "and": "FR.missingTranslation-and",
+            "more": "FR.missingTranslation-more",
+            "errorCode" : "FR.missingTranslation-Error Code:",
+            "uniqueKey" : "FR.missingTranslation-Support Ref#:"
+        },
+
+        "index": {
+            "localStorageIsNotSupported": "FR.missingTranslation-LocalStorage is not supported"
+        },
+
+
+        "landing": {
+            "headline": "FR.missingTranslation.Heading in English",
+            "panelItemHeading": "Rencontrez Jennifer sur un Tour DC"
+        },
+
+        "locale": {
+            "languageDE": "FR.missingTranslation-German",
+            "languageFR": "FR.missingTranslation-French",
+            "languageEN": "FR.missingTranslation-English",
+            "languageCode": "FR",
+            "ISOLanguageCodes" : {
+                "EN_GB" : "FR.missingTranslation-en_gb",
+                "EN_US" : "FR.missingTranslation-en_us",
+                "ES_ES" : "FR.missingTranslation-es",
+                "DE_DE" : "FR.missingTranslation-de",
+                "FR_FR" : "FR.missingTranslation-fr",
+                "FR_CA" : "FR.missingTranslation-fr_ca"
+            }
+        },
+
+        "login": {
+            "enterUsername": "Entrez Nom d'utilisateur",
+            "username": "FR.missingTranslation-Username",
+            "enterPassword": "Entrez Mot de passe",
+            "forgotPassword": "Mot de passe oublié?",
+            "signIn": "Connectez-vous",
+            "invalidUserNameOrPassword": "FR.missingTranslation-Invalid Username or Password",
+            "YouWantedToAccess": "FR.missingTranslation-You wanted to access"
+        },
+
+        "logout": {
+            "areYouSureYouWantToLogout": "FR.missingTranslation-Are you sure you want to logout?",
+            "logoutSuccessful": "FR.missingTranslation-Logout Successful"
+        },
+
+        "deleteWidget": {
+            "areYouSureYouWantToDelete": "FR.missingTranslation: Are you sure you want to delete this widget?",
+            "deleteSuccessful": "FR.missingTranslation: Deleted Successfully"
+        },
+        "resetWidget": {
+            "areYouSureYouWantToReset": "FR.missingTranslation: Are you sure you want to reset this widget? "
+        },
+
+        "menu": {
+            "loadWidget": "FR.missingTranslation-Load Widget",
+            "welcome": "FR.missingTranslation-Welcome ",
+            "myPreferences": "FR.missingTranslation-My Preferences",
+            "logout": "Déconnexion",
+            "changeLanguage": "Changer de langue",
+            "makeHomeCanvas" : "FR.missingTranslation Make Home Canvas",
+            "resetCanvas" : "FR.missingTranslation Reset Canvas",
+            "cloneCanvas": "FR.missingTranslation Clone Canvas",
+            "publishCanvas": "FR.missingTranslation Publish Canvas",
+            "setAsDefaultCanvases": "FR.missingTranslation Set As Default Canvases"
+        },
+
+        "user": {
+            "personalInformation": "FR.missingTranslation-Personal Information",
+            "mobileNumber": "FR.missingTranslation-Mobile Number",
+            "hostLogin": "FR.missingTranslation-Host Login",
+            "firstName": "FR.missingTranslation-Firstname",
+            "lastName": "FR.missingTranslation-Lastname",
+            "loginInformation": "FR.missingTranslation-Login Information",
+            "userName": "FR.missingTranslation-User Name",
+            "password": "FR.missingTranslation-Password",
+            "confirmPassword": "FR.missingTranslation-Confirm Password",
+            "passwordsDoNotMatch": "FR.missingTranslation-Passwords do not match",
+            "emailAddress": "FR.missingTranslation-Email Address",
+            "title": "FR.missingTranslation-Title",
+            "login": "FR.missingTranslation-Login",
+            "options": "FR.missingTranslation-Options",
+            "employeeNumber": "FR.missingTranslation-Employee Number",
+            "startDate": "FR.missingTranslation-Start Date",
+            "birthDate": "FR.missingTranslation-Birth Date",
+            "preferredLanguages": "FR.missingTranslation-Preferred Languages",
+            "jenniferToUser": "FR.missingTranslation-Jennifer to User",
+            "userToJennifer": "FR.missingTranslation-User to Jennifer",
+            "handheldScreenLanguage": "FR.missingTranslation-Handheld Screen Language",
+            "AMDLanguage": "FR.missingTranslation-AMD Language",
+            "confirmAction": "FR.missingTranslation-Are you sure you want to:",
+            "activate": "FR.missingTranslation-Activate",
+            "deactivate": "FR.missingTranslation-Deactivate",
+            "areYouSureYouWantToMakeHomeCanvas": "FR.missingTranslation-Are you sure you want to make '{{canvasName}}' your home canvas?",
+            "makeHomeCanavsSuccess" : "FR.missingTranslation-Home Canvas saved sucessfully",
+            "loginInfo" : "FR.missingTranslation-Login Information",
+            "languages" : "FR.missingTranslation-Languages",
+            "optional" : "FR.missingTranslation-Optional",
+            "groups" : "FR.missingTranslation-Groups",
+            "skill": "FR.missingTranslation-Skill",
+            "skills" : {
+                "STANDARD" : "FR.missingTranslation-Standard",
+                "ADVANCED" : "FR.missingTranslation-Advanced"
+            },
+            "shift" : "FR.missingTranslation-Shift",
+            "shifts" : {
+                "day" : "FR.missingTranslation-Day",
+                "night" : "FR.missingTranslation-Night"
+            },
+            "defaultFilterOptions": {
+                "nonEmpty": "FR.missingTranslation-Non Empty",
+                "empty": "FR.missingTranslation-Empty",
+                "noFilter":"FR.missingTranslation-No Filter",
+                "custom": "FR.missingTranslation-Custom"
+            },
+            "alphaFilter":{
+                "startWith":"FR.missingTranslation-Start With",
+                "endsWith":"FR.missingTranslation-End With",
+                "contains": "FR.missingTranslation-Contains",
+                "matches": "FR.missingTranslation-Matches"
+            },
+            "customFilter": "FR.missingTranslation-Custom Filter",
+            "copyUser" : "FR.missingTranslation-Copying User...",
+            "newLucasLogin" : "FR.missingTranslation-New Lucas Login",
+            "selectUserToDelete": "FR.missingTranslation-Please select a user to delete.",
+            "selectUserToDeactivate": "FR.missingTranslation-Please select a user to disable.",
+            "selectUserFromGridToDelete": "FR.missingTranslation-Delete User",
+            "selectUserFromGridToDisable": "FR.missingTranslation-Disable User",
+            "deleteTheFollowingUser":"FR.missingTranslation-Are you sure you want to delete the following users?",
+            "disableTheFollowingUser":"FR.missingTranslation-Are you sure you want to disable the following users?",
+            "alreadyDisabledUsers":"FR.missingTranslation-The following users are already disabled:",
+            "selectUserFromGridToEnable": "FR.missingTranslation-Enable User",
+            "enableTheFollowingUser":"FR.missingTranslation-Are you sure you want to enable the following users?",
+            "alreadyEnabledUsers":"FR.missingTranslation-The following users are already enabled:",
+            "retrainVoiceLog":"FR.missingTranslation-Retrain Voice Log",
+            "retrainVoiceLogTheFollowingUser":"FR.missingTranslation-Are you sure you want to retrain the following users voice models?",
+            "active":"FR.missingTranslation-Active",
+            "inactive":"FR.missingTranslation-Inactive",
+            "manualRefresh":"FR.missingTranslation-Refresh",
+            "unfilter":"FR.missingTranslation-Unfilter",
+            "totalItems":"FR.missingTranslation-Total items",
+            "selectedItems":"FR.missingTranslation-Selected",
+            "totalCount":"FR.missingTranslation-Total count",
+            "autoRefreshPaused":"FR.missingTranslation-automatic refresh paused",
+            "selectGroupToDelete": "FR.missingTranslation-Please select a group to delete.",
+            "selectGroupFromGridToDelete": "FR.missingTranslation-Delete Group",
+            "deleteTheFollowingGroups":"FR.missingTranslation-Are you sure you want to delete the following group?"
+
+       
+        },
+
+       "groupAssignment": {
+            "groupName": "FR.missingTranslation-Group Name",
+            "amdPermissions": "FR.missingTranslation-AMD Permissions",
+            "workExecution": "FR.missingTranslation-Work Execution",
+            "enrollUsers": "FR.missingTranslation-Enroll Users",
+            "permissionCategories": "FR.missingTranslation-Permission Categories",
+            "availablePermissions": "FR.missingTranslation-Available Permissions",
+            "assignedPermissions": "FR.missingTranslation-Assigned Permissions",
+            "copyGroup" : "FR.missingTranslation-Copying Group...",
+            "newGroupName" : "FR.missingTranslation-New Group Name",
+            "newGroupDescription" : "FR.missingTranslation-Description",
+            "descriptionPlaceholder" : "FR.missingTranslation-add a group description"
+        },
+        "userGroup" : {
+            "userName" : "FR.missingTranslation-User Name",
+            "availableGroups" : "FR.missingTranslation-Available Groups",
+            "existingGroups" : "FR.missingTranslation-Existing Groups",
+            "selectedGroups" : "FR.missingTranslation-Selected Groups",
+            "resultantPermissions" : "FR.missingTranslation-Resultant Permissions",
+            "save": "FR.missingTranslation-Save",
+            "cancel": "FR.missingTranslation-Cancel",
+            "amd": "FR.missingTranslation-AMD",
+            "workExecution": "FR.missingTranslation-Work Execution"
+        },
+
+        "preferences": {
+            "myPreferences": "FR.missingTranslation-My Preferences",
+            "dateFormat": "FR.missingTranslation-Date Format",
+            "timeFormat": "FR.missingTranslation-Time Format",
+            "refreshFrequency": "FR.missingTranslation-Auto Refresh Interval (seconds)"
+        },
+
+        "createCanvas": {
+            "configureCanvas" : "FR.missingTranslation-Configure Canvas",
+            "shareCanvas" : "FR.missingTranslation-Share Canvas",
+            "name" : "FR.missingTranslation-New Canvas Name",
+            "selectLayout" : "FR.missingTranslation-Select Layout",
+            "loadWidget" : "FR.missingTranslation-Load Widget",
+            "canvasNameIsRequired":"FR.missingTranslation-Canvas name is required",
+            "canvasNameAlreadyExists": "FR.missingTranslation-Canvas name already exists"
+        },
+
+        "widgetsPallette": {
+            "search" : "FR.missingTranslation-Search",
+            "widgetsPallette": "FR.missingTranslation-Widgets pallette"
+        },
+
+        "selectCanvas": {
+            "private" : "FR.missingTranslation-My Private Canvases",
+            "company" : "FR.missingTranslation-Company Canvases",
+            "lucas" : "FR.missingTranslation-Lucas Canvases"
+        },
+
+        "security" : {
+            "permissionCategories" : {
+                "canvas": "FR.missingTranslation-Canvas",
+                "EAI": "FR.missingTranslation-EAI",
+                "Equipment": "FR.missingTranslation-Equipment",
+                "canvas-management" : "FR.missingTranslation-Canvas Management",
+                "canvas-permissions" : "FR.missingTranslation-Canvas Permissions",
+                "data-export" : "FR.missingTranslation-Data Export",
+                "Groups" : "FR.missingTranslation-Groups",
+                "product-management" : "FR.missingTranslation-Product Management",
+                "user-management" : "FR.missingTranslation-User Management",
+                "Users" : "FR.missingTranslation-Users",
+                "widget-permissions" : "FR.missingTranslation-Widget Permissions"
+            }
+        },
+
+        "cloneCanvas": {
+            "name" : "FR.missingTranslation-New Canvas Name",
+            "canvasNameIsRequired":"FR.missingTranslation-Canvas name is required",
+            "canvasNameAlreadyExists": "FR.missingTranslation-Canvas name already exists"
+        },
+
+        "publishCanvas": {
+            "areYouSureYouWantToPublish": "FR.missingTranslation-Are you sure you want to publish"
+        },
+
+        "error" : {
+            "userNameMissing" : "FR.missingTranslation-Please enter a new Lucas Login",
+            "userAlreadyExists" : "FR.missingTranslation-Lucas Login already exists",
+            "userNotFound" : "FR.missingTranslation-User \"<i>{{user}}</i>\" not found",
+            "groupNameMissing": "FR.missingTranslation-Please enter a new Group Name",
+            "groupAlreadyExists": "FR.missingTranslation-Group Name already exists",
+            "groupNotFound" : "FR.missingTranslation-Group \"<i>{{group}}</i>\" not found",
+            "minimumValueExpected" : "FR.missingTranslation-minimum value of {{value}} required",
+            "required": "FR.missingTranslation-This is required.", 
+            "pleaseSelectOption": "FR.missingTranslation-Please select an option."
+        },
+
+        "eai" : {
+            "eventHandlerRegistration" : "FR.missingTranslation-Event Handler Registration",
+            "eventHandlerName" : "FR.missingTranslation-Event Handler Name",
+            "transport" : "FR.missingTranslation-Transport",
+            "details" : "FR.missingTranslation-Details",
+            "eventHandlers" : "FR.missingTranslation-Event Handlers",
+            "type" : "FR.missingTranslation-Type",
+            "inboundMapping" : "FR.missingTranslation-Inbound Mapping",
+            "transportType" : "FR.missingTranslation-Transport Type",
+            "host" : "FR.missingTranslation-Host",
+            "portNumber" : "FR.missingTranslation-Port Number",
+            "remoteDirectory" : "FR.missingTranslation-Remote Directory",
+            "inboundDirectory" : "FR.missingTranslation-Inbound Directory",
+            "inboundFileName" : "FR.missingTranslation-Inbound File Name",
+            "pollingFrequency" : "FR.missingTranslation-Polling Frequency",
+            "deleteSourceFile" : "FR.missingTranslation-Delete Source File",
+            "eventDefinition" : "FR.missingTranslation-Event Definition",
+            "eventName" : "FR.missingTranslation-Event Name",
+            "addEvent" : "FR.missingTranslation-Add Event",
+            "source" : "FR.missingTranslation-Source"
+        },
+
+        "widgetInteractions": {
+            "whatDoesTheWidgetListenFor": "FR.missingTranslation-What does the widget listen for?",
+            "active": "FR.missingTranslation-Active",
+            "widgetInstance": "FR.missingTranslation-Widget Instance",
+            "data": "FR.missingTranslation-Data"
+        },
+
+        "constants" : {
+            "LOGOUT_SUCCESS" : "FR.missingTranslation-Logout Successful",
+            "FETCH_USER_DETAILS_ERROR" : "FR.missingTranslation-Failed to obtain user details"
+        }
+    },
+    "status": "",
+    "message": ""
+}

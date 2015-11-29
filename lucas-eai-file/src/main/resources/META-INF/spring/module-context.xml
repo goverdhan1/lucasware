@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:int="http://www.springframework.org/schema/integration"
+	xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+	xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+	xmlns:int-file="http://www.springframework.org/schema/integration/file"
+	xmlns:int-stream="http://www.springframework.org/schema/integration/stream"
+	xmlns:task="http://www.springframework.org/schema/task" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/integration/amqp http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+		http://www.springframework.org/schema/integration http://www.springframework.org/schema/integration/spring-integration.xsd
+		http://www.springframework.org/schema/integration/stream http://www.springframework.org/schema/integration/stream/spring-integration-stream.xsd
+		http://www.springframework.org/schema/rabbit http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/integration/file
+    http://www.springframework.org/schema/integration/file/spring-integration-file-3.0.xsd
+    http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd 
+     http://www.springframework.org/schema/tx
+     http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+    http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<context:component-scan base-package="com.lucas.eai" />
+
+	<context:annotation-config />
+
+	<!-- Configurable thread pool task executors -->
+	<task:executor id="inboundServiceExecutor" pool-size="${lucas.task.executor.pool.size}" />
+	<task:executor id="transformationServiceExecutor" pool-size="${lucas.task.executor.pool.size}" />
+	<task:executor id="predefinedServiceExecutor" pool-size="${lucas.task.executor.pool.size}" />
+	<task:executor id="outboundInputServiceExecutor" pool-size="${lucas.task.executor.pool.size}" />
+
+	<!-- File inbound channel adapter, reads files from the input directory -->
+	<int-file:inbound-channel-adapter
+		channel="${lucas.file.inbound.channel.id}" directory="${lucas.file.inbound.dir.location}"
+		id="filesInboundAdapter" prevent-duplicates="${lucas.file.inbound.prevent.duplicates}">
+	</int-file:inbound-channel-adapter>
+
+	<!-- File messages will be put to this channel once read -->
+	<int:channel id="${lucas.file.inbound.channel.id}">
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+
+	<!-- This is the first callback service -->
+	<int:outbound-channel-adapter channel="${lucas.file.inbound.channel.id}"
+		method="processFile" ref="userImportInboundService">
+		<int:poller fixed-rate="${lucas.file.poller.fixed.rate}"
+			task-executor="inboundServiceExecutor" />
+	</int:outbound-channel-adapter>
+
+	<!-- The channel used to take the callback service output to rabbit -->
+	<int:channel
+		id="${lucas.file.userExpressionTransformationChannel.id}" >
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+		</int:channel>
+		
+	<!-- The adaptor which takes the output to rabbit -->
+	<int-amqp:outbound-channel-adapter
+		channel="${lucas.file.userExpressionTransformationChannel.id}"
+		amqp-template="amqpTemplate" exchange-name="${lucas.eai.file.exchange}"
+		routing-key="${lucas.file.userExpressionTransformation.binding}" />
+
+	<!-- The adaptor which takes the output from rabbit -->
+	<int-amqp:inbound-channel-adapter
+		channel="${lucas.file.userInboundMessageFromRabbit.channel.id}"
+		queue-names="${lucas.file.userExpressionTransformation.queue}"
+		connection-factory="connectionFactory" />
+		
+	<!-- The channel on which the output from rabbit is put -->
+	<int:channel id="${lucas.file.userInboundMessageFromRabbit.channel.id}">
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This component retrieves the message from the channel and transfers 
+		to the expression transformer bean -->
+	<int:outbound-channel-adapter
+		channel="${lucas.file.userInboundMessageFromRabbit.channel.id}" ref="userExpressionTransformer"
+		method="processMessageTransform">
+		<int:poller fixed-rate="${lucas.file.poller.fixed.rate}"
+			task-executor="transformationServiceExecutor" />
+	</int:outbound-channel-adapter>
+
+	<!-- Transformed message is put on this channel -->
+	<int:channel id="${lucas.file.usersImportInboundLucasServiceChannel.id}">
+	<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This component sends the transformed message to the rabbit -->
+	<int-amqp:outbound-channel-adapter
+		channel="${lucas.file.usersImportInboundLucasServiceChannel.id}"
+		amqp-template="amqpTemplate" exchange-name="${lucas.eai.file.exchange}"
+		routing-key="${lucas.file.usersImportInboundLucasService.binding}" />
+		
+	<!-- The message routed by rabbit is read by this adaptor -->
+	<int-amqp:inbound-channel-adapter
+		channel="${lucas.file.userTransformedMessageFromRabbit.channel.id}"
+		queue-names="${lucas.file.usersImportInboundLucasService.queue}"
+		connection-factory="connectionFactory" />
+		
+	<!-- The previous adaptor puts the message from rabbit on this channel -->
+	<int:channel
+		id="${lucas.file.userTransformedMessageFromRabbit.channel.id}">
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This adaptor reads the message from the previous channel and transfers 
+		to the lucas predefined service for user inbound -->
+	<int:outbound-channel-adapter
+		channel="${lucas.file.userTransformedMessageFromRabbit.channel.id}"
+		ref="usersImportInboundLucasService" method="importUser">
+		<int:poller fixed-rate="${lucas.file.poller.fixed.rate}"
+			task-executor="predefinedServiceExecutor" />
+	</int:outbound-channel-adapter>
+	<!-- Outbound event configuration for user log-on -->
+
+	<!-- The adaptor which takes the output from rabbit -->
+	<int-amqp:inbound-channel-adapter
+		channel="${lucas.file.userOutboundMessageFromRabbit.channel.id}"
+		queue-names="${lucas.file.userOutboundInput.queue}"
+		connection-factory="connectionFactory" />
+		
+	<!-- The channel on which the output from rabbit is put -->
+	<int:channel id="${lucas.file.userOutboundMessageFromRabbit.channel.id}">
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This component retrieves the message from the channel and transfers 
+		to the expression transformer bean -->
+	<int:outbound-channel-adapter
+		channel="${lucas.file.userOutboundMessageFromRabbit.channel.id}" ref="userOutboundInputService"
+		method="processOutboundEvent">
+		<int:poller fixed-rate="${lucas.file.poller.fixed.rate}"
+			task-executor="outboundInputServiceExecutor" />
+	</int:outbound-channel-adapter>
+
+<!-- Transformed message for user outbound is put on this channel -->
+	<int:channel id="${lucas.file.usersExportOutboundLucasServiceChannel.id}">
+	<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This component sends the transformed message to the rabbit -->
+	<int-amqp:outbound-channel-adapter
+		channel="${lucas.file.usersExportOutboundLucasServiceChannel.id}"
+		amqp-template="amqpTemplate" exchange-name="${lucas.eai.file.exchange}"
+		routing-key="${lucas.file.usersExportOutboundLucasService.binding}" />
+		
+	<!-- The message routed by rabbit is read by this adaptor -->
+	<int-amqp:inbound-channel-adapter
+		channel="${lucas.file.userOutboundTransformedMessageFromRabbit.channel.id}"
+		queue-names="${lucas.file.usersExportOutboundLucasService.queue}"
+		connection-factory="connectionFactory" />
+		
+	<!-- The previous adaptor puts the message from rabbit on this channel -->
+	<int:channel
+		id="${lucas.file.userOutboundTransformedMessageFromRabbit.channel.id}">
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+	</int:channel>
+	
+	<!-- This adaptor reads the message from the previous channel and transfers 
+		to the lucas predefined service for user inbound -->
+	<int:outbound-channel-adapter
+		channel="${lucas.file.userOutboundTransformedMessageFromRabbit.channel.id}"
+		ref="usersExportOutboundLucasService" method="exportUser">
+		<int:poller fixed-rate="${lucas.file.poller.fixed.rate}"
+			task-executor="predefinedServiceExecutor" />
+	</int:outbound-channel-adapter>
+
+</beans>

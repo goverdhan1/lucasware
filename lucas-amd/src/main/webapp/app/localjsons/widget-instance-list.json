@@ -1,0 +1,698 @@
+{
+	"responseId": 123,
+	"data": {
+		"widgetInstanceList": [
+			{
+				"id": "1",
+				"canvasId": 10,
+				"widget": {
+					"id": 123,
+					"name": "Widget A",
+					"shortName": "pick",
+					"type": "GRID",
+					"data": {
+						"grid": {
+							"1": {
+								"name": "Picker",
+								"visible": true,
+								"order": "3",
+								"sortOrder": "1",
+								"values": ["Jack", "Jane", "Tom", "Dick", "Harry", "John", "Jill"]
+							},
+							"2": {
+								"name": "Score",
+								"visible": true,
+								"order": "2",
+								"sortOrder": "0",
+								"values": ["5", "15", "8", "4", "6", "12", "7"]
+							},
+							"3": {
+								"name": "Area",
+								"visible": true,
+								"order": "1",
+								"sortOrder": "-1",
+								"values": ["Freezer", "Dry", "Cooler", "Dry", "Cooler", "Freezer", "Dry"]
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false,
+						"listensFor": ["Picker", "Route", "Score"],
+						"broadcastMap": {
+							"Area": "Area",
+							"Score": "Score",
+							"Picker": "Picker"
+						}
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [275, 295],
+					"width": 567,
+					"height": 240,
+					"zindex": 1,
+					"selectedRows": [0, 1],
+					"isMaximized": false
+				}
+			}, {
+				"id": "2",
+				"canvasId": 20,
+				"widget": {
+					"id": 123,
+					"name": "Multi Bar Chart Widget",
+					"shortName": "pick",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "multi-bar-vertical",
+						"chartValues": [
+							{
+								"key": "Freezer",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 10
+									}, {
+										"label": "Route506",
+										"value": 20
+									}, {
+										"label": "Route507",
+										"value": 30
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 50
+									}, {
+										"label": "Route510",
+										"value": 60
+									}, {
+										"label": "Route511",
+										"value": 70
+									}
+								]
+							}, {
+								"key": "Dry",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 70
+									}, {
+										"label": "Route506",
+										"value": 60
+									}, {
+										"label": "Route507",
+										"value": 50
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 30
+									}, {
+										"label": "Route510",
+										"value": 20
+									}, {
+										"label": "Route511",
+										"value": 10
+									}
+								]
+							}, {
+								"key": "Cooler",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 40
+									}, {
+										"label": "Route506",
+										"value": 10
+									}, {
+										"label": "Route507",
+										"value": 20
+									}, {
+										"label": "Route508",
+										"value": 30
+									}, {
+										"label": "Route509",
+										"value": 70
+									}, {
+										"label": "Route510",
+										"value": 50
+									}, {
+										"label": "Route511",
+										"value": 60
+									}
+								]
+							}
+						]
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [30, 30],
+					"width": 567,
+					"height": 440,
+					"zindex": 1,
+					"orientation": {
+						"option": [
+							{
+								"legend": "horizontal",
+								"value": "h"
+							}, {
+								"legend": "vertical",
+								"value": "v"
+							}
+						],
+						"selected": "h"
+					}
+				}
+			}, {
+				"id": "3",
+				"canvasId": 10,
+				"widget": {
+					"id": 125,
+					"name": "Widget B",
+					"shortName": "widgetb",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "multi-bar-vertical",
+						"chartValues": [
+							{
+								"key": "Freezer",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 10
+									}, {
+										"label": "Route506",
+										"value": 20
+									}, {
+										"label": "Route507",
+										"value": 30
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 50
+									}, {
+										"label": "Route510",
+										"value": 60
+									}, {
+										"label": "Route511",
+										"value": 70
+									}
+								]
+							}, {
+								"key": "Dry",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 70
+									}, {
+										"label": "Route506",
+										"value": 60
+									}, {
+										"label": "Route507",
+										"value": 50
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 30
+									}, {
+										"label": "Route510",
+										"value": 20
+									}, {
+										"label": "Route511",
+										"value": 10
+									}
+								]
+							}, {
+								"key": "Cooler",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 40
+									}, {
+										"label": "Route506",
+										"value": 10
+									}, {
+										"label": "Route507",
+										"value": 20
+									}, {
+										"label": "Route508",
+										"value": 30
+									}, {
+										"label": "Route509",
+										"value": 70
+									}, {
+										"label": "Route510",
+										"value": 50
+									}, {
+										"label": "Route511",
+										"value": 60
+									}
+								]
+							}
+						]
+					},
+					"widgetActionConfig": {
+						"edit": false,
+						"delete": false,
+						"listensFor": ["Area", "Picker", "Score"],
+						"broadcastMap": {
+							"Area": "series.key",
+							"Route": "point.label"
+						}
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [0, 36],
+					"width": 685,
+					"height": 290,
+					"zindex": 1,
+					"orientation": {
+						"option": [
+							{
+								"legend": "horizontal",
+								"value": "h"
+							}, {
+								"legend": "vertical",
+								"value": "v"
+							}
+						],
+						"selected": "v"
+					}
+				}
+			}, {
+				"id": "4",
+				"canvasId": 10,
+				"widget": {
+					"id": 125,
+					"name": "Widget C",
+					"shortName": "widgetc",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "pie",
+						"chartValues": {
+							"1": {
+								"key": "Jack",
+								"y": 5
+							},
+							"2": {
+								"key": "Jane",
+								"y": 15
+							},
+							"3": {
+								"key": "Tom",
+								"y": 8
+							},
+							"4": {
+								"key": "Dick",
+								"y": 4
+							},
+							"5": {
+								"key": "Harry",
+								"y": 6
+							},
+							"6": {
+								"key": "John",
+								"y": 12
+							},
+							"7": {
+								"key": "Jill",
+								"y": 7
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": false,
+						"delete": false,
+						"listensFor": ["Score", "Area", "Route"],
+						"broadcastMap": {
+							"Picker": "point.key",
+							"Score": "point.y"
+						}
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [0, 863],
+					"width": 485,
+					"height": 375,
+					"zindex": 1
+				}
+			}, {
+				"id": "5",
+				"canvasId": 20,
+				"widget": {
+					"id": 126,
+					"name": "Multi Bar Chart Widget",
+					"shortName": "pick",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "multi-bar-horizontal",
+						"chartValues": [
+							{
+								"key": "Freezer",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 10
+									}, {
+										"label": "Route506",
+										"value": 20
+									}, {
+										"label": "Route507",
+										"value": 30
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 50
+									}, {
+										"label": "Route510",
+										"value": 60
+									}, {
+										"label": "Route511",
+										"value": 70
+									}
+								]
+							}, {
+								"key": "Dry",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 70
+									}, {
+										"label": "Route506",
+										"value": 60
+									}, {
+										"label": "Route507",
+										"value": 50
+									}, {
+										"label": "Route508",
+										"value": 40
+									}, {
+										"label": "Route509",
+										"value": 30
+									}, {
+										"label": "Route510",
+										"value": 20
+									}, {
+										"label": "Route511",
+										"value": 10
+									}
+								]
+							}, {
+								"key": "Cooler",
+								"values": [
+									{
+										"label": "Route505",
+										"value": 40
+									}, {
+										"label": "Route506",
+										"value": 10
+									}, {
+										"label": "Route507",
+										"value": 20
+									}, {
+										"label": "Route508",
+										"value": 30
+									}, {
+										"label": "Route509",
+										"value": 70
+									}, {
+										"label": "Route510",
+										"value": 50
+									}, {
+										"label": "Route511",
+										"value": 60
+									}
+								]
+							}
+						]
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [30, 662],
+					"width": 567,
+					"height": 440,
+					"zindex": 1,
+					"orientation": {
+						"option": [
+							{
+								"legend": "horizontal",
+								"value": "h"
+							}, {
+								"legend": "vertical",
+								"value": "v"
+							}
+						],
+						"selected": "v"
+					}
+				}
+			}, {
+				"id": "15",
+				"canvasId": 30,
+				"widget": {
+					"id": 1261,
+					"name": "Pie Chart Widget",
+					"shortName": "pick",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "pie",
+						"chartValues": {
+							"1": {
+								"key": "One",
+								"y": 15
+							},
+							"2": {
+								"key": "Two",
+								"y": 25
+							},
+							"3": {
+								"key": "Three",
+								"y": 18
+							},
+							"4": {
+								"key": "Four",
+								"y": 14
+							},
+							"5": {
+								"key": "Five",
+								"y": 16
+							},
+							"6": {
+								"key": "Siz",
+								"y": 22
+							},
+							"7": {
+								"key": "Seven",
+								"y": 17
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [30, 662],
+					"width": 567,
+					"height": 440,
+					"zindex": 1
+				}
+			}, {
+				"id": "16",
+				"canvasId": 30,
+				"widget": {
+					"id": 133,
+					"name": "Pie Donut Chart Widget",
+					"shortName": "pick",
+					"type": "GRAPH-2D",
+					"data": {
+						"chartType": "pie-donut",
+						"chartValues": {
+							"1": {
+								"key": "One",
+								"y": 5
+							},
+							"2": {
+								"key": "Two",
+								"y": 15
+							},
+							"3": {
+								"key": "Three",
+								"y": 8
+							},
+							"4": {
+								"key": "Four",
+								"y": 4
+							},
+							"5": {
+								"key": "Five",
+								"y": 6
+							},
+							"6": {
+								"key": "Siz",
+								"y": 12
+							},
+							"7": {
+								"key": "Seven",
+								"y": 7
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [30, 30],
+					"width": 567,
+					"height": 440,
+					"zindex": 1
+				}
+			}, {
+				"id": "17",
+				"canvasId": 40,
+				"widget": {
+					"id": 143,
+					"name": "Grid With Filter",
+					"shortName": "pick",
+					"type": "GRID",
+					"data": {
+						"grid": {
+							"1": {
+								"name": "Picker",
+								"visible": true,
+								"order": "3",
+								"sortOrder": "1",
+								"values": ["Jack", "Jane", "Tom", "Dick", "Harry", "John", "Jill", "Jack", "Jane", "Tom", "Dick", "Harry", "John", "Jill"]
+							},
+							"2": {
+								"name": "Score",
+								"visible": true,
+								"order": "2",
+								"sortOrder": "0",
+								"values": ["5", "15", "8", "4", "6", "12", "7", "5", "15", "8", "4", "6", "12", "7"]
+							},
+							"3": {
+								"name": "Area",
+								"visible": true,
+								"order": "1",
+								"sortOrder": "-1",
+								"values": ["Freezer", "Dry", "Cooler", "Dry", "Cooler", "Freezer", "Dry", "Freezer", "Dry", "Cooler", "Dry", "Cooler", "Freezer", "Dry"]
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false,
+						"listensFor": ["Picker", "Route", "Score"],
+						"broadcastMap": {
+							"Area": "Area",
+							"Score": "Score",
+							"Picker": "Picker"
+						}
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [0, 0],
+					"width": 600,
+					"height": 400,
+					"zindex": 1,
+					"selectedRows": [0, 1],
+					"isMaximized": false
+				}
+			}, {
+				"id": "18",
+				"canvasId": 40,
+				"widget": {
+					"id": 153,
+					"name": "Grid With Filter",
+					"shortName": "pick",
+					"type": "GRID",
+					"data": {
+						"grid": {
+							"1": {
+								"name": "Picker",
+								"visible": true,
+								"order": "3",
+								"sortOrder": "0",
+								"values": ["Jack", "Jane", "Tom", "Dick", "Harry", "John", "Jill", "Jack", "Jane", "Tom", "Dick", "Harry", "John", "Jill"]
+							},
+							"2": {
+								"name": "Score",
+								"visible": true,
+								"order": "2",
+								"sortOrder": "1",
+								"values": ["5", "15", "8", "4", "6", "12", "7", "5", "15", "8", "4", "6", "12", "7"]
+							},
+							"3": {
+								"name": "Area",
+								"visible": true,
+								"order": "1",
+								"sortOrder": "0",
+								"values": ["Freezer", "Dry", "Cooler", "Dry", "Cooler", "Freezer", "Dry", "Freezer", "Dry", "Cooler", "Dry", "Cooler", "Freezer", "Dry"]
+							}
+						}
+					},
+					"widgetActionConfig": {
+						"edit": true,
+						"merge": true,
+						"delete": false,
+						"sort": true,
+						"createPick": false,
+						"listensFor": ["Picker", "Route", "Score"],
+						"broadcastMap": {
+							"Area": "Area",
+							"Score": "Score",
+							"Picker": "Picker"
+						}
+					}
+				},
+				"actualViewConfig": {
+					"anchor": [0, 700],
+					"width": 600,
+					"height": 400,
+					"zindex": 1,
+					"selectedRows": [0, 1],
+					"isMaximized": false
+				}
+			}
+		]
+	},
+	"status": "",
+	"message": ""
+}

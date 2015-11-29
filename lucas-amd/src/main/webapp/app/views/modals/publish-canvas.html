@@ -1,0 +1,21 @@
+<form id="publishCanvas"> 
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <span translate="{{ 'publishCanvas.areYouSureYouWantToPublish' }}"></span> {{canvasName}}?
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning"
+                id="btn-cancel-canvas"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'core.no' }}"></button>
+        <button class="btn btn-success"
+                data-ng-click="publishCanvas()" 
+                id="btn-publish-canvas"
+                value="ok"
+                translate="{{ 'core.yes' }}"></button>
+    </div>
+</form>

@@ -1,0 +1,10 @@
+<div class="closeCanvasModal">
+    <div class="modal-body">
+        <h4>{{ 'canvas.doYouReallyWantToClose' | translate }} '{{CanvasName}}'?</h4>
+        <save-widget-canvas canvaslevel="true"></save-widget-canvas>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" id="btn-canvas-close-yes" data-ng-click="closeCanvas()" translate ="{{ 'core.yes' }}"></button>
+        <button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+    </div>
+</div>

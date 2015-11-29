@@ -1,0 +1,10 @@
+<div id="logoutConfirmation">
+	<div class="modal-body">
+		<h4 translate="{{ 'logout.areYouSureYouWantToLogout' }}"></h4>
+		<save-widget-canvas canvaslevel="false"></save-widget-canvas>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" id="btn-logout-confirmation" value="ok" data-ng-click="handleLogout()" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-close-confirmation" value="cancel" data-ng-click="closeModal()" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

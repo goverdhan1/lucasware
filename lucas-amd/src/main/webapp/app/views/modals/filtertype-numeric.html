@@ -1,0 +1,36 @@
+<div id="filtertype-numeric">
+	<div class="modal-header">
+		<h4 class="text-center" translate="{{ 'user.customFilter' }}"></h4>
+	</div>
+
+	<div class="modal-body">
+	<form name="numericForm" novalidate>
+	<div class="col-md-4">	
+		<div class="form-group">
+		<select class="form-control" required ng-model="colFilter.numericOption" name="numericOption">
+			<option value=""></option>
+			<option value="EQUALS">=</option>
+			<option value="GREATER">&gt;</option>
+			<option value="GREATERANDEQUAL">&gt; =</option>
+			<option value="LESS">&lt;</option>
+			<option value="LESSANDEQUAL">&lt; =</option>
+			<option value="NOTEQUAL"> != </option>
+		</select>
+			<span class="error" ng-if="!numericForm.$pristine && numericForm.numericOption.$error.required" translate="error.pleaseSelectOption"></span>
+		</div>
+	</div>
+	<div class="col-md-8">
+	<div class="form-group">
+		<input type="number" class="form-control" ng-disabled="numericForm.numericOption.$error.required" required ng-model="colFilter.numericValue" name="numericValue" />
+		<span class="error" ng-if="!numericForm.$pristine && numericForm.numericValue.$error.required" translate="error.required"></span>
+
+	</div>		
+	</div>
+	</form>
+		<div class="clearfix"></div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-disabled="numericForm.$invalid" id="btn-delete-user-confirmation" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-delete-close-confirmation" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

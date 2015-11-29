@@ -1,0 +1,111 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "grid": {
+            "1": {
+                "values": [
+                    "99-4938",
+                    "99-4939",
+                    "11-4937"
+                ]
+            },
+            "2": {
+                "values": [
+                    "99-4938",
+                    "99-4939",
+                    ""
+                ]
+            },
+            "3": {
+                "values": [
+                    "Water / Fuel Filter ASM",
+                    "HOUSING ASM-REDUCER RH",
+                    "Dummy2 Product"
+                ]
+            },
+            "4": {
+                "values": [
+                    "Available",
+                    "Available",
+                    "Marked Out"
+                ]
+            },
+            "5": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            },
+            "6": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "7": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "8": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            },
+            "9": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "10": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "11": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "No"
+                ]
+            },
+            "12": {
+                "values": [
+                    "customer_SKU_nbr02",
+                    "customer_SKU_nbr03",
+                    "dummy2 customer_SKU_nbr01"
+                ]
+            },
+            "13": {
+                "values": [
+                    "manufacturer_item_nbr02",
+                    "manufacturer_item_nbr03",
+                    "dummy2 manufacturer_item_nbr01"
+                ]
+            },
+            "14": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            }
+        }
+    }
+}

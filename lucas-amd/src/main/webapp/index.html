@@ -1,0 +1,50 @@
+<html>
+<head>
+<title></title>
+    ${redirect}
+  <link rel="stylesheet" href="app/css/bootstrap-3.1.1.min.css">
+</head>
+<body>
+
+<!-- start GateKeeper code -->
+<script type="text/javascript">
+var keeperaltpage = "denied.html";
+function keeperCheck(){
+   keeperpass = window.document.keeper.page.value;
+   keeperframe.location.href = keeperpass + "2.html";
+   timer = setTimeout("keeperTest(keeperpass)",2000); }
+function keeperTest(pass){
+   if(keeperframe.keeperpasscheck)
+   { location.href = pass + ".html"; }
+   else { location.href = keeperaltpage; } }
+</script>
+
+<center>
+<div>
+<img src="keeper.gif" alt="">
+<p>
+<h1>Hold on there buddy! </h1>
+<h2>You'll need a password to get in here.</h2>
+<h2>We're tryin' to keep out the riff-raff.</h2>
+</p>
+</div>
+
+
+<form name="keeper" action="javascript:keeperCheck();"
+ style="margin:0;">
+<div style="display:inline;">
+<input type="password" name="page">
+<input type="submit" value="Go">
+<iframe src="" name="keeperframe" frameborder="0"
+ style="width:0px;height:0px;"></iframe>
+<noscript><div style="display:inline;color:#ff0000;
+ background-color:#ffff66; font:normal 11px tahoma,sans-serif;">
+ <br>Javascript is required to access this<br>
+ area. Yours seems to be disabled.</div></noscript>
+</div></form>
+<!-- end GateKeeper code -->
+
+</center>
+
+</body>
+</html>

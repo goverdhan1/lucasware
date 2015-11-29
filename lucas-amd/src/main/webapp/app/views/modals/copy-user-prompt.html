@@ -1,0 +1,46 @@
+<div class="modal-content">
+    <!-- TITLE -->
+    <div class="modal-header">
+        <h3 translate="{{ 'user.copyUser' }}"></h3>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="modal-body">
+        <div class="form-group">
+            <label for="newLucasLogin"
+                   class="col-sm-4 control-label">{{ 'user.newLucasLogin' | translate}}
+            </label>
+            <div class="col-sm-6">
+                <input id="newLucasLogin"
+                       class="form-control input-sm"
+                       type="text"
+                       ng-model="newLucasLogin"
+                       ng-change="validateNewLucasLogin()">
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+        <label class="pull-left"
+               translate="{{ 'error.userNameMissing' }}"
+               ng-if="userIsEmpty"
+               ng-style="{'color':'red'}">
+        </label>
+        <label class="pull-left"
+               translate="{{ 'error.userAlreadyExists' }}"
+               ng-if="userAlreadyExists"
+               ng-style="{'color':'red'}">
+        </label>
+        <button class="btn btn-success"
+                data-ng-click="$close(newLucasLogin)"
+                translate="{{ 'core.save' }}"
+                ng-disabled="!isValidLogin">
+        </button>
+        <button class="btn btn-warning"
+                data-ng-click="$dismiss('cancel')"
+                translate="{{ 'core.cancel' }}">
+        </button>
+    </div>
+</div>

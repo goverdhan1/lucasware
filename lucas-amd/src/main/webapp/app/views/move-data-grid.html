@@ -1,0 +1,58 @@
+<div class="moveData moveDataGrid">
+    <div class="col-xs-5 leftColumn">
+        <h4 translate="{{ widgetgriddetails.strAvailableItems  }}"></h4>
+        <div class="gridStyle"
+               ng-if="gridOptions"
+                 ui-grid="gridOptions"
+                 ui-grid-infinite-scroll
+                 ui-grid-selection
+                 ui-grid-move-columns
+                 ui-grid-resize-columns>
+        </div>
+    </div>
+    <div class="buttons">
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveOneToExistingData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveOneToAvailableData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveAllToExistingData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-forward"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveAllToAvailableData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-backward"></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-5 rightColumn">
+        <h4 translate="{{ widgetgriddetails.strExistingItems }}"></h4>
+        <div class="gridStyle"
+                 ng-if="existingGridOptions"
+                 ui-grid="existingGridOptions"
+                 ui-grid-infinite-scroll
+                 ui-grid-selection
+                 ui-grid-move-columns
+                 ui-grid-resize-columns>
+        </div>
+    </div>
+</div>

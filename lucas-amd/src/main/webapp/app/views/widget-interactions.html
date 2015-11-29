@@ -1,0 +1,37 @@
+<div class="widgetInteractions">
+    
+	<h4 translate="{{ 'widgetInteractions.whatDoesTheWidgetListenFor' }}"></h4>
+	<button class="btn-small btn-success add-row" 
+			data-ng-click="addRow()">
+		<span class="glyphicon glyphicon-plus"></span>
+	</button>
+
+	<div class="table-responsive">
+            <table class="table table-striped">
+                <tr>
+                    <th id="active" translate="{{ 'widgetInteractions.active' }}"></th>
+                    <th id="widgetInstance" translate="{{ 'widgetInteractions.widgetInstance' }}"></th>
+                    <th id="data" translate="{{ 'widgetInteractions.data' }}"></th>
+                </tr>
+                <tr data-ng-repeat="row in widgetInteractionConfig">
+                    <td>
+                    	<input type="checkbox" data-ng-model="row.active">
+                    </td>
+                    <td>
+                    	<select data-ng-model="row.widgetInstance" 
+								data-ng-options="instance.name for instance in widgetInstances track by instance.id">
+						</select>
+                    </td>
+                    <td>
+                    	<select data-ng-model="row.dataElement" 
+								data-ng-options="data for data in listenTo">
+						</select>
+						<button class="btn-small btn-danger" 
+							    data-ng-click="removeRow(row, $index)">
+							<span class="glyphicon glyphicon-remove"></span>
+						</button>
+                    </td>
+                </tr>
+            </table>
+    </div>
+</div>

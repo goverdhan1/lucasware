@@ -1,0 +1,23 @@
+<div class="loginModal">
+    <form role="form" ng-submit="loginModalSubmit()" data-ng-show="!loggedIn">
+        <div class="modal-body">
+            <h4 class="text-danger" translate>{{ invalidResponse.message}}</h4>
+
+            <div class="form-group-vertical">
+                <label class="sr-only" for="username" translate>{{ user.username }}</label>
+                <input type="text" class="form-control" id="username" data-ng-model="form.username"
+                       placeholder="{{ 'login.enterUsername' | translate }}" required="required">
+                <label class="sr-only" for="password" translate>{{user.password}}</label>
+                <input type="password" class="form-control" id="password" data-ng-model="form.password"
+                       placeholder="{{ 'login.enterPassword' | translate }}" required="required">
+
+                <p class="text-center">
+                    <small><a href="#" translate>{{ 'login.forgotPassword' }}</a></small>
+                </p>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" translate class="btn btn-primary loginBtn" tarnslate>{{ 'login.signIn' }}</button>
+        </div>
+    </form>
+</div>

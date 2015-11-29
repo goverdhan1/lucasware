@@ -1,0 +1,26 @@
+<div id="filtertype-enumeration">
+    <form name="enumeration-form">
+
+	<div class="modal-header">
+		<h4 class="text-center" translate="{{ 'user.customFilter' }}"></h4>
+	</div>
+	<div class="modal-body">
+      	<div class="checkbox" ng-repeat="filterOption in displayFilterOptions">
+  			<label><input 
+  				type="checkbox" 
+  				value="{{filterOption.key}}" 
+				ng-checked="selection.indexOf(filterOption.key) > -1" 
+				ng-click="filterValuesArray(filterOption.key)">{{filterOption.value}}</label>
+
+		</div>      
+		
+
+      <div class="clearfix"></div>
+	</div> 
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-disabled="!filterValues.length>0" id="btn-enumeration-ok" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-enumeration-close" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+    </form>
+
+</div>

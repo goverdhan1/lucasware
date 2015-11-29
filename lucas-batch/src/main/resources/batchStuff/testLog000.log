@@ -1,0 +1,23 @@
+Log Chunk Started ======================================== 0429_222219
+52685.631 31 SND I: SEND: SPAPI#418 (8.1) log.chunk [Flds:3 Blob:1 BOM:255 Len:2789] 1(2013-04-29 22:22:08) 2(2013-04-29 22:22:19) 3([blob:2749])
+52685.633 -1 SND I: SEND: 2013-04-29 22.22.19 SENT 2805 Bytes, (13331166 Total SENT - Avg BPS: 253)
+52687.410 37 REC I: ==================== START of Audio Detected ==================== @ 3084, L=310
+52688.125 28 REC I: Trailing Silence FX Detect @ 4032, L=78
+52688.159 -1 REC I: Gain Analysis: Cur=128, New=125, Chg=-3, avgP=33.215818, avgVP=37.328519, avgFreq=1045HZ, HEFreqDelta=50, clipped=0.000000%, maxA=67%, LDropMs=2820, FrameMap=.------sSSS.....-----
+52688.175 -1 REC I: GAIN CHANGING from 128 to 125
+52688.177 -1 REC I: RESULT: RECOGNITION: yes ;  /  (0429_222222;2023;8337;128;1.1;Ru;103;C7575;66p81s33a150336;Confirm;yes.wav T5040)
+52688.177 -1 REC I: DLG: U: yes
+52688.177 -1 SND I: SEND: SPAPI#419 (1.2) reco.result [Flds:6 Blob:1 BOM:255 Len:57] 1(voice) 2(Confirm) 3(yes) 4(258ffc8b-3ee6-4e9d-a78f-6e0583f96eba) 5(0) 6([blob:0])
+52688.179 -1 SND I: SEND: 2013-04-29 22.22.22 SENT 73 Bytes, (13331239 Total SENT - Avg BPS: 253)
+52689.960 37 RCV I: RECV: SPAPI#240 (1.3) reco.announce [Flds:3 Blob:0 BOM:255 Len:22] 1(assignment_complete) 2() 3()
+52689.960 -1 RCV I: RECV: 2013-04-29 22.22.23 Waiting for Message, (815312 Total RECV - Avg BPS: 15), pending=1
+52689.962 -1 MHT I: Response MS 1915, (Rec 99 + Biz 1816), Avg=589
+52690.055 -1 RCV I: RECV: SPAPI#241 (1.1) reco.listen [Flds:8 Blob:0 BOM:255 Len:175] 1(say_get_work) 2(JenniferCommands|GetWork|ContainerName|ChangeWorkType|RestockSlot|ReportDamage) 3(0) 4() 5(188ca1ef-807e-4ef8-a63f-c035823b9f78) 6() 7(say get work or enter container number ) 8(0)
+52690.055 -1 RCV I: RECV: 2013-04-29 22.22.23 Waiting for Message, (815503 Total RECV - Avg BPS: 15), pending=1
+52690.199 75 SPK I: DLG: J: assignment complete
+52690.859 09 SPK I: DLG: J: say get work
+52691.111 21 TMR I: DEVHLTH Bat:100%, CPU/Recent:38%/SinceBoot:42%, OnSecSB:52743.386, Mem/Used:55MB/Free:177MB/23% Used/Load:24
+52691.460 09 REC I: Listening (MIC) - Wait:1877ms, Rules:'JenniferCommands|GetWork|ContainerName|ChangeWorkType|RestockSlot|ReportDamage|JenniferEngineCommands', Hints:''
+52691.489 -1 REC I: RecMode:R, Using Rules: [JenniferCommands|GetWork|ContainerName|ChangeWorkType|RestockSlot|ReportDamage|JenniferEngineCommands]
+52691.496 -1 REC I: ListenMode: 'R', AudioSource: Mic, PreAdaptMs=1503367
+52691.496 -1 XXX I: TestMode: 'R', AudioSource: Mic, PreAdaptMs=1503367

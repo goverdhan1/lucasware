@@ -1,0 +1,20 @@
+<div class="showCogmenuWidgetModal">
+    <div class="modal-header">
+        <h4> {{ cogWidgetInstance.widgetDefinition.name }} </h4>
+    </div>
+    <div class="modal-body">
+        <h4 translate="{{ 'cog.showOrHideGridColumns' }}"></h4>
+        <p translate="{{ 'cog.checkedColumnsAreBeingShownNow' }}"></p>
+        <label class="checkbox-inline" data-ng-repeat="(key, prop) in cogWidgetInstance.widgetViewConfig.gridColumns">
+            <input type="checkbox" id="key" value="key" data-ng-model="prop.visible">
+            {{ prop.name }} </label>
+        <h4 translate="{{'cog.changeDateFormat' }}"></h4>
+        <label class="radio-inline" data-ng-repeat="date in cogWidgetInstance.widgetViewConfig.dateFormat.availableFormats">
+            <input type="radio" name="date" data-ng-model="cogWidgetInstance.widgetViewConfig.dateFormat.selectedFormat" data-ng-value="date">
+            {{ date }} </label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success" data-ng-click="saveCogSettings(cogWidgetInstance)" translate="{{ 'core.save' }}"></button>
+        <button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+    </div>
+</div>

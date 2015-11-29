@@ -1,0 +1,37 @@
+<form id="cloneCanvas"
+      name="userForm" 
+      novalidate> 
+    <div class="modal-body">
+        <div class="row">
+            <div class="form-group">
+                <span translate="{{ 'cloneCanvas.name' }}"></span>
+                <input type="text"
+                       name="canvasname"
+                       data-ng-model="canvasName"/>
+            </div>
+            <p data-ng-if="userForm.canvasname.$error.canvasNameIsRequired" 
+               id="name-required"
+               class="text-danger"
+               translate="{{ 'cloneCanvas.canvasNameIsRequired' }}">
+            </p>
+            <p data-ng-if="userForm.canvasname.$error.canvasNameAlreadyExists" 
+               id="name-already-exists"
+               class="text-danger"
+               translate="{{ 'cloneCanvas.canvasNameAlreadyExists' }}">
+            </p>
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning"
+                id="btn-cancel-canvas"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+        <button class="btn btn-success"
+                data-ng-click="saveCanvas()" 
+                id="btn-clone-canvas"
+                value="ok"
+                translate="{{ 'core.save' }}"></button>
+    </div>
+</form>

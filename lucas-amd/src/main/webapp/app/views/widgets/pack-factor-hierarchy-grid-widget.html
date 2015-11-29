@@ -1,0 +1,23 @@
+<form class="form-horizontal packFactorHierarchy" data-ng-controller="PackFactorHierarchyController">
+    <div class="form-group">
+        <table class="table table-responsive">
+            <tbody>
+            <tr ng-click="selectHierarchy($index)" ng-if="widgetdetails.data.length > 0" class="row-fluid bg-info" ng-repeat="hierarchy in widgetdetails.data" ng-class="{selectedHierarchy:$index == $parent.selectedRowIndex}">
+                <td>
+                    <p><strong>{{hierarchy.hierarchyName}}</strong></p>
+                     <span ng-repeat="level in hierarchy.levels">
+                    <button class="btn btn-primary" >{{level.componentName}}</button>
+                    <i class="glyphicon glyphicon-arrow-right" ng-if="!$last"></i>
+                </span>
+                </td>
+            </tr>
+            <tr class="row-fluid bg-info" ng-if="!(widgetdetails.data.length > 0)">
+                <td translate="core.noDataFound">
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+
+    </div>
+</form>

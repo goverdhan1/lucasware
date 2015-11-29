@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Lucasware: ${project.name}">
+	<bannerLeft>
+		<name>Lucasware: ${project.name}</name>
+		<src>images/jennifer-logo.gif</src>
+	</bannerLeft>
+	<bannerRight>
+		<name>Lucasware: ${project.name}</name>
+		<src>images/alps.gif</src>
+	</bannerRight>
+	<body>
+		<menu name="${project.name}">
+			<item name ="Lucas Domain" href="../lucas-domain/project-reports.html" target="_self" />
+			<item name ="Lucas Services" href="../lucas-services/project-reports.html" target="_self" />
+			<item name ="Lucas AMD" href="../lucas-amd/project-reports.html" target="_self" />
+			<item name ="Lucas REST API" href="../lucas-rest-api/project-reports.html" target="_self" />
+			<item name ="Lucas Processes" href="../lucas-processes/project-reports.html" target="_self" />
+			<item name ="Lucas Custom Extensions" href="../lucas-designer-extension/project-reports.html" target="_self" />
+
+		</menu>
+	</body>
+</project>

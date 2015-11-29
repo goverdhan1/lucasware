@@ -1,0 +1,13 @@
+<select ng-if="!col.colDef.filterType==null || col.colDef.filterType!='NONE' || !col.colDef.filterType==undefined" 
+			class="ui-grid-custom-filter-input"
+			ng-change="buildFilterTerm(col.colDef.name, colFilter.option)"
+            ng-model="colFilter.option"
+            ng-click="customFilter(colFilter.option)"
+            id="select_{{col.colDef.name}}">
+	<option class="italic" value=null style="display:none" ng-selected="unFilter"></option>
+	<option class="italic" value="noFilter">{{'user.defaultFilterOptions.noFilter' | translate}}</option>
+	<option class="italic" ng-repeat="defaultFilterOptions in defaultFilterOptions" value="{{defaultFilterOptions.key}}">{{defaultFilterOptions.value}}</option>
+ 	<option ng-repeat="filterOption in filterOptions" value="{{filterOption.key}}">{{filterOption.value}}</option>
+    <option class="italic" value="hiddenCustomFilter" style="display:none">{{'user.defaultFilterOptions.custom' | translate}} {{ filterValues }}</option> 
+    <option class="italic" value="{{col.colDef.filterType}}">{{'user.defaultFilterOptions.custom' | translate}} {{ filterValues }}</option> 
+</select>

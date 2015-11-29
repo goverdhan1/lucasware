@@ -1,0 +1,10 @@
+{
+	"data": {
+		"firstName": "joe",
+		"lastName": "doe",
+		"emailId": "sugumar.deshikan@accionlabs.com"		
+	},
+	"token": "VNQPIRHSUDUVRQNERSE",
+	"status": "success",
+	"code": "200"
+}

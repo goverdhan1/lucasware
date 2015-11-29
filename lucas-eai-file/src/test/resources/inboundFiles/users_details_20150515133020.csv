@@ -1,0 +1,11 @@
+email_address,full_name,hashed_password,username,title,mobile_number,start_date,birth_date,employee_number,j2uLanguage,u2jLanguage,hhLanguage,amdLanguage,enable,skill,shift_id
+pkulshr@lucasware.com,first last,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername,atitle,1234567890,2015-03-04T15:23:19.289Z,1982-03-04T15:23:19.289Z,1165,DE_DE,ES_MX,EN_US,EN_GB,1,NULL,1
+arasul@lucasware.com,first1 last1,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername1,atitle1,1234567890,2015-04-04T15:23:19.289Z,1987-03-04T15:23:19.289Z,1166,EN_GB,DE_DE,EN_US,EN_GB,1,NULL,1
+asingh@lucasware.com,first2 last2,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername2,atitle2,1234567890,2015-03-04T15:23:19.289Z,1982-03-04T15:23:19.289Z,1167,DE_DE,DE_DE,EN_GB,ES_MX,1,NULL,1
+bshaikh@lucasware.com,first3 last3,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername3,atitle3,1234567890,2015-04-04T15:23:19.289Z,1987-03-04T15:23:19.289Z,1168,EN_GB,EN_GB,EN_GB,DE_DE,1,NULL,1
+bsingh@lucasware.com,first4 last4,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername4,atitle4,1234567890,2015-03-04T15:23:19.289Z,1982-03-04T15:23:19.289Z,1169,DE_DE,DE_DE,ES_MX,ES_MX,1,NULL,1
+kumar@lucasware.com,first5 last5,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername5,atitle5,1234567890,2015-04-04T15:23:19.289Z,1987-03-04T15:23:19.289Z,1170,EN_GB,EN_GB,DE_DE,DE_DE,1,NULL,1
+csingh@lucasware.com,first6 last6,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername6,atitle6,1234567890,2015-03-04T15:23:19.289Z,1982-03-04T15:23:19.289Z,1171,EN_GB,EN_GB,EN_GB,ES_MX,1,NULL,1
+arajan@lucasware.com,first7 last7,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername7,atitle7,1234567890,2015-04-04T15:23:19.289Z,1987-03-04T15:23:19.289Z,1172,EN_GB,EN_GB,DE_DE,DE_DE,1,NULL,1
+kdoshi@lucasware.com,first8 last8,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername8,atitle8,1234567890,2015-03-04T15:23:19.289Z,1982-03-04T15:23:19.289Z,1173,ES_MX,ES_MX,ES_MX,DE_DE,1,NULL,1
+dsingh@lucasware.com,first9 last9,$2a$10$Q2HtYqv1/Oy5UqbiH/yCOOgn627a6wW8Qfa/6wc3NslEsLzgWlEyy,ausername9,atitle9,1234567890,2015-04-04T15:23:19.289Z,1987-03-04T15:23:19.289Z,1174,DE_DE,DE_DE,DE_DE,EN_GB,1,NULL,1

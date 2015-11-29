@@ -1,0 +1,2 @@
+-- Placeholder
+show databases;

@@ -1,0 +1,52 @@
+{
+    "createdByUserName":"jack123",
+    "createdDateTime":null,
+    "updatedByUserName":null,
+    "updatedDateTime":"2015-06-15T07:39:27.340Z",
+    "canvasId":300,
+    "canvasName":"JackCanvas300",
+    "shortName":"JackCanvas300",
+    "canvasType":"PRIVATE",
+    "canvasLayout":null,
+    "userSet":null,
+    "widgetInstanceList":[
+        {
+            "id":"12",
+            "actualViewConfig": {
+                "anchor":[275,295],
+                "zindex":0,
+                "minimumWidth":300,
+                "minimumHeight":480,
+                "isMaximized":false,
+                "listensForList":["userName","Wave","Score"],
+                "dateFormat":{
+                    "selectedFormat":"mm-dd-yyyy",
+                    "availableFormats":["mm-dd-yyyy","MMM dd, yyyy","dd-mm-yyyy"]
+                },
+                "position":1
+            },
+            "widgetDefinition":{
+                "name":"create-or-edit-user-form-widget",
+                "id":8
+            },
+            "widgetInteractionConfig": [
+                {
+                    "active": true,
+                    "widgetInstance" : {
+                        "id": 13,
+                        "name": "SearchUser, 39"
+                    },
+                    "dataElement": "Lucas Login"
+                },
+                {
+                    "active": true,
+                    "widgetInstance": {
+                        "id": 14,
+                        "name": "SearchGroup, 44"
+                    },
+                    "dataElement": "Group Name"
+                }
+            ],
+            "delete":null
+        }]
+}

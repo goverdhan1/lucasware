@@ -1,0 +1,76 @@
+
+<div class="modal-header">
+    <h4 class="text-center" translate="{{ 'core.reviewChangesConfirm' }}"></h4>
+</div>
+
+<div class="modal-body">
+	<div class="container-fluid">
+    <div class="row">
+    		<label class="lbl" translate="{{ 'core.locusLogin' }}"></label>
+    		<span ng-if="usernameList.length<=5">
+    			<span ng-repeat="user in usernameList">{{user}}{{$last ? '' : ', '}}</span>
+			</span>
+
+    		<span ng-if="usernameList.length>5">
+				<span ng-repeat="user in usernameList | limitTo:5">
+					<span>{{user}}, </span>
+				</span>
+				<span translate="{{ 'core.and' }}"></span>
+			    <span>{{usernameList.length-5}}</span>
+			    <span translate="{{ 'core.more' }}"></span>...
+    		</span>
+    </div>
+	<div class="modal-header">
+	    <h4 class="text-center" translate="{{ 'core.selectChangesSave' }}"></h4>
+	</div>
+	<div class="row">
+		<table class="table table-striped">
+			<thead>
+				<tr><th></th>
+					<th translate="{{ 'core.previousValue' }}"></th>
+					<th translate="{{ 'core.newValue' }}"></th>
+					<th> <input type="checkbox" id="selectAll" ng-model="selectedAll" ng-value="false" ng-click="selectAll()"  name="selectAll" /> <span for="selectAll" translate="{{ 'core.selectAll' }}"></span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td translate="{{'user.skill'}}"></td>
+					<td>{{originalValues.fields.skill}}</td>
+					<td>{{fields.skill}}</td>
+					<td><input type="checkbox" id="forceUpdateSkill" ng-model="details.multiEditFields.skill.forceUpdate" ng-value="true" name="forceUpdateSkill" /> </td>
+				</tr>
+				<tr>
+					<td translate="{{'user.jenniferToUser'}}"></td>
+					<td>{{originalValues.fields.j2uLanguage}}</td>
+					<td>{{fields.j2uLanguage}}</td>
+					<td><input type="checkbox" id="forceUpdatej2uLanguage" ng-model="details.multiEditFields.j2uLanguage.forceUpdate" ng-value="true" name="forceUpdatej2uLanguage" /> </td>
+				</tr>
+				<tr>
+					<td translate="{{'user.userToJennifer'}}"></td>
+					<td>{{originalValues.fields.u2jLanguage}}</td>
+					<td>{{fields.u2jLanguage}}</td>
+					<td><input type="checkbox" id="forceUpdateu2jLanguage" ng-model="details.multiEditFields.u2jLanguage.forceUpdate" ng-value="true" name="forceUpdateu2jLanguage" /> </td>
+				</tr>
+				<tr>
+					<td translate="{{ 'user.handheldScreenLanguage'}}"></td>
+					<td>{{originalValues.fields.hhLanguage}}</td>
+					<td>{{fields.hhLanguage}}</td>
+					<td><input type="checkbox" id="forceUpdatehhLanguage" ng-model="details.multiEditFields.hhLanguage.forceUpdate" ng-value="true" name="forceUpdatehhLanguage" /> </td>
+				</tr>
+				<tr>
+					<td translate="{{'user.AMDLanguage'}}"></td>
+					<td>{{originalValues.fields.amdLanguage}}</td>
+					<td>{{fields.amdLanguage}}</td>
+					<td><input type="checkbox" id="forceUpdateAmdLanguage" ng-model="details.multiEditFields.amdLanguage.forceUpdate" ng-value="true" name="forceUpdateAmdLanguage" /> </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+ </div>
+
+<div class="modal-footer">
+    <button class="btn btn-warning" data-ng-click="$close()" translate="{{ 'core.yes' }}"></button>
+    <button class="btn btn-info" data-ng-click="$dismiss()" translate="{{ 'core.no' }}"></button>
+</div>

@@ -1,0 +1,222 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html xmlns:ng="http://angularjs.org" lang="en" class="no-js">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>Lucas-amd</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+		<link rel="stylesheet" href="//cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/release/3.0.0-rc.20/ui-grid.min.css" />
+ 		<link rel="stylesheet" href="css/jquery-ui.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/nv.d3.css">
+
+		<!--[if lt IE 7]>
+		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+		<![endif]-->
+
+		<!--[if lt IE 9]>
+		<script src="lib/es5-shim.min.js"></script>
+		<script src="lib/json3.min.js"></script>
+		<![endif]-->
+
+	</head>
+	<!--
+	Extra small devices Phones (<768px) - .col-xs-
+	Small devices Tablets (≥768px) - .col-sm-
+	Medium devices Desktops (≥992px) - .col-md-
+	Large devices Desktops (≥1200px) - .col-lg-
+	refer: http://getbootstrap.com/css/#grid-example-mixed-complete
+	-->
+
+	<body ng-app="amdApp" translate-cloak>
+		<notification></notification>
+		<div ui-view class="uiViewMainCanvas display-flex display-flex-column"></div>
+
+		<!-- CDN & Minified Versions, useful in production:
+		<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.min.js"></script>
+		<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+		-->
+
+		<!-- CDN & Full Versions:
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular.js"></script>
+		-->
+
+		<!-- Local Versions:-->
+		<script src="lib/jquery/jquery.min.js"></script>
+		<script src="lib/jquery/jquery-ui.js"></script>
+		<script src="lib/jquery/jquery.ui.touch-punch.min.js"></script>
+		<script src="js/services/globalUtils.js"></script>
+		<script>
+  		globalUtils.loadCDNFallback("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", "css/bootstrap-3.1.1.min.css");
+		globalUtils.loadCDNFallback("//cdn.rawgit.com/angular-ui/ui-grid.info/gh-pages/release/3.0.0-rc.20/ui-grid.min.css", "css/ui-grid.css");
+		</script>
+
+		<script src="lib/angular/angular.min.js"></script>
+		<script src="lib/angular/angular-translate.min.js"></script>
+		<script src="lib/angular/angular-translate-loader-static-files.min.js"></script>
+        <script src="lib/angular/angular-ui-router.js"></script>
+        <script src="lib/angular/angular-animate.js"></script>
+        <script src="lib/angular/restangular.min.js"></script>
+
+        <script src="lib/ui.sortable.js"></script>
+        <script src="lib/ngDraggable.js"></script>
+        <script src="lib/angular-ui/ui-bootstrap-tpls-0.11.2.js"></script>
+        <script src="lib/angular-ui/ui-grid-3.0.0-RC.18.js"></script>
+
+		<script src="lib/underscore/underscore-min.js"></script>
+		<script src="lib/d3/d3.js"></script>
+		<script src="lib/d3/nv.d3.js"></script>
+		<script src="lib/d3/angularjs-nvd3-directives.js"></script>
+
+		<!-- App Configuration -->
+		<script src="js/app.js"></script>
+		<script src="js/interceptors/NotificationsInterceptor.js"></script>
+
+		<!-- Services -->
+		<script src="js/services/CommonServices.js"></script>
+		<script src="js/services/RestApiService.js"></script>
+		<script src="js/services/SessionService.js"></script>
+		<script src="js/services/SelectCanvasService.js"></script>
+		<script src="js/services/UtilsService.js"></script>
+		<script src="js/services/LocalStoreService.js"></script>
+		<script src="js/services/HomeCanvasListService.js"></script>
+		<script src="js/services/AboutService.js"></script>
+		<script src="js/services/SearchUserGridService.js"></script>
+        <script src="js/services/LogoutAlertService.js"></script>
+		<script src="js/services/WidgetService.js"></script>
+		<script src="js/services/UserService.js"></script>
+		<script src="js/services/LangKeyStoreService.js"></script>
+		<script src="js/services/TranslateService.js"></script>
+		<script src="js/services/LocaleLoader.js"></script>
+		<script src="js/services/WidgetGridService.js"></script>		
+		<script src="js/services/GroupGridWidgetService.js"></script>		
+		<script src="js/services/WidgetChartService.js"></script>
+		<script src="js/services/AuthTokenService.js"></script>
+		<script src="js/services/WidgetDefinitionService.js"></script>
+		<script src="js/services/ShowAvailableWidgetsService.js"></script>
+		<script src="js/services/CogService.js"></script>		
+		<script src="js/services/CreateEditUserFormService.js"></script>
+		<script src="js/services/LogoutAlertService.js"></script>
+        <script src="js/services/SecurityService.js"></script>
+        <script src="js/services/LoginService.js"></script>
+		<script src="js/services/SearchProductGridService.js"></script>
+		<script src="js/services/CanvasService.js"></script>
+		<script src="js/services/PreferencesService.js"></script>
+		<script src="js/services/CanvasService.js"></script>
+		<script src="js/services/WidgetsPalletteService.js"></script>
+        <script src="js/services/PackFactorService.js"></script>
+        <script src="js/services/GroupMaintenanceService.js"></script>
+        <script src="js/services/ProductClassificationsService.js"></script>
+        <script src="js/services/EAIMessagesService.js"></script>
+        <script src="js/services/EAIEventsService.js"></script>
+
+        <!-- Filters -->
+        <script src="js/filters/dateformat.js"></script>
+		<script src="js/filters/toArray.js"></script>
+
+		<!-- Controllers -->
+		<script src="js/controllers/FooterController.js"></script>
+		<script src="js/controllers/CanvasDetailController.js"></script>
+		<script src="js/controllers/BottomRightController.js"></script>
+		<script src="js/controllers/BottomLeftController.js"></script>
+		<script src="js/controllers/TopLeftController.js"></script>
+		<script src="js/controllers/TopCenterController.js"></script>
+		<script src="js/controllers/TopRightController.js"></script>
+		<script src="js/controllers/CanvasEditController.js"></script>
+		<script src="js/controllers/CanvasCloseController.js"></script>
+		<script src="js/controllers/SelectCanvasController.js"></script>
+		<script src="js/controllers/LoginController.js"></script>
+		<script src="js/controllers/SessionController.js"></script>
+		<script src="js/controllers/AboutLucasController.js"></script>
+		<script src="js/controllers/WidgetDetailController.js"></script>
+		<script src="js/controllers/LocaleController.js"></script>
+		<script src="js/controllers/BarChartController.js"></script>
+		<script src="js/controllers/PieChartController.js"></script>
+		<script src="js/controllers/WidgetGridFilterController.js"></script>
+		<script src="js/controllers/LoginModalController.js"></script>
+		<script src="js/controllers/ShowAvailableWidgetsController.js"></script>
+		<script src="js/controllers/CreateEditUserFormController.js"></script>
+        <script src="js/controllers/CopyUserModalController.js"></script>
+		<script src="js/controllers/LogoutModalController.js"></script>
+		<script src="js/controllers/WidgetController.js"></script>
+		<script src="js/controllers/SearchUserGridController.js"></script>
+		<script src="js/controllers/PicklineByWaveController.js"></script>
+		<script src="js/controllers/AssignmentManagementController.js"></script>
+		<script src="js/controllers/ShowCogmenuWidgetController.js"></script>
+		<script src="js/controllers/LogoutAlertController.js"></script>
+		<script src="js/controllers/LogoutConfirmationModalController.js"></script>
+		<script src="js/controllers/ActionPalletController.js"></script>
+		<script src="js/controllers/DeleteWidgetController.js"></script>
+		<script src="js/controllers/GroupMaintenanceFormController.js"></script>
+		<script src="js/controllers/ActionConfirmationController.js"></script>
+		<script src="js/controllers/SearchProductGridController.js"></script>
+		<script src="js/controllers/UserGroupFormController.js"></script>
+		<script src="js/controllers/ResetWidgetController.js"></script>
+		<script src="js/controllers/MakeHomeCanvasModalController.js"></script>
+		<script src="js/controllers/MyPreferencesModalController.js"></script>
+		<script src="js/controllers/CreateNewCanvasModalController.js"></script>
+		<script src="js/controllers/CreateCanvasController.js"></script>
+		<script src="js/controllers/WidgetsPalletteModalController.js"></script>
+        <script src="js/controllers/PackFactorHierarchyController.js"></script>
+        <script src="js/controllers/packFactorComponentsModalController.js"></script>
+        <script src="js/controllers/ResizeTabBarController.js"></script>
+        <script src="js/controllers/packFactorDetailsModalController.js"></script>
+        <script src="js/controllers/SearchGroupGridController.js"></script>
+        <script src="js/controllers/ProductClassificationsModalController.js"></script>
+        <script src="js/controllers/CopyGroupModalController.js"></script>
+        <script src="js/controllers/DeleteCanvasModalController.js"></script>
+        <script src="js/controllers/CloneCanvasModalController.js"></script>
+        <script src="js/controllers/PublishCanvasModalController.js"></script>
+        <script src="js/controllers/EAIMessageSegmentsGridController.js"></script>
+        <script src="js/controllers/EAIMessageSegmentDefinitionModalController.js"></script>
+        <script src="js/controllers/EAIMessagesGridController.js"></script>
+        <script src="js/controllers/EAIMessageDefinitionModalController.js"></script>
+        <script src="js/controllers/EAIMessageMappingsGridController.js"></script>
+        <script src="js/controllers/EAIEventsGridController.js"></script>
+        <script src="js/controllers/EAIEventHandlersGridController.js"></script>
+        <script src="js/controllers/EAIEventHandlerRegistrationModalController.js"></script>
+        <script src="js/controllers/EAIEventDefinitionModalController.js"></script>
+        <script src="js/controllers/EquipmentTypeGridController.js"></script>
+        <script src="js/controllers/WidgetInteractionsController.js"></script>
+
+		<!-- Directives -->
+		<script src="js/directives/dragandresize.js"></script>				
+		<script src="js/directives/lcwidget.js"></script>
+		<script src="js/directives/widgetloader.js"></script>		
+		<script src="js/directives/notification.js"></script>
+		<script src="js/directives/lucasMultiEdit.js"></script>
+		<script src="js/directives/listener.js"></script>
+		<script src="js/directives/sender.js"></script>
+		<script src="js/directives/MoveData.js"></script>
+		<script src="js/directives/LucasFocusOutDirective.js"></script>
+		<script src="js/directives/DatePicker.js"></script>
+		<script src="js/directives/saveWidgetCanvas.js"></script>
+		<script src="js/directives/dualSelect.js"></script>
+		<script src="js/directives/CreateCanvas.js"></script>
+		<script src="js/directives/WidgetsPallete.js"></script>
+		<script src="js/directives/uiGridFilterInput.js"></script>
+        <script src="js/directives/ngEnter.js"></script>
+		<script src="js/directives/ResizeTabBar.js"></script>
+		<script src="js/directives/MenuTabset.js"></script>
+		<script src="js/directives/HeaderAutoHide.js"></script>
+		<script src="js/directives/AutomaticRefresh.js"></script>
+		<script src="js/directives/NumbersOnly.js"></script>
+		<script src="js/directives/MoveDataGrid.js"></script>
+		<script src="js/directives/WidgetInteractions.js"></script>
+
+        <!-- Object Classes -->
+		<script src="js/classes/BroadcastObject.js"></script>
+		<script src="js/lucasExceptions/LucasBusinessException.js"></script>
+		<script src="js/lucasExceptions/LucasRestApiException.js"></script>
+
+        <!-- Constants -->
+        <script src="js/constants/NOTIFICATION_LEVELS.js"></script>
+	</body>
+</html>

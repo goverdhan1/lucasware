@@ -1,0 +1,24 @@
+<div class="closeCanvasModal">
+    <div class="modal-header">
+        <h4 translate>actionPallet.availableActions</h4>
+    </div>
+
+    <div class="modal-body">
+        <div class="list-group" ng-repeat="(action, permission) in widgetdetails.widgetDefinition.widgetActionConfig">
+            <a href=""
+               ng-class="{'list-group-item': true, 'list-group-item-success': permission, 'link-disabled': !permission}"
+               data-ng-click="processPalletAction(action)">
+                <span class="list-group-item-text">
+                    <span translate>actionPallet.actions.{{action}}</span>
+                </span>
+                <span ng-if="!permission" class="pull-right label label-danger">
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                </span>
+            </a>
+        </div>
+     </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-warning" data-ng-click="close()" translate="{{ 'core.close' }}"></button>
+    </div>
+</div>

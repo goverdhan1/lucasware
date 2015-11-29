@@ -1,0 +1,24 @@
+<div id="modal-pickByWaveChart" class="showCogmenuWidgetModal">
+
+	<!-- Header -->
+	<div class="modal-header">
+		<h4> {{ cogWidgetInstance.widgetDefinition.name }} </h4>
+	</div>
+
+	<!-- Body -->
+	<div class="modal-body">
+		<h4 translate="{{'cog.chartOrientation' }}"></h4>
+		<label class="radio-inline" data-ng-repeat="orientation in cogWidgetInstance.actualViewConfig.orientation.option">
+			<input type="radio" data-ng-model="cogWidgetInstance.actualViewConfig.orientation.selected" value="{{ orientation.value }}">
+			<span translate>cog.orientation.value.{{orientation.value}}</span> </label>
+		<dual-select widgetinstance="cogWidgetInstance"></dual-select>
+	</div>
+
+	<!-- Footer -->
+	<div class="modal-footer">
+		<button class="btn btn-danger" data-ng-hide="!isReset" data-ng-click="resetCogSettings(cogWidgetInstance)" translate="{{ 'core.resetToFactory' }}"></button>
+		<button class="btn btn-success" data-ng-hide="!isInstanceModified" data-ng-click="saveCogSettings(cogWidgetInstance)" translate="{{ 'core.save' }}"></button>
+		<button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+	</div>
+
+</div>

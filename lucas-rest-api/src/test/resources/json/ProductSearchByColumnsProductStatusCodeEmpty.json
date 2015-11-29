@@ -1,0 +1,111 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "grid": {
+            "1": {
+                "values": [
+                    "11-4937",
+                    "11-4937",
+                    "11-4937"
+                ]
+            },
+            "2": {
+                "values": [
+                    "11-4937",
+                    "11-4937",
+                    "11-4937"
+                ]
+            },
+            "3": {
+                "values": [
+                    "Dummy4 Product",
+                    "Dummy5 Product",
+                    ""
+                ]
+            },
+            "4": {
+                "values": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "5": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            },
+            "6": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "No"
+                ]
+            },
+            "7": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "No"
+                ]
+            },
+            "8": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "9": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "No"
+                ]
+            },
+            "10": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "11": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            },
+            "12": {
+                "values": [
+                    "dummy4 customer_SKU_nbr01",
+                    "dummy5 customer_SKU_nbr01",
+                    ""
+                ]
+            },
+            "13": {
+                "values": [
+                    "dummy4 manufacturer_item_nbr01",
+                    "dummy5 manufacturer_item_nbr01",
+                    ""
+                ]
+            },
+            "14": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            }
+        }
+    }
+}

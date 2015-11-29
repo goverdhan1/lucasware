@@ -1,0 +1,9 @@
+<div id="resetConfirmation">
+	<div class="modal-body">
+		<h4>{{ 'resetWidget.areYouSureYouWantToReset' | translate }} {{ widgetInstance.widgetDefinition.name }} {{ widgetInstance.clientId }}?</h4>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" id="btn-reset-confirmation" value="ok" data-ng-click="okBtnHandler(widgetInstance)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-close-confirmation" value="cancel" data-ng-click="cancelBtnHandler()" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

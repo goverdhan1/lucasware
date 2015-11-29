@@ -1,0 +1,45 @@
+<div id="packFactorComponents">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="pull-left heading" translate>
+                Pack Factor Components
+            </h4>
+            <i class="glyphicon glyphicon-remove  pull-right remove-icon" data-ng-click="closeModal()"></i>
+        </div>
+        <div class="row table-responsive" style="padding-left: 10px;padding-right: 10px">
+            <table class="table  table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th  translate="{{ 'core.components' }}">Components</th>
+                        <th  translate="{{ 'core.abbreviations' }}">Abbreviations</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="row-fluid" ng-repeat="component in components">
+                    <td>
+                        <input type="text" class="span3" placeholder="component name" ng-Enter="enter($index)" ng-model="component.name" ng-disabled="!component.editable" ng-blur="disable($index)">
+                    </td>
+                    <td>
+                        <input type="text" class="span3" placeholder="abbreviation" ng-model="component.abbreviation">
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" ng-if="!component.cannotDelete" ng-click="delete($index)" ><i class="glyphicon glyphicon-remove" ></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnSave"
+                data-ng-click="save()"
+                translate="{{ 'core.save' }}"></button>
+        <button class="btn btn-warning"
+                id="btnCancel"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+    </div>
+</div>

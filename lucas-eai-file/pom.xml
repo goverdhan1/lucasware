@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>lucas-eai-file</artifactId>
+	<packaging>jar</packaging>
+	<name>Lucas EAI File Support</name>
+	<url>http://www.lucasware.com</url>
+	<description>
+		<![CDATA[This project provides support for EAI with file messages ]]>
+	</description>
+
+	<parent>
+		<groupId>com.lucas.alps</groupId>
+		<artifactId>lucas-parent</artifactId>
+		<version>1.0.0.CI-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	<properties>
+	<apache.commons.csv.version>1.1</apache.commons.csv.version>
+	</properties>
+	<profiles>
+		<profile>
+			<id>loc</id>
+			<activation>
+				<property>
+					<name>!non.existent.property</name>
+				</property>
+			</activation>
+			<properties>
+				<env>loc</env>
+				<!-- eai file properties  -->
+				
+				<lucas.file.inbound.dir.location>/eai/inbound/async/files</lucas.file.inbound.dir.location>
+				<lucas.file.inbound.prevent.duplicates>true</lucas.file.inbound.prevent.duplicates>
+				<lucas.file.inbound.channel.id>filesIn</lucas.file.inbound.channel.id>
+				<lucas.file.poller.fixed.rate>10</lucas.file.poller.fixed.rate>
+				<lucas.file.userExpressionTransformationChannel.id>userExpressionTransformationChannel</lucas.file.userExpressionTransformationChannel.id>
+				<lucas.file.userInboundMessageFromRabbit.channel.id>userInboundMessageFromRabbit</lucas.file.userInboundMessageFromRabbit.channel.id>
+				<lucas.file.usersImportInboundLucasServiceChannel.id>usersImportInboundLucasServiceChannel</lucas.file.usersImportInboundLucasServiceChannel.id>
+				<lucas.file.userTransformedMessageFromRabbit.channel.id>userTransformedMessageFromRabbit</lucas.file.userTransformedMessageFromRabbit.channel.id>
+				<!-- User logon event configuration  -->
+				<lucas.file.userOutboundMessageFromRabbit.channel.id>userOutboundMessageFromRabbit</lucas.file.userOutboundMessageFromRabbit.channel.id>
+				<lucas.file.usersExportOutboundLucasServiceChannel.id>usersExportOutboundLucasServiceChannel</lucas.file.usersExportOutboundLucasServiceChannel.id>
+				<lucas.file.userOutboundTransformedMessageFromRabbit.channel.id>userOutboundTransformedMessageFromRabbit</lucas.file.userOutboundTransformedMessageFromRabbit.channel.id>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+				<!-- eai file properties  -->
+				<lucas.task.executor.pool.size>5</lucas.task.executor.pool.size>
+				<lucas.file.inbound.dir.location>/eai/inbound/async/files</lucas.file.inbound.dir.location>
+				<lucas.file.inbound.prevent.duplicates>true</lucas.file.inbound.prevent.duplicates>
+				<lucas.file.inbound.channel.id>filesIn</lucas.file.inbound.channel.id>
+				<lucas.file.poller.fixed.rate>10</lucas.file.poller.fixed.rate>
+				<lucas.file.userExpressionTransformationChannel.id>userExpressionTransformationChannel</lucas.file.userExpressionTransformationChannel.id>
+				<lucas.file.userInboundMessageFromRabbit.channel.id>userInboundMessageFromRabbit</lucas.file.userInboundMessageFromRabbit.channel.id>
+				<lucas.file.usersImportInboundLucasServiceChannel.id>usersImportInboundLucasServiceChannel</lucas.file.usersImportInboundLucasServiceChannel.id>
+				<lucas.file.userTransformedMessageFromRabbit.channel.id>userTransformedMessageFromRabbit</lucas.file.userTransformedMessageFromRabbit.channel.id>
+						<!-- User logon event configuration  -->
+				<lucas.file.userOutboundMessageFromRabbit.channel.id>userOutboundMessageFromRabbit</lucas.file.userOutboundMessageFromRabbit.channel.id>
+				<lucas.file.usersExportOutboundLucasServiceChannel.id>usersExportOutboundLucasServiceChannel</lucas.file.usersExportOutboundLucasServiceChannel.id>
+				<lucas.file.userOutboundTransformedMessageFromRabbit.channel.id>userOutboundTransformedMessageFromRabbit</lucas.file.userOutboundTransformedMessageFromRabbit.channel.id>
+				
+			</properties>
+		</profile>
+	</profiles>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>
+							src/main/resources/assembly.xml
+						</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id><!-- this is used for inheritance merges -->
+						<phase>package</phase><!-- append to the packaging phase. -->
+						<goals>
+							<goal>attached</goal><!-- goals == mojos -->
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<configuration>
+
+					<excludes>
+						<exclude>run.bat</exclude>
+						<exclude>execute.sh</exclude>
+					</excludes>
+					<archive>
+						<manifest>
+							<mainClass>
+								com.lucas.eai.JobExecutor
+							</mainClass>
+							<packageName>
+								com.lucas.eai
+							</packageName>
+							<addDefaultSpecificationEntries>
+								true
+							</addDefaultSpecificationEntries>
+							<addDefaultImplementationEntries>
+								true
+							</addDefaultImplementationEntries>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+				<version>2.4</version>
+			</plugin>
+
+		</plugins>
+	</build>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>Codehaus</id>
+			<url>http://repository.codehaus.org/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
+	<dependencies>
+	
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-csv</artifactId>
+			<version>${apache.commons.csv.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.lucas.alps</groupId>
+			<artifactId>lucas-services</artifactId>
+			<version>${project.version}</version>
+			</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		
+
+		<!-- Testing -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.framework.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring Integration -->
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-core</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-amqp</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-groovy</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-ip</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.amqp</groupId>
+			<artifactId>spring-rabbit</artifactId>
+			<version>${spring.amqp.version}</version>
+		</dependency>
+
+		<!-- Logging -->
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.integration</groupId>
+			<artifactId>spring-integration-file</artifactId>
+			<version>${spring.integration.version}</version>
+		</dependency>
+
+	</dependencies>
+</project>

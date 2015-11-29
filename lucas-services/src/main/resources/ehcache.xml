@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd"
+         updateCheck="false">
+    <diskStore path="${lucas.cache.diskstore.path}" />
+
+
+    <defaultCache maxElementsInMemory="10000" eternal="false"
+                  overflowToDisk="true" diskPersistent="false"
+                  diskExpiryThreadIntervalSeconds="1800" memoryStoreEvictionPolicy="FIFO">
+    </defaultCache>
+
+    <cache name="com.lucas.entity.user.User"
+           maxElementsInMemory="300"
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="900"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"  />
+           
+      <cache name="com.lucas.entity.ui.canvas.Canvas"
+           maxElementsInMemory="300"
+           eternal="false"
+           overflowToDisk="true"
+           timeToIdleSeconds="600"
+           timeToLiveSeconds="900"
+           diskPersistent="false"
+           diskExpiryThreadIntervalSeconds="120"
+           memoryStoreEvictionPolicy="LRU"  />
+
+
+</ehcache>

@@ -1,0 +1,46 @@
+<div id="select-canvas-modal">
+    <p class="alert alert-danger" ng-show="showInfo">
+        {{activeMessage}}
+    </p>
+
+    <div ng-repeat="item in availableScreens | toArray">
+        <div class="modal-header">
+            <h4 translate="{{ 'selectCanvas.' }}{{item.$key}}"></h4>
+        </div>
+        <div class="modal-body">
+            <ul class="nav nav-pills">
+                <li class="active screenName"
+                    data-ng-repeat="canvas in item.$value"
+                    data-ng-class="getCanvasPermissionClass(canvas)">
+                    <span data-ng-if="item.$key == 'private'"
+                          data-ng-click="deleteCanvas(canvas, $index)" 
+                          class="glyphicon glyphicon-remove canvas-remove-icon"></span>
+                    <a  href="" 
+                        id="{{ canvas.canvasId }}" 
+                        data-ng-click="!canvas.canvasActionConfig['view-canvas'] || selectScreen(item.$key, canvas)">{{ canvas.canvasName | translate }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="modal-footer">
+    	<div class="pull-left colorbox">
+    		<div class="box available-box"></div>
+    		<span translate="{{ 'selectCanvas.available' }}"></span>
+    	</div>
+    	<div class="pull-left colorbox">
+    		<div class="box open-box"></div>
+    		<span translate="{{ 'selectCanvas.open' }}"></span>
+    	</div>
+    	<div class="pull-left colorbox">
+    		<div class="box permissions-revoked-box"></div>
+    		<span translate="{{ 'selectCanvas.permissionsRevoked' }}"></span>
+    	</div>
+        <button id="btn-create-new-canvas"
+                class="btn btn-success"
+                data-ng-if="isCreateCanvas"
+                data-ng-click="createNewCanvas()" translate="{{ 'button.createNewCanvas' }}"></button>
+        <button class="btn btn-warning"
+                id="btn-close-create-new-canvas"
+                data-ng-click="closeModal()" translate="{{ 'core.close' }}"></button>
+    </div>
+</div>

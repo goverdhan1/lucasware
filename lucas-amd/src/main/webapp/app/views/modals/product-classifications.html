@@ -1,0 +1,46 @@
+<div id="productClassifications">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="text-center heading" translate>
+                Product Classifications
+                <i class="glyphicon glyphicon-remove  pull-right remove-icon" data-ng-click="closeModal()"></i>
+            </h4>
+
+        </div>
+        <div class="row table-responsive" style="padding-left: 10px;padding-right: 10px">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th translate="{{ 'core.classification' }}">Classification</th>
+                        <th translate="{{ 'core.preDefinedList' }}">Pre-defined List</th>
+                        <th> </th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="row-fluid" ng-repeat="(key, classification) in classifications">
+                    <td>
+                        <input type="text" class="span3" placeholder="classification name" ng-Enter="enter($index)" ng-click="addClassification()" ng-model="classification.name" ng-disabled="!classification.editable" ng-blur="disable(key)">
+                    </td>
+                    <td>
+                        <input type="text" class="span3" placeholder="Values" ng-model="classification.values">
+                    </td>
+                    <td>
+                        <button class="btn btn-danger btn-xs" ng-if="!classification.cannotDelete" ng-click="delete(key)"><i class="glyphicon glyphicon-remove" ></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnSave"
+                data-ng-click="save()"
+                translate="{{ 'core.save' }}"></button>
+        <button class="btn btn-warning"
+                id="btnCancel"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+    </div>
+</div>

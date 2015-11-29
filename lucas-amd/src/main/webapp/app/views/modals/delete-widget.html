@@ -1,0 +1,9 @@
+<div id="deleteConfirmation">
+	<div class="modal-body">
+		<h4>{{ 'deleteWidget.areYouSureYouWantToDelete' | translate }} {{ widgetInstance.widgetDefinition.name }} {{ widgetInstance.id }}?</h4>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" id="btn-delete-confirmation" value="ok" data-ng-click="okBtnHandler(widgetInstance)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-close-confirmation" value="cancel" data-ng-click="cancelBtnHandler()" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

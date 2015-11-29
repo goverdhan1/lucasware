@@ -1,0 +1,68 @@
+<div class="modal-content">
+    <!-- TITLE -->
+    <div class="modal-header">
+        <h3 translate="{{ 'groupAssignment.copyGroup' }}"></h3>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-group">
+                    <label for="groupName"
+                           class="col-sm-4 control-label">{{ 'groupAssignment.newGroupName' | translate}}
+                    </label>
+                    <div class="col-sm-6">
+                        <input id="groupName"
+                               class="form-control input-sm"
+                               type="text"
+                               ng-model="fields.groupName"
+                               ng-change="validateNewGroupName()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="form-group">
+                    <label for="groupDesc"
+                           class="col-sm-4 control-label">{{ 'groupAssignment.newGroupDescription' | translate}}
+                    </label>
+                    <div class="col-sm-6">
+                        <textarea id="groupDesc"
+                                  class="form-control input-sm"
+                                  rows="3"
+                                  placeholder="{{ 'groupAssignment.descriptionPlaceholder' | translate }}"
+                                  ng-model="fields.groupDesc">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!-- FOOTER -->
+    <div class="modal-footer">
+        <label class="pull-left"
+               translate="{{ 'error.groupNameMissing' }}"
+               ng-if="groupIsEmpty"
+               ng-style="{'color':'red'}">
+        </label>
+        <label class="pull-left"
+               translate="{{ 'error.groupAlreadyExists' }}"
+               ng-if="groupAlreadyExists"
+               ng-style="{'color':'red'}">
+        </label>
+        <button class="btn btn-success"
+                data-ng-click="$close(fields)"
+                translate="{{ 'core.save' }}"
+                ng-disabled="!groupNameValid">
+        </button>
+        <button class="btn btn-warning"
+                data-ng-click="$dismiss()"
+                translate="{{ 'core.cancel' }}">
+        </button>
+    </div>
+</div>

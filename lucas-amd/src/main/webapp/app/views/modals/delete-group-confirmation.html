@@ -1,0 +1,14 @@
+<div id="deleteGroupConfirmation">
+	<div class="modal-body">
+		<h4 translate="{{ 'user.deleteTheFollowingGroups' }}"></h4>
+        <ul class="list">
+            <li>{{selectedRows[0].groupName}}</li>
+        </ul>
+
+	
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" id="btn-delete-group-confirmation" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-delete-group-close-confirmation" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

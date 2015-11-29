@@ -1,0 +1,89 @@
+<div id="packFactorDetails">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="text-center heading">
+                Edit Pack Factor Hierarchies
+                <i class="glyphicon glyphicon-remove pull-right remove-icon" data-ng-click="closeModal()"></i>
+            </h4>
+        </div>
+        <div class="row table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="8">Pack Factor Hierarchy
+                            <input type="text" disabled ng-model="details.hierarchyName">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="8"><i>Define pack factor hierarchy with the lowest level</i></th>
+                    </tr>
+                    <tr>
+                        <th>Pack Factor Component</th>
+                        <th>Default Factor</th>
+                        <th colspan="6" class="text-center">Default Dimensions</th>
+                    </tr>
+                    <tr>
+                        <th colspan="2"></th>
+                        <th>Height</th>
+                        <th>Width</th>
+                        <th>Depth</th>
+                        <th>Weight</th>
+                        <th>Cube</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="row-fluid bg-info" ng-repeat="component in details.levels">
+                    <td width="40px;">
+                        <select>
+                            <option value="{{item.name}}" ng-repeat="item in availableComponents">{{item.name}}</option>
+                            <option value="" selected>{{component.componentName}}</option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.factor.factor" disabled="true">
+                        <span style="background-color:#eb49b3">{{component.factor.childComponentName}}</span>
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.defaultDimensions.height" disabled="true">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.defaultDimensions.width" disabled="true">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.defaultDimensions.depth" disabled="true">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.defaultDimensions.weight" disabled="true">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="component.defaultDimensions.cube" disabled="true">
+                    </td>
+                    <td>
+                        <img ng-if="!$first" src="images/icons/green.arrow.up.png" data-ng-click="moveUp($index)">
+                        <img ng-if="$first" width="13px;" src="images/blank.png">
+                        <img ng-if="!$last" src="images/icons/green.arrow.down.png" data-ng-click="moveDown($index)">
+                        <img ng-if="$last" width="12px;" src="images/blank.png">
+                        <img src="images/icons/red.delete.png" data-ng-click="deleteRow($index)">
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnAddLevel"
+                data-ng-click="addLevel()"
+                translate="{{ 'button.addLevel' }}"></button>
+        <button class="btn btn-success"
+                id="btnOk"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.ok' }}"></button>
+        <button class="btn btn-warning"
+                id="btnCancel"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+    </div>
+</div>

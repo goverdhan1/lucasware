@@ -1,0 +1,20 @@
+<footer>
+    <nav class="navbar navbar-default navbar-fixed-bottom" role="navigation">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-10 col-sm-10 col-md-11 col-lg-11">
+                    <ul class="nav nav-pills footerNav">
+                        <li data-ng-repeat="canvasBarItem in canvasBar" ui-sref-active="active" class="{{canvasBarItem.id}}">
+                            <a ui-sref="canvases.detail({canvasId:canvasBarItem.id})">{{canvasBarItem.name}}</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 text-right">
+                    <button class="btn-lg" data-ng-click="open()">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+</footer>

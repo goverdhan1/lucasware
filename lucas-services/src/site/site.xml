@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Lucasware: ${project.name}">
+	<bannerLeft>
+		<name>Lucasware: ${project.name}</name>
+		<src>images/jennifer-logo.gif</src>
+	</bannerLeft>
+	<bannerRight>
+		<name>Lucasware: ${project.name}</name>
+		<src>images/alps.gif</src>
+	</bannerRight>
+	<body>
+		<menu name="${project.name}">
+			<item name ="Overview" href="project-info.html" target="_self" />
+			<item name ="PMD Report" href="pmd.html" target="_self" />
+			<item name ="CPD Report" href="cpd.html" target="_self" />
+			<item name ="Check Style Report" href="checkstyle.html" target="_self" />
+			<item name ="Client Test Coverage" href="saga/jscoverage/total-report.html" target="_self" />
+			<item name ="Server Test Coverage" href="cobertura/index.html" target="_self" />
+			<item name ="JavaDocs" href="apidocs/index.html" target="_self" />
+			<item name ="Test JavaDocs" href="testapidocs/index.html" target="_self" />
+		</menu>
+	</body>
+</project>

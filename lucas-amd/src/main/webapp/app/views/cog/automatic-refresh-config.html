@@ -1,0 +1,60 @@
+<form class="form-horizontal">
+    <fieldset>
+        <!-- GLOBAL OVERRIDE -->
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <input type="checkbox"
+                           name="globalOverride"
+                           id="globalOverride"
+                           data-ng-model="refreshConfig.globalOverride">
+                    <label translate="cog.autoRefresh.override"></label>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+    <fieldset data-ng-disabled="!refreshConfig.globalOverride">
+        <!-- AUTO REFRESH ENABLED -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 form-group">
+                    <input type="checkbox"
+                           name="refreshEnabled"
+                           id="refreshEnabled"
+                           data-ng-model="refreshConfig.enabled">
+                    <label translate="cog.autoRefresh.enabled"></label>
+                </div>
+            </div>
+            <!-- REFRESH FREQUENCY -->
+            <div class="row">
+                <div class="form-group">
+                    <!--<div class="col-lg-2 col-md-3 col-sm-3 col-xs-12">-->
+                    <div class="col-sm-3 col-xs-12">
+                        <label for="refreshFrequency"
+                               translate="cog.autoRefresh.frequency">
+                        </label>
+                    </div>
+                    <!--<div class="col-sm-2 col-xs-12">-->
+                    <div class="col-sm-4 col-xs-12">
+                        <input numbers-only
+                               id="refreshFrequency"
+                               name="refreshFrequency"
+                               type="text"
+                               class="form-control input-md"
+                               ng-model="refreshConfig.interval"
+                               ng-disabled="!refreshConfig.globalOverride || !refreshConfig.enabled">
+                    </div>
+                    <div class="col-sm-4 col-xs-12"
+                         ng-if="refreshConfig.interval < 20
+                                && refreshConfig.enabled
+                                && refreshConfig.globalOverride">
+                        <p id="autoRefreshInvalidValueErrMsg"
+                           ng-style="{'color':'red'}"
+                           translate="cog.autoRefresh.invalidRefreshInterval">
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </fieldset>
+</form>

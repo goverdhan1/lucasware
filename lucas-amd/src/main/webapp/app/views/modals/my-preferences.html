@@ -1,0 +1,96 @@
+<div class="myPreferences">
+    <div class="modal-header">
+        <h4 translate="{{ 'preferences.myPreferences' }}"></h4>
+    </div>
+    <div class="modal-body">
+        <form class="form-horizontal"
+              name="preferencesForm">
+            <fieldset>
+                <!-- Date Format -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-sm-3 col-xs-12">
+                                <label for="preferencesSelectDateFormat"
+                                       translate="preferences.dateFormat">
+                                </label>
+                            </div>
+                            <div class="col-sm-4 col-xs-12">
+                                <select id="preferencesSelectDateFormat"
+                                        name="preferencesSelectDateFormat"
+                                        class="form-control input-md"
+                                        ng-model="selectedDateFormat"
+                                        ng-required="true"
+                                        ng-options="dateFormat.value as dateFormat.key for dateFormat in dateFormats">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Time Format -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-sm-3 col-xs-12">
+                                <label for="preferencesSelectTimeFormat"
+                                       translate="preferences.timeFormat">
+                                </label>
+                            </div>
+                            <div class="col-sm-4 col-xs-12">
+                                <select id="preferencesSelectTimeFormat"
+                                        name="preferencesSelectTimeFormat"
+                                        class="form-control input-md"
+                                        ng-model="selectedTimeFormat"
+                                        ng-required="true"
+                                        ng-options="timeFormat.value as timeFormat.key for timeFormat in timeFormats">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Refresh Frequency -->
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-sm-3 col-xs-12">
+                                <label for="preferencesRefreshFrequency"
+                                       translate="preferences.refreshFrequency">
+                                </label>
+                            </div>
+                            <div class="col-sm-4 col-xs-12">
+                                <input numbers-only
+                                       id="preferencesRefreshFrequency"
+                                       name="preferencesRefreshFrequency"
+                                       class="form-control input-md"
+                                       type="text"
+                                       ng-required="true"
+                                       ng-model="refreshInterval">
+                            </div>
+                            <div class="col-sm-4 col-xs-12"
+                                 ng-if="refreshInterval < 20">
+                            <p style="color:red"
+                               translate="error.minimumValueExpected" translate-values="{value:20}" >
+                            </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <!-- Save Button -->
+        <button id="btn-my-preferences-save"
+                class="btn btn-success"
+                data-ng-click="$close()"
+                data-ng-disabled="refreshInterval < 20"
+                translate="{{ 'core.save' }}">
+        </button>
+        <!-- Cancel Button -->
+        <button id="btn-my-preferences-cancel"
+                class="btn btn-warning"
+                data-ng-click="$dismiss()"
+                translate="{{ 'button.cancel' }}">
+        </button>
+    </div>
+</div>

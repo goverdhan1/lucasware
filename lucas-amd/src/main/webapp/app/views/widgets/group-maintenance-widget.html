@@ -1,0 +1,129 @@
+<div data-ng-controller="GroupMaintenanceFormController" class="group-maintenance-widget">
+
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <div class="input-group">
+                <input type="text"
+                       class="form-control input-sm"
+                       placeholder="{{ 'groupAssignment.groupName' | translate }}"
+                       typeahead="group for group in groups | filter:$viewValue | limitTo:5"
+                       typeahead-on-select="searchGroup($item)"
+                       typeahead-focus-first="true"
+                       ng-model="fields.groupName"
+                       ng-disabled="!groupNameEnabled"
+                       ng-change="groupNameWatcher()"
+                       ng-keypress="enterKeySearch($event)">
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-sm"
+                            type="button"
+                            ng-if="searchButtonVisible"
+                            ng-click="searchGroup(fields.groupName)"
+                            ng-disabled="!searchButtonEnabled">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button class="btn btn-danger btn-sm"
+                            type="button"
+                            ng-if="clearButtonVisible"
+                            ng-click="clear()"
+                            ng-disabled="!clearButtonEnabled">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
+            <label class="pull-right"
+                   translate="{{ 'core.saving' }}"
+                   ng-if="MODE_SAVE">
+            </label>
+            <label class="pull-right"
+                   ng-style="{color:'red'}"
+                   translate="{{ 'error.groupNotFound' }}"
+                   translate-values="{group : fields.groupName}"
+                   ng-if="groupNotFound">
+            </label>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 col-xs-12">
+            <textarea class="form-control input-sm"
+                      rows="2"
+                      placeholder="{{ 'groupAssignment.descriptionPlaceholder' | translate }}"
+                      ng-model="fields.groupDescription"
+                      ng-if="groupDescriptionVisible"
+                      ng-disabled="!groupDescriptionEnabled">
+            </textarea>
+        </div>
+    </div>
+    <br>
+
+    <div class="resizeTabSetContainer">
+		<tabset justified="true" menu-tabset="true">
+			<!-- TAB AMD PERMISSIONS -->
+			<tab heading="{{ 'groupAssignment.amdPermissions' | translate }}" active="tabs[0]">
+				<form name="form" class="form-horizontal" role="form">
+					<fieldset class="modal-body">
+						<div class="form-group">
+							<div class="container-full">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+										<h4 translate="{{ 'groupAssignment.permissionCategories' | translate }}" />
+                                        <select class="form-control input-sm"
+                                                data-ng-multiple="false"
+                                                data-ng-disabled="!permissionCategoriesEnabled"
+                                                data-ng-model="fields.categories.selected"
+                                                data-ng-options="category as ('security.permissionCategories.' + category) | translate for category in fields.categories.available | orderBy:'toString()' "
+                                                data-ng-change="loadPermissionsForCategory(fields.categories.selected)"/>
+                                    </div>
+								</div>
+								<div class="row">
+									<move-data is-disabled="{{!formControlsEnabled}}"></move-data>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</form>
+			</tab>
+			<!-- TAB WORK EXECUTION -->
+			<tab heading="{{ 'groupAssignment.workExecution' | translate }}" active="tabs[1]">
+				<form name="form" class="form-horizontal" role="form">
+					<!--TODO: Add work execution components here-->
+				</form>
+			</tab>
+			<!-- TAB ENROLL USERS -->
+	        <tab heading="{{ 'groupAssignment.enrollUsers' | translate }}" select="onSelectTab()" active="tabs[2]">
+				<form name="form" class="form-horizontal" role="form">
+          <fieldset class="modal-body">
+            <div class="form-group">
+                <div class="container-full">
+                    <div class="row" style="min-height: 300px" 
+                         data-ng-class="{disabled: !formControlsEnabled}">
+                        <move-data-grid is-disabled="{{!formControlsEnabled}}" widgetgriddetails="widgetgriddetails"></move-data-grid>
+                    </div>
+                </div>
+            </div>
+        </fieldset>					
+				</form>
+			</tab>
+		</tabset>
+	</div>
+
+    <!-- Widget Footer -->
+	<div class="modal-footer">
+		<button id="btn_save_as_group_maintenance"
+                type="button"
+                class="btn btn-success"
+                data-ng-disabled="!saveAsButtonEnabled"
+                data-ng-click="copy()"
+                translate="{{ 'core.saveAs' }}">
+        </button>
+		<button id="btn_save_group_maintenance"
+                type="button"
+                class="btn btn-success"
+                data-ng-disabled="!saveButtonEnabled"
+                data-ng-click="save(fields.groupName)"
+                translate="{{ 'core.save' }}">
+        </button>
+	</div>
+</div>

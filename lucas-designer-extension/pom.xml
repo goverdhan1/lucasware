@@ -1,0 +1,47 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<artifactId>lucas-designer-extension</artifactId>
+	<packaging>jar</packaging>
+	<name>Lucas Custom Extensions</name>
+	
+	<parent>
+		<groupId>com.lucas.alps</groupId>
+		<artifactId>lucas-parent</artifactId>
+		<version>1.0.0.CI-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>	
+
+	<dependencies>
+		<dependency>
+			<groupId>org.activiti.designer</groupId>
+			<artifactId>org.activiti.designer.integration</artifactId>
+			<version>${activiti.designer.version}</version>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jar-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<archive>
+						<index>true</index>
+						<manifest>
+							<addClasspath>false</addClasspath>
+							<addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+						</manifest>
+						<manifestEntries>
+							<ActivitiDesigner-Extension-Name>Lucas Custom Extensions</ActivitiDesigner-Extension-Name>
+						</manifestEntries>
+					</archive>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

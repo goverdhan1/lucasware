@@ -1,0 +1,38 @@
+<div data-ng-controller="SearchUserGridController" class="display-flex display-flex-column flex1 searchUserGrid">
+<!--
+    <span class="badge totalgriditems">{{ totalGridItems }}</span>
+    &lt;!&ndash; Filter &ndash;&gt;
+    <div class="well well-sm filterContainer" data-ng-controller="WidgetGridFilterController">
+        <button id="showFilterBtn" type="button" class="btn btn-xs btn-info" data-ng-hide="isFilterVisible()" data-ng-click="showFilters()">+</button>
+        <button id="hideFilterBtn" type="button" class="btn btn-xs btn-info" data-ng-show="isFilterVisible()" data-ng-click="hideFilters()">-</button>
+        <button id="queryBtn" type="button" class="btn btn-xs btn-info" data-ng-show="isFilterVisible()" data-ng-click="fetchLiveResults()">Fetch</button>
+        <button id="resetBtn" type="button" class="btn btn-xs btn-warning" data-ng-show="isFilterVisible()" data-ng-click="resetFilters()">Reset</button>
+        <button id="actionBtn" type="button" class="btn btn-xs btn-danger pull-right" ng-disabled="selectedRows.length == 0" data-ng-click="showActionPallet()" translate>button.action</button>
+        <form class="form-inline" role="form" data-ng-show="isFilterVisible()">
+			<h4>Grid Filters</h4>
+            <div class="form-group" data-ng-repeat="column in columnDefinitions">
+				<div ng-if="column.visible === true">
+                    <label>{{column.displayName}}</label>
+                    <input id="filter_{{column.field}}" data-ng-model="filterCriteria[column.field]" type="text" class="form-control">
+				</div>
+			</div>
+		</form>
+	</div>
+-->
+    <!-- Grid -->
+
+    <div id="searchUserGrid_{{widgetdetails.clientId}}"
+         class="gridStyle"
+         ui-grid="gridOptions"
+         ui-grid-infinite-scroll
+         ui-grid-selection
+         ui-grid-move-columns
+         ui-grid-resize-columns>
+    </div>
+    <!-- Widget Broadcast/Listen11er -->
+    <!--
+    <listener listen-info="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+	<sender sendinfo="widgetdetails.widgetDefinition"></sender>
+	-->
+
+</div>

@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>lucas-processes</artifactId>
+	<packaging>jar</packaging>
+	<name>Lucas Processes</name>
+
+
+	<parent>
+		<groupId>com.lucas.alps</groupId>
+		<artifactId>lucas-parent</artifactId>
+		<version>1.0.0.CI-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.lucas.alps</groupId>
+			<artifactId>lucas-services</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-engine</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-spring</artifactId>
+			<version>${activiti.version}</version>
+			<exclusions>
+			  <!-- Add exclusion because activiti pulls in spring 3.1.2 instead of the version being used in Alps-->
+			  <exclusion>
+			     <groupId>org.springframework</groupId>
+			     <artifactId>spring-context</artifactId>
+			  </exclusion>
+			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>${groovy.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<!-- PHX-104 Added version to fix Warnings in the Maven Build -->
+				<version>2.9</version>
+				<inherited>true</inherited>
+				<configuration>
+					<classpathContainers>
+						<classpathContainer>org.eclipse.jdt.USER_LIBRARY/Activiti Designer
+							Extensions</classpathContainer>
+					</classpathContainers>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<configuration>
+			          <descriptors>
+			            <descriptor>src/main/assembly/cli.xml</descriptor>
+			          </descriptors>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,0 +1,39 @@
+<div data-ng-mouseover="setActive(widgetdetails)"
+	 dragandresize
+	 ng-drop="true"
+     ng-drag="true"
+     ng-drop-success="onDropComplete($parent.$index, $event)"
+     ng-drag-data="$parent.$index"
+	 id="wid{{widgetdetails.clientId}}"
+	 class="ui-widget-content panel panel-success widget-panel sub-tile display-flex display-flex-column">
+	<div class="panel-heading ui-widget-header">
+		<span class="widget-title">
+		{{ widgetdetails.widgetDefinition.name }}, {{ widgetdetails.id }}
+		</span>
+        <button id="btnComponents" class="btn-small btn-success" ng-click="components()" ng-if="widgetdetails.widgetActionConfig.viewComponents"><i class="glyphicon glyphicon-list"></i></button>
+        <button id="btnSearchComponents" class="btn-small btn-success" ng-click="searchComponents()" ng-if="widgetdetails.widgetActionConfig.searchComponents"><i class="glyphicon glyphicon-search"></i></button>
+        <button id="btnProductClassifications" class="btn-small btn-success" 
+        	data-ng-click="diplayProductClassifications()"
+                data-ng-if="widgetdetails.widgetActionConfig['widget-actions']['configure-classification']">
+        	<img src="images/classifications.png">
+        </button>
+        	<div class="pull-right">
+            <button class="btn-small btn-success cogMenuBtn" data-ng-click="handleCogWidget(widgetdetails)">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <button class="btn-small btn-success" data-ng-click="handleMaxState()">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+
+			<button id="wid{{widgetdetails.clientId}}-remove-widget-btn" class="btn-small btn-success" data-ng-click="handleRemoveWidget(widgetdetails)">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+			<!--<button data-ng-click="SaveWidget(widgetdetails)" class="btn-small btn-success" id="save-widget" data-ng-show="widgetdetails.updateWidget">
+			<span class="glyphicon glyphicon-save"></span>
+			</button>-->
+		</div>
+	</div>
+	<div class="panel-body display-flex display-flex-column flex1">
+		<widgetloader widgetdetails="widgetdetails"></widgetloader>
+	</div>
+</div>

@@ -1,0 +1,80 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "private": [
+            {
+                "canvasName": "JillCanvas1",
+                "canvasId": 237,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "JillCanvas2",
+                "canvasId": 238,
+                "canvasActionConfig": {
+                    "view-canvas": false
+                }
+            }
+        ],
+        "company": [
+            {
+                "canvasName": "Hazmat Canvas",
+                "canvasId": 3,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "User Management Canvas",
+                "canvasId": 4,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "ProductManagement",
+                "canvasId": 201,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "Work Execution",
+                "canvasId": 221,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "AssignmentManagement",
+                "canvasId": 231,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            },
+            {
+                "canvasName": "GroupManagement",
+                "canvasId": 235,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            }
+        ],
+        "lucas": [
+            {
+                "canvasName": "Pick Monitoring Canvas",
+                "canvasId": 5,
+                "canvasActionConfig": {
+                    "view-canvas": true
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,14 @@
+<div data-ng-controller="PicklineByWaveController" id="pickline-chart-widget">
+    <div data-ng-if="widgetdetails.isMaximized === true">
+        <div ng-if="widgetdetails.actualViewConfig.orientation.selected==='h'" nvd3-multi-bar-horizontal-chart data-ng-style="{'height': (chartHeight) - 60};" margin="{left:60}" showControls="true" x="xValues()" y="yValues()" showLegend="true" id="horizontalChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="horizontalChartData" showXAxis="true" showYAxis="true" tooltips="true" interactive="true"></div>
+        <div ng-if="widgetdetails.actualViewConfig.orientation.selected==='v'" nvd3-multi-bar-chart margin="{left:40}" data-ng-style="{'height': (chartHeight) - 60};" showControls="true" x="xValues()" y="yValues()" showLegend="true" id="verticalChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="verticalChartData" showXAxis="true" showYAxis="true" tooltips="true" interactive="true"></div>
+    </div>
+    <div data-ng-if="widgetdetails.isMaximized === false">
+        <!-- control which graph view gets rendered based on orientation -->
+        <div ng-if="widgetdetails.actualViewConfig.orientation.selected==='h'" nvd3-multi-bar-horizontal-chart data-ng-style="{'width': widgetdetails.actualViewConfig.width - 20, 'height': (widgetdetails.actualViewConfig.height) - 40};" margin="{left:50}" showControls="true" x="xValues()" y="yValues()" showLegend="true" id="horizontalChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="horizontalChartData" showXAxis="true" showYAxis="true" tooltips="true" interactive="true"></div>
+        <div ng-if="widgetdetails.actualViewConfig.orientation.selected==='v'" nvd3-multi-bar-chart margin="{left:40}" data-ng-style="{'width': widgetdetails.actualViewConfig.width - 20, 'height': (widgetdetails.actualViewConfig.height) - 40};" showControls="true" x="xValues()" y="yValues()" showLegend="true" id="verticalChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="verticalChartData" showXAxis="true" showYAxis="true" tooltips="true" interactive="true"></div>
+
+    </div>
+    <listener listen-info="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+	<sender sendinfo="widgetdetails.widgetDefinition"></sender>
+</div>

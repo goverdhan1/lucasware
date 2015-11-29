@@ -1,0 +1,19 @@
+{
+	"data": [
+		{
+			"id": "10",
+			"name": "Pick Monitoring"
+		}, {
+			"id": "20",
+			"name": "Assignment Management"
+		}, {
+			"id": "30",
+			"name": "Pick Monitoring Alternate"
+		}, {
+			"id": "40",
+			"name": "Overview Warehouse"
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

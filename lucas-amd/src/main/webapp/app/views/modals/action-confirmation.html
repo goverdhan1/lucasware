@@ -1,0 +1,10 @@
+<div id="actionConfirmation">
+	<div class="modal-body">
+        <h4 translate="{{ 'user.confirmAction' }}"></h4>  <h4 translate="{{ actiontext }}"></h4>
+	</div>
+	<div class="modal-footer">
+        <!-- on clicking OK button emitting the 'continue event' back to the SearchUserGridWidget to process the selected action -->
+		<button class="btn btn-success" id="btn-action-confirmation" value="ok" data-ng-click="handleActionSelected(action)" translate="{{ 'button.ok' }}"></button>
+        <button class="btn btn-warning" data-ng-click="close()" translate="{{ 'core.cancel' }}"></button>
+    </div>
+</div>

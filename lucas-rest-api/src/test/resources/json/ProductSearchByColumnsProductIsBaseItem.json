@@ -1,0 +1,111 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "grid": {
+            "1": {
+                "values": [
+                    "99-4937",
+                    "11-4937",
+                    ""
+                ]
+            },
+            "2": {
+                "values": [
+                    "99-4937",
+                    "11-4937",
+                    ""
+                ]
+            },
+            "3": {
+                "values": [
+                    "TORO PULLEY",
+                    "Dummy1 Product",
+                    "Dummy3 Product"
+                ]
+            },
+            "4": {
+                "values": [
+                    "Available",
+                    "Marked Out",
+                    "Marked Out"
+                ]
+            },
+            "5": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            },
+            "6": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "7": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "8": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "9": {
+                "values": [
+                    "Yes",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "10": {
+                "values": [
+                    "No",
+                    "Yes",
+                    "Yes"
+                ]
+            },
+            "11": {
+                "values": [
+                    "Yes",
+                    "No",
+                    "No"
+                ]
+            },
+            "12": {
+                "values": [
+                    "customer_SKU_nbr01",
+                    "dumm1 customer_SKU_nbr01",
+                    "dummy3 customer_SKU_nbr01"
+                ]
+            },
+            "13": {
+                "values": [
+                    "manufacturer_item_nbr01",
+                    "dummy1 manufacturer_item_nbr01",
+                    "dummy3 manufacturer_item_nbr01"
+                ]
+            },
+            "14": {
+                "values": [
+                    "No",
+                    "No",
+                    "No"
+                ]
+            }
+        }
+    }
+}

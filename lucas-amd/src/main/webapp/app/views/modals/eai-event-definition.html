@@ -1,0 +1,95 @@
+<div id="eaiEventDefinition">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="text-center heading">
+                {{ 'eai.eventDefinition' | translate}}
+                <i class="glyphicon glyphicon-remove pull-right remove-icon" data-ng-click="closeModal()"></i>
+            </h4>
+        </div>
+        <div class="form-group">
+            <label for="eventHandlerName" class="col-sm-5 control-label">{{ 'eai.eventName' | translate}}</label>
+            <div class="col-sm-5">
+                <input id="eventName" type="text" required ng-model="details.name" class="form-control input-sm">
+            </div>
+        </div>
+        <div class="resizeTabSetContainer">
+            <tabset justified="true" menu-tabset="true" hideMenuHeadingIndex="1">
+                <!-- TAB Details -->
+                <tab heading="{{ 'eai.details' | translate }}" active="tabs[0]">
+                    <fieldset class="modal-body">
+                        <!-- Description-->
+                        <div class="form-group">
+                            <label for="password" class="col-sm-6 control-label">{{ 'core.description' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="description" type="text" required ng-model="details.details.description" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Type-->
+                        <div class="form-group">
+                            <label for="type" class="col-sm-6 control-label">{{ 'core.type' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="type" type="text" required ng-model="details.details.type" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Source-->
+                        <div class="form-group">
+                            <label for="inboundMapping" class="col-sm-6 control-label">{{ 'eai.source' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="source" type="text" required ng-model="details.details.source" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Category Type-->
+                        <div class="form-group">
+                            <label for="transportType" class="col-sm-6 control-label">{{ 'core.category' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="category" type="text" required ng-model="details.details.category" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Sub-Category Type-->
+                        <div class="form-group">
+                            <label for="transportType" class="col-sm-6 control-label">{{ 'core.subcategory' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="subcategory" type="text" required ng-model="details.details.subcategory" class="form-control input-sm">
+                            </div>
+                        </div>
+                    </fieldset>
+                </tab>
+
+                <!-- TAB Transport -->
+                <tab heading="{{ 'eai.eventHandlers' | translate }}" active="tabs[1]" >
+                    <fieldset class="modal-body">
+                        <table class="table table-striped table-bordered">
+                            <thead>
+                                <tr>
+                                    <th ng-repeat="column in details.eventHandlers.columns">{{column}}</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="row-fluid bg-info" ng-repeat="items in details.eventHandlers.data track by $index">
+                                <td ng-repeat="item in items">
+                                    <input type="text" ng-model="item" class="width-50">
+                                </td>
+                                <td>
+                                    <img src="images/icons/red.delete.png" data-ng-click="deleteRow($index)">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </fieldset>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnOk"
+                ng-if="tabs[1]"
+                data-ng-click="addEvent()"
+                translate="{{ 'eai.addEvent' }}"></button>
+        <button class="btn btn-success"
+                id="btnOk"
+                data-ng-click="closeModal()"
+                translate="{{ 'core.save' }}"></button>
+    </div>
+</div>

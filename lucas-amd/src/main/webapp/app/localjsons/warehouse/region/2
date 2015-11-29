@@ -1,0 +1,16 @@
+{
+	"data":[
+		{
+			"id":2,
+			"name":"Wallmart, Cleaveland",
+			"regionId":2
+		},
+		{
+			"id":4,
+			"name":"Wallmart, Raleigh",
+			"regionId":2
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

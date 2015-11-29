@@ -1,0 +1,10 @@
+<div id="detailCont" class="tile-container flex1">
+    <div ng-repeat="widgetInstance in widgetInstanceListforCanvas"
+         id="wid{{widgetInstance.clientId}}"
+         class="tile"
+         data-ng-style="getStyle(widgetInstance)"
+         lcwidget
+         widgetdetails="widgetInstance"
+         widget-instance-list="widgetInstanceListforCanvas">
+    </div>
+</div>

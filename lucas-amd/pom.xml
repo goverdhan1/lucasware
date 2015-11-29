@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>lucas-amd</artifactId>
+	<name>Lucas AMD</name>
+	<packaging>war</packaging>
+	
+	<parent>
+		<groupId>com.lucas.alps</groupId>
+		<artifactId>lucas-parent</artifactId>
+		<version>1.0.0.CI-SNAPSHOT</version>
+		<relativePath>../</relativePath>
+	</parent>
+	
+	<build>
+		<finalName>amd</finalName>
+		<plugins>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.4</version>
+				<configuration>
+					<failOnMissingWebXml>true</failOnMissingWebXml>
+					<packagingExcludes>test/**</packagingExcludes>
+					<filters>
+						<filter>${project.basedir}/src/main/resources/${env}.properties</filter>
+					</filters>
+					<nonFilteredFileExtensions>
+						<!-- default value contains jpg,jpeg,gif,bmp,png -->
+						<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+					</nonFilteredFileExtensions>
+					<webResources>
+						<resource>
+							<directory>src/main/webapp</directory>
+							<filtering>true</filtering>
+						</resource>
+					</webResources>
+					<resourceEncoding>UTF-8</resourceEncoding>
+				</configuration>
+				</plugin>	
+			<plugin>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<executions>
+					<execution>
+						<id>copy-test</id>
+						<phase>process-test-classes</phase>
+						<goals>
+							<goal>copy-resources</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>${basedir}/target/amd/test</outputDirectory>
+							<resources>			
+								<resource>
+									<directory>src/test</directory>
+									<filtering>true</filtering>
+								</resource>
+							</resources>				
+						</configuration>			
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.github.searls</groupId>
+				<artifactId>jasmine-maven-plugin</artifactId>
+				<version>1.3.1.2</version>
+				<extensions>true</extensions>
+				<executions>
+					<execution>
+						<goals>
+							<goal>test</goal>
+						</goals>
+                        <configuration>
+                            <keepServerAlive>true</keepServerAlive>
+                        </configuration>
+					</execution>
+				</executions>			
+				<configuration>
+					<jsSrcDir>src/main/webapp/app/js</jsSrcDir>
+					<jsTestSrcDir>src/test/unit</jsTestSrcDir>
+					<preloadSources combine.children="append">							
+						<!-- This order is important -->
+						<!-- If not followed then bad things can happen like: -->
+						<!-- Exception invoking Node.removeEventListener() etc.	-->
+						<!-- which are thrown deep from the bowels of httpUnit code -->
+						<!-- and are a pain to debug -->	
+						<source>${project.basedir}/src/test/lib/console.js</source>
+						<source>${project.basedir}/src/test/lib/jquery-1.8.3.js</source>
+						<source>${project.basedir}/src/test/lib/jasmine-jquery-1.4.2.js</source>
+						<source>${project.basedir}/src/test/lib/jasmine.console_reporter.js</source>						 
+						<source>${project.basedir}/src/main/webapp/app/lib/angular/angular.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/ui.sortable.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/ngDraggable.js</source>
+                        <source>${project.basedir}/src/main/webapp/app/lib/angular-ui/ui-grid-3.0.0-RC.18.js</source>
+                        <source>${project.basedir}/src/main/webapp/app/lib/angular/angular-translate.min.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/angular/angular-translate-loader-static-files.min.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/angular/angular-ui-router.js</source>
+                        <source>${project.basedir}/src/main/webapp/app/lib/angular/angular-animate.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/angular-ui/ui-bootstrap-tpls-0.10.0.js</source>
+                        <source>${project.basedir}/src/main/webapp/app/lib/jquery/jquery-ui.min.js</source>
+                        <source>${project.basedir}/src/main/webapp/app/lib/d3/d3.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/d3/nv.d3.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/d3/angularjs-nvd3-directives.js</source>
+						
+						<source>${project.basedir}/src/test/lib/angular/angular-mocks.js</source>						
+						<source>${project.basedir}/src/main/webapp/app/lib/angular/restangular.min.js</source>
+						<source>${project.basedir}/src/main/webapp/app/lib/underscore/underscore-min.js</source>
+
+					</preloadSources>
+				</configuration>
+			</plugin>
+            
+            <!-- This plugin is used to measure JavaScript test coverage -->
+            <plugin>
+                <groupId>com.github.timurstrekalov</groupId>
+                <artifactId>saga-maven-plugin</artifactId>
+                <version>1.4.1</version>
+                <executions>
+                    <execution>
+                        <phase>test</phase>
+                        <goals>
+                            <goal>coverage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <baseDir>http://localhost:${jasmine.serverPort}</baseDir>
+                    <outputDir>${project.basedir}/target/reports/saga/jscoverage</outputDir>
+                    <outputStrategy>TOTAL</outputStrategy>
+                    <reportFormats>HTML</reportFormats>
+                    <sortBy>file</sortBy>
+                    <order>ascending</order>
+                    <noInstrumentPatterns>
+                        <pattern>.*/spec/.*</pattern>                    <!-- Ignore jasmine specs -->
+                        <pattern>.*/src/test/lib/.*</pattern>            <!-- Ignore test libs/resources -->
+                        <pattern>.*/src/main/webapp/app/lib/.*</pattern> <!-- Ignore app libs/3rd party resources -->
+                        <pattern>.*/src/app\.js</pattern>                <!-- Ignore app.js -->
+                    </noInstrumentPatterns>
+                </configuration>
+            </plugin> 
+		</plugins>
+		
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-firefox-driver</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-support</artifactId>
+			<version>${selenium.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.mortbay.jetty</groupId>
+			<artifactId>jsp-2.1</artifactId>
+			<version>6.0.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>gr.abiss.mvn.plugins</groupId>
+				<artifactId>maven-jstools-plugin</artifactId>
+				<version>0.7</version>
+				<configuration>
+					<jsDir>${project.basedir}/src/main/webapp/app/js</jsDir>
+					
+					<includePrivate>true</includePrivate>
+					<includeUndocumented>true</includeUndocumented>
+				</configuration>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>jslint</report>
+							<report>jsdoc</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+			</plugin>
+		</plugins>
+	</reporting>
+	
+	<profiles>
+		<profile>
+			<id>beanstalk</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>br.com.ingenieux</groupId>
+						<artifactId>beanstalk-maven-plugin</artifactId>
+						<configuration>
+							<applicationName>${beanstalk.application.name.amd}</applicationName>
+							<environmentName>${beanstalk.environment.name.amd}</environmentName>					
+							<cnamePrefix>${beanstalk.cname.prefix.amd}</cnamePrefix>					
+						</configuration>
+					 </plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>alltests</id>
+			<build>
+				<plugins>
+					<plugin>
+						<artifactId>maven-war-plugin</artifactId>
+						<version>2.4</version>
+						<configuration>
+							<failOnMissingWebXml>true</failOnMissingWebXml>
+							<packagingExcludes>test/**</packagingExcludes>
+							<filters>
+								<filter>${project.basedir}/src/main/resources/${env}.properties</filter>
+								<filter>${project.basedir}/src/main/resources/test.properties</filter>
+							</filters>
+							<nonFilteredFileExtensions>
+								<!-- default value contains jpg,jpeg,gif,bmp,png -->
+								<nonFilteredFileExtension>pdf</nonFilteredFileExtension>
+							</nonFilteredFileExtensions>
+							<webResources>
+								<resource>
+									<directory>src/main/webapp</directory>
+									<filtering>true</filtering>
+								</resource>
+							</webResources>
+							<resourceEncoding>UTF-8</resourceEncoding>
+						</configuration>
+					</plugin>
+					<plugin>
+						<groupId>org.mortbay.jetty</groupId>
+						<artifactId>jetty-maven-plugin</artifactId>
+						<configuration>
+							<stopPort>9968</stopPort>
+							<stopKey>STOP</stopKey>
+							
+						    <war>${basedir}/target/amd</war>
+						    <!-- <contextPath>/amd</contextPath> -->
+							<webApp>
+								<contextPath>/amd</contextPath>
+							</webApp>						    
+						   
+					        <contextHandlers>           
+					            <contextHandler implementation="org.eclipse.jetty.webapp.WebAppContext">
+					              <war>${basedir}/../lucas-rest-api/target/lucas-api</war>
+					              <contextPath>/lucas-api</contextPath>
+					            </contextHandler>
+					        </contextHandlers> 	
+						    			        							
+							<connectors>
+								<connector implementation="org.eclipse.jetty.server.nio.SelectChannelConnector">
+									<port>9020</port>
+									<maxIdleTime>60000</maxIdleTime>
+								</connector>
+							</connectors>
+							
+							<debug>true</debug>
+							<verbose>true</verbose>
+						</configuration>
+						<executions>
+							<execution>
+								<id>start-jetty</id>
+								<phase>pre-integration-test</phase>
+								<goals>
+									<goal>run-exploded</goal>
+								</goals>
+								<configuration>
+									<daemon>true</daemon>
+									<reload>manual</reload>
+								</configuration>
+							</execution>
+							<execution>
+								<id>stop-jetty</id>
+								<phase>post-integration-test</phase>
+								<goals>
+									<goal>stop</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>	
+					
+					<!-- Run protractor tests -->
+					<plugin>
+                        <groupId>com.github.greengerong</groupId>
+                        <artifactId>maven-ng-protractor</artifactId>
+                        <version>0.0.2</version>
+                        <configuration>
+                            <configFile>target/amd/test/e2e/config/protractor.conf.js</configFile>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>ng-protractor</id>
+                                <phase>integration-test</phase>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+					</plugin>  					
+					
+		            <!-- Measure JavaScript coverage -->
+		            <plugin>
+		                <groupId>com.github.timurstrekalov</groupId>
+		                <artifactId>saga-maven-plugin</artifactId>
+		                <version>1.4.1</version>
+		                <executions>
+		                    <execution>
+		                        <phase>post-integration-test</phase>
+		                        <goals>
+		                            <goal>coverage</goal>
+		                        </goals>
+		                    </execution>
+		                </executions>
+		                <configuration>
+		                    <baseDir>http://localhost:${jasmine.serverPort}</baseDir>
+		                    <outputDir>${project.basedir}/target/reports/saga/jscoverage</outputDir>
+		                    <outputStrategy>TOTAL</outputStrategy>
+		                    <reportFormats>HTML</reportFormats>
+		                    <sortBy>file</sortBy>
+		                    <order>ascending</order>
+		                    <noInstrumentPatterns>
+		                        <pattern>.*/spec/.*</pattern>                    <!-- Ignore jasmine specs -->
+		                        <pattern>.*/src/test/lib/.*</pattern>            <!-- Ignore test libs/resources -->
+		                        <pattern>.*/src/main/webapp/app/lib/.*</pattern> <!-- Ignore app libs/3rd party resources -->
+		                        <pattern>.*/src/app\.js</pattern>                <!-- Ignore app.js -->
+		                    </noInstrumentPatterns>
+		                </configuration>
+		            </plugin>
+								 		
+				</plugins>
+			</build>
+		</profile>		
+	</profiles>	 
+
+</project>

@@ -1,0 +1,18 @@
+<div data-ng-controller="SearchProductGridController" class="display-flex display-flex-column flex1 searchUserGrid">
+    
+    <!-- Grid -->
+    <div id="searchProductGrid_{{widgetdetails.clientId}}"
+         class="gridStyle"
+         ui-grid="gridOptions"
+         ui-grid-infinite-scroll
+         ui-grid-selection
+         ui-grid-move-columns
+         ui-grid-resize-columns>
+    </div>
+    <!-- Widget Broadcast/Listener -->
+    <!--
+    <listener listen-info="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+    <sender sendinfo="widgetdetails.widgetDefinition"></sender>
+    -->
+
+</div>

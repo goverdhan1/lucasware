@@ -1,0 +1,25 @@
+<div class="panel panel-success widget-panel-maximized" data-ng-if="widgetdetails" id="wid{{widgetdetails.clientId}}">
+    <div class="panel-heading ui-widget-header">
+        <span class="widget-title">
+        {{ widgetdetails.widgetDefinition.name }}, {{ widgetdetails.clientId }}
+    </span>
+        <button class="btn-small btn-success" ng-click="components()" ng-if="widgetdetails.widgetActionConfig.viewComponents"><i class="glyphicon glyphicon-list"></i></button>
+        <button class="btn-small btn-success" ng-click="searchComponents()" ng-if="widgetdetails.widgetActionConfig.searchComponents"><i class="glyphicon glyphicon-search"></i></button>
+        <button id="btnProductClassifications" class="btn-small btn-success" ng-if="widgetdetails.widgetActionConfig.widget-actions.configure-classification"><img src="images/classifications.png"></button>
+        <div class="pull-right">
+            <button class="btn-small btn-success cogMenuBtn" data-ng-click="handleCogWidget(widgetdetails)">
+                <span class="glyphicon glyphicon-cog"></span>
+            </button>
+            <button class="btn-small btn-success" data-ng-click="handleMinState()">
+                <span class="glyphicon glyphicon-minus"></span>
+            </button>
+            <button id="wid{{widgetdetails.clientId}}-remove-widget-btn" class="btn-small btn-success" data-ng-click="handleRemoveWidget(widgetdetails)">
+                <span class="glyphicon glyphicon-remove"></span>
+            </button>
+        </div>
+
+    </div>
+    <div class="panel-body display-flex display-flex-column flex1">
+        <widgetloader widgetdetails="widgetdetails"></widgetloader>
+    </div>
+</div>

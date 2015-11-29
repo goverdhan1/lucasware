@@ -1,0 +1,28 @@
+<div class="showCogmenuWidgetModal">
+    <div class="modal-header">
+        <h4> {{ cogWidgetInstance.widgetDefinition.name }} </h4>
+    </div>
+    <div class="modal-body">
+        <h4 translate="{{ 'cog.showOrHideGridColumns' }}"></h4>
+        <p translate="{{ 'cog.checkedColumnsAreBeingShownNow' }}"></p>
+        <label class="checkbox-inline" data-ng-repeat="(key, prop) in cogWidgetInstance.actualViewConfig.gridColumns">
+            <input type="checkbox" id="key" value="key" data-ng-model="prop.visible">
+            {{ prop.name }}
+        </label>
+    </div>
+
+    <div class="modal-body">
+        <h4 translate="{{ 'cog.autoRefresh.settings' }}"></h4>
+        <automatic-refresh refresh-config="cogWidgetInstance.actualViewConfig.autoRefreshConfig"></automatic-refresh>
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-danger" data-ng-hide="!isReset" data-ng-click="resetCogSettings(cogWidgetInstance)" translate="{{ 'core.resetToFactory' }}"></button>
+        <button class="btn btn-success"
+                ng-if="isInstanceModified && !cogWidgetInstance.actualViewConfig.autoRefreshConfig.refreshIntervalInvalid"
+                data-ng-click="saveCogSettings(cogWidgetInstance)"
+                translate="{{ 'core.save' }}">
+        </button>
+        <button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+    </div>
+</div>

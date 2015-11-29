@@ -1,0 +1,169 @@
+{
+  "status": "success",
+  "code": "200",
+  "message": "Request processed successfully",
+  "level": null,
+  "uniqueKey": null,
+  "token": null,
+  "explicitDismissal": null,
+  "data": [
+    {
+      "username": "jack123",
+      "groups": [
+        {
+          "groupName": "administrator",
+          "permission": [
+            "publish-canvas",
+            "authenticated-user",
+            "message-segments-widget-access",
+            "create-message-segment",
+            "edit-message-segment",
+            "delete-message-segment",
+            "events-widget-access",
+            "create-event",
+            "edit-event",
+            "delete-event",
+            "message-mappings-widget-access",
+            "delete-message-mapping",
+            "event-handlers-widget-access",
+	  		"create-event-handler",
+	  		"edit-event-handler",
+	  		"delete-event-handler"
+          ]
+        },
+        {
+          "groupName": "warehouse-manager",
+          "permission": [
+            "create-canvas",
+            "publish-canvas",
+            "edit-company-canvas",
+            "create-assignment",
+            "view-report-productivity",
+            "configure-location"
+          ]
+        },
+        {
+          "groupName": "supervisor",
+          "permission": [
+            "group-maintenance-widget-access",
+            "create-group",
+            "edit-group",
+            "search-user-widget-access",
+            "create-edit-user-widget-access",
+            "create-user",
+            "edit-user",
+            "disable-user",
+            "delete-user",
+            "enable-user",
+            "retrain-voice-model",
+            "publish-canvas",
+            "user-list-download-excel",
+            "user-list-download-pdf",
+            "create-product",
+            "view-product",
+            "edit-product",
+            "delete-product",
+            "edit-multi-user",
+            "pickline-by-wave-widget-access",
+            "search-product-grid-widget-access",
+            "equipment-type-widget-access",
+            "equipment-management-widget-access",
+            "create-equipment-type",
+            "edit-equipment-type",
+            "delete-equipment-type",
+            "create-equipment",
+            "edit-equipment",
+            "delete-equipment",
+            "unassign-user",
+            "view-checklist",
+            "search-group-widget-access",
+            "delete-group",
+            "messages-widget-access",
+            "create-message",
+            "edit-message",
+            "delete-message"
+          ]
+        },
+        {
+          "groupName": "picker",
+          "permission": [
+            "create-edit-user-widget-access",
+            "create-user",
+            "edit-user",
+            "create-assignment",
+            "authenticated-user"
+          ]
+        }
+      ]
+    },
+    {
+      "username": "jill123",
+      "groups": [
+        {
+          "groupName": "picker",
+          "permission": [
+            "create-edit-user-widget-access",
+            "create-user",
+            "edit-user",
+            "create-assignment",
+            "authenticated-user"
+          ]
+        }
+      ]
+    },
+    {
+      "username": "admin123",
+      "groups": [
+        {
+          "groupName": "system",
+          "permission": [
+            "group-maintenance-widget-access",
+            "create-group",
+            "edit-group",
+            "search-user-widget-access",
+            "create-edit-user-widget-access",
+            "create-user",
+            "edit-user",
+            "disable-user",
+            "delete-user",
+            "enable-user",
+            "retrain-voice-model",
+            "create-canvas",
+            "publish-canvas",
+            "edit-company-canvas",
+            "user-list-download-excel",
+            "user-list-download-pdf",
+            "create-product",
+            "view-product",
+            "edit-product",
+            "delete-product",
+            "create-assignment",
+            "view-report-productivity",
+            "configure-location",
+            "authenticated-user",
+            "edit-multi-user",
+            "pickline-by-wave-widget-access",
+            "search-product-grid-widget-access"
+          ]
+        },
+        {
+          "groupName": "warehouse-manager",
+          "permission": [
+            "create-canvas",
+            "publish-canvas",
+            "edit-company-canvas",
+            "create-assignment",
+            "view-report-productivity",
+            "configure-location"
+          ]
+        },
+        {
+          "groupName": "basic-authenticated-user",
+          "permission": [
+            "authenticated-user"
+          ]
+        }
+      ]
+    }
+  ]
+}

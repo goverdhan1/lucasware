@@ -1,0 +1,38 @@
+<div class="row display-flex">
+    <div class="menu display-flex flex2">
+        <ul class="nav nav-pills">
+            <li role="presentation"
+                ng-repeat="obj in names"
+                data-ng-class="selectedCategory == obj.name ? 'active': ''"
+                data-ng-click="selectCategory(obj.name)">
+                <a href="">
+                    {{obj.name}} ({{ widgets[obj.name].length }})
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="content flex4">
+        <ul class="widget">
+            <li data-ng-repeat="obj in widgets[selectedCategory]"
+                data-ng-class="selectedWidget.id == obj.id ? 'active': ''"
+                data-ng-click="selectWidget(obj)">
+                <div class="display-flex display-flex-row">
+                    <div class="logo flex1">
+                        <img data-ng-src="images/{{obj.shortName}}.png"
+                             width="40">
+                    </div>
+                    <div class="content flex4">
+                        <h2>
+                            {{obj.title}}
+                        </h2>
+
+                        <p>
+                            {{obj.description}}
+                        </p>
+                    </div>
+
+            </li>
+        </ul>
+    </div>
+</div>

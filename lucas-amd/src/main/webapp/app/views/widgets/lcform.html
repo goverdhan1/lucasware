@@ -1,0 +1,28 @@
+<div dragandresize widgettype="form" id="wid{{currentWidgetInstance.id}}" class="ui-widget-content panel panel-success widget-panel" data-ng-style="{'top': currentWidgetInstance.actualViewConfig.anchor[0], 'left': currentWidgetInstance.actualViewConfig.anchor[1], 'width': currentWidgetInstance.actualViewConfig.width, 'z-index': currentWidgetInstance.actualViewConfig.zindex, 'height': currentWidgetInstance.actualViewConfig.height};">
+	<div class="panel-heading ui-widget-header">
+		{{currentWidgetInstance.widgetDefinition.name}}
+		<div class="pull-right">
+			<button class="btn-small btn-success" data-ng-click="handleMaxState()">
+				<span class="glyphicon glyphicon-plus"></span>
+			</button>
+			<button class="btn-small btn-success">
+				<span class="glyphicon glyphicon-cog"></span>
+			</button>
+			<button class="btn-small btn-success">
+				<span class="glyphicon glyphicon-remove"></span>
+			</button>
+			<button data-ng-click="SaveWidget(currentWidgetInstance)" class="btn-small btn-success" id="save-widget" data-ng-show="currentWidgetInstance.updateWidget">
+				<span class="glyphicon glyphicon-save"></span>
+			</button>
+		</div>
+	</div>
+	<div class="panel-body">
+		<alert ng-repeat="alert in alerts" type="alert.type" close="closeAlert($index)">
+			{{alert.msg}}
+		</alert>
+		<div data-ng-if="currentWidgetInstance.widgetDefinition.type==='FORM'">
+			<div class="formContainer" lcform formname="{{ currentWidgetInstance.widgetDefinition.name }}"></div>
+		</div>
+		<div class="listenContainer" showselected></div>
+	</div>
+</div>

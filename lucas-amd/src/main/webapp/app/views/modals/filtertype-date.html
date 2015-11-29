@@ -1,0 +1,67 @@
+<div id="filtertype-date">
+	<div class="modal-header">
+		<h4 class="text-center" translate="{{ 'user.customFilter' }}"></h4>
+	</div>
+	<div class="modal-body">
+	<form name="dateForm" novalidate>
+	<div class="col-md-6">
+		<label>From: </label>
+ 		<p class="input-group">
+              <input 
+              type="text" 
+              class="form-control" 
+              datepicker-popup="shortDate" 
+              ng-model="colFilter.startDate" 
+              name="startDate" 
+              is-open="$parent.startDateOpened" 
+              ng-required="true" 
+              ng-click="startDateOpen($event)" 
+              close-text="Close"/>
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="startDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+        <p class="pull-right">
+        	<timepicker ng-model="colFilter.startTime" hour-step="hstep" minute-step="mstep" show-meridian="true"></timepicker>
+
+        </p>
+	</div>
+
+	<div class="col-md-6">
+		<label>To</label>
+ 		<p class="input-group">
+              <input 
+              type="text" 
+              class="form-control" 
+              datepicker-popup="shortDate" 
+              ng-model="colFilter.endDate"
+              min-date="colFilter.startDate" 
+              name="endDate"
+              is-open="$parent.endDateOpened" 
+              datepicker-options="dateOptions" 
+              ng-required="true" 
+              ng-disabled="dateForm.startDate.$error.required"
+              ng-click="endDateOpen($event)"
+              close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" 
+                class="btn btn-default"
+                ng-disabled="dateForm.startDate.$error.required"
+                ng-click="endDateOpen($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+        <p class="pull-right">
+        	<timepicker ng-model="colFilter.endTime" hour-step="hstep" minute-step="mstep" show-meridian="true"></timepicker>
+        </p>
+
+	</div>
+
+
+	</form>
+ 	<div class="clearfix"></div>	
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-disabled="dateForm.$invalid" id="btn-delete-user-confirmation" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-delete-close-confirmation" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

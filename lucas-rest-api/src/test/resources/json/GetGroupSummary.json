@@ -1,0 +1,17 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "warehouse-manager": 3,
+        "system": 3,
+        "basic-authenticated-user": 1,
+        "supervisor": 2,
+        "administrator": 2,
+        "picker": 3
+    }
+}

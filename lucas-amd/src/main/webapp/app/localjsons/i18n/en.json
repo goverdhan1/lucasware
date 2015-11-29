@@ -1,0 +1,425 @@
+{
+    "responseId": "1",
+    "data": {
+
+        "aboutModal": {
+            "aboutLucasware": "About Lucasware",
+            "buildNumber": "Build Number",
+            "timeStamp": "Timestamp"
+        },
+
+        "actionPallet" : {
+            "availableActions" : "Available Actions",
+            "actions" : {
+                "activate-user" : "Activate User(s)",
+                "delete-user" : "Delete User(s)",
+                "disable-user" : "Disable User(s)"
+            }
+        },
+
+        "button": {
+            "ok": "OK",
+            "cancel": "Cancel",
+            "allPosts": "All posts",
+            "about": "About",
+            "addNewCanvas": "AddNewCanvas",
+            "createNewCanvas": "Create New Canvas",
+            "action" : "Actions",
+            "saveCanvas": "Save Canvas",
+            "saveWidget": "Save Widget",
+            "addLevel": "Add Level"
+        },
+
+        "canvas": {
+            "assignmentManagement": "Assignment Management",
+            "movementAnalysis": "Movement Analysis",
+            "overviewWarehouse": "Overview Warehouse",
+            "performance": "Performance",
+            "pickDensity": "Pick Density",
+            "pickMonitoring": "Pick Monitoring",
+            "pickMonitoringAlternative": "Pick Monitoring Alternative",
+            "productivity": "Productivity",
+            "qcMetricsOverview": "QC Metrics Overview",
+            "throughput": "Throughput",
+            "userPerformance": "User Performance",
+            "editModeFor": "Edit mode for",
+            "doYouReallyWantToClose": "Do you really want to close",
+            "doYouReallyWantToDelete": "Are you sure you want to delete",
+            "name": "Name:",
+            "id": "ID:",
+            "shortName": "shortName:",
+            "type": "type:",
+            "subtype": "subtype:",
+            "addNewCanvas": "Add New Canvas"
+        },
+
+        "cog": {
+            "changeDateFormat": "Change Date Format",
+            "showOrHideGridColumns": "Show / Hide Grid Columns",
+            "checkedColumnsAreBeingShownNow": "Checked columns are being shown now.",
+            "chartOrientation": "Chart Orientation",
+            "orientation" : {
+                "value" : {
+                    "h" : "Horizontal",
+                    "v" : "Vertical"
+                }
+            },
+            "changeListensForList": "Update Listens For List",
+            "reactToMap":{
+                "heading": "React To Map",
+                "text": "Select one or more item(s) in the list to move it to Listens For List. Note: You can't add the same item."
+            },
+            "listensForList":{
+                "heading": "Listens for list",
+                "text": "Select one or more item(s) in the list to remove it from Listens For List."
+            },
+            "autoRefresh": {
+                "settings": "Automatic Refresh Settings",
+                "override": "Override Settings",
+                "enabled": "Refresh Enabled",
+                "frequency": "Frequency (seconds)",
+                "invalidRefreshInterval": "Refresh frequency cannot be less than 20 seconds"
+            }
+        },
+
+        "core": {
+            "edit": "Edit",
+            "close": "Close",
+            "cancel": "Cancel",
+            "delete": "Delete",
+            "continue": "Continue",
+            "description": "Description",
+            "type": "Type",
+            "error": "Error",
+            "save": "Save",
+            "saveAs": "Save As",
+            "yes": "Yes",
+            "no": "No",
+            "chartsAndGraphs": "Charts and Graphs",
+            "pickList": "Pick List",
+            "putawayList": "Putaway List",
+            "search": "Search:",
+            "sortBy": "Sort by:",
+            "alphabetical": "Alphabetical",
+            "status": "Status",
+            "from": "from:",
+            "regionDetails": "Region Details",
+            "backToRegionsList": "Back to Regions List",
+            "listOfWarehouses": "List of Warehouses",
+            "regionList": "Region List",
+            "details": "Details",
+            "warehouseDetails": "Warehouse Details",
+            "region": "region",
+            "warehouseList": "Warehouse List",
+            "warehouse": "Warehouse",
+            "thisWarehouseBelongsToRegionWithId": "This warehouse belongs to region with id:",
+            "usersList": "Users List",
+            "all": "All",
+            "active": "Active",
+            "inactive": "Inactive",
+            "filter": "Filter",
+            "filterBy": "Filter By:",
+            "clearAllFilters": "Clear All Filters",
+            "forceUpdate" : "Force Update",
+            "resetToFactory" : "Reset to Factory",
+            "unsavedChanges" : "Unsaved Changes",
+            "confirmDiscardChanges" : "Unsaved changes will be lost. Do you wish to continue?",
+            "saving" : "Saving...",
+            "components":"Component",
+            "abbreviations": "Abbreviation",
+            "actions": "Actions",
+            "noDataFound": "No Data Found",
+            "classification": "Classification",
+            "preDefinedList": "Pre-defined List",
+            "category": "Category",
+            "subcategory": "Sub-Category",
+            "reviewChangesConfirm": "Review Changes and Confirm",
+            "locusLogin": "Locus Login :",
+            "selectChangesSave": "Select the changes to save",
+            "previousValue": "Previous Value",
+            "newValue": "New Value",
+            "selectAll": "Select All",
+            "and": "and",
+            "more": "more",
+            "errorCode" : "Error Code:",
+            "uniqueKey" : "Support Ref#:"
+        },
+
+        "index": {
+            "LocalStorageIsNotSupported": "LocalStorage is not supported"
+        },
+
+        "landing": {
+            "headline": "Heading in English",
+            "panelItemHeading": "Meet Jennifer on a DC Tour"
+        },
+
+        "locale": {
+            "languageDE": "German",
+            "languageFR": "French",
+            "languageEN": "English",
+            "languageCode": "EN",
+            "ISOLanguageCodes" : {
+                "EN_GB" : "English (United Kingdom)",
+                "EN_US" : "English (United States)",
+                "ES_ES" : "Spanish",
+                "DE_DE" : "German",
+                "FR_FR" : "French",
+                "FR_CA" : "French (Canada)"
+            }
+        },
+
+        "login": {
+            "enterUsername": "Enter Username",
+            "username": "Username",
+            "enterPassword": "Enter Password",
+            "forgotPassword": "Forgot password?",
+            "signIn": "Sign in",
+            "invalidUserNameOrPassword": "Invalid Username or Password",
+            "youWantedToAccess": "You wanted to access",
+            "failure": "Failure"
+        },
+
+        "logout": {
+            "areYouSureYouWantToLogout": "Are you sure you want to logout?",
+            "logoutSuccessful": "Logout Successful"
+        },
+
+        "deleteWidget": {
+            "areYouSureYouWantToDelete": "Are you sure you want to delete this widget? ",
+            "deleteSuccessful": "Deleted Successfully"
+        },
+        "resetWidget": {
+            "areYouSureYouWantToReset": "Are you sure you want to reset this widget? "
+        },
+
+        "menu": {
+            "loadWidget": "Load Widget",
+            "welcome": "Welcome ",
+            "myPreferences": "My Preferences",
+            "logout": "Logout",
+            "changeLanguage": "Change Language",
+            "makeHomeCanvas": "Make Home Canvas",
+            "resetCanvas": "Reset Canvas",
+            "cloneCanvas": "Clone Canvas",
+            "publishCanvas": "Publish Canvas",
+            "setAsDefaultCanvases": "Set As Default Canvases"
+        },
+
+        "user": {
+            "personalInformation": "Personal Information",
+            "mobileNumber": "Mobile No.",
+            "hostLogin": "Host Login",
+            "hostPassword": "Host Password",
+            "firstName": "Firstname",
+            "lastName": "Lastname",
+            "loginInformation": "Login Information",
+            "userName": "User Name",
+            "password": "Password",
+            "confirmPassword": "Confirm Password",
+            "passwordsDoNotMatch": "Passwords do not match",
+            "emailAddress": "Email Address",
+            "title": "Title",
+            "login": "Lucas Login",
+            "options": "Options",
+            "employeeNumber": "Employee No.",
+            "startDate": "Start Date",
+            "birthDate": "Birth Date",
+            "preferredLanguages": "Preferred Languages",
+            "jenniferToUser": "Jennifer to User",
+            "userToJennifer": "User to Jennifer",
+            "handheldScreenLanguage": "Handheld",
+            "AMDLanguage": "AMD",
+            "MultiEditMode" : "Editing Users: ",
+            "confirmAction": "Are you sure you want to:",
+            "activate": "Activate",
+            "deactivate": "Deactivate",
+            "areYouSureYouWantToMakeHomeCanvas": "Are you sure you want to make '{{canvasName}}' your home canvas?",
+            "makeHomeCanavsSuccess": "Home Canvas saved sucessfully",
+            "loginInfo" : "Login Information",
+            "languages" : "Languages",
+            "optional" : "Optional",
+            "groups" : "Groups",
+            "skill": "Skill",
+            "skills" : {
+                "STANDARD" : "Standard",
+                "ADVANCED" : "Advanced"
+            },
+            "shift" : "Shift",
+            "shifts" : {
+                "day" : "Day",
+                "night" : "Night"
+            },
+            "defaultFilterOptions": {
+                "nonEmpty": "Non Empty",
+                "empty": "Empty",
+                "noFilter":"No Filter",
+                "custom": "Custom"
+            },
+            "alphaFilter":{
+                "startWith":"Start With",
+                "endsWith":"End With",
+                "contains": "Contains",
+                "matches": "Matches"
+            },
+
+            "customFilter": "Custom Filter",
+            "copyUser" : "Copying User...",
+            "newLucasLogin" : "New Lucas Login",
+            "selectUserToDelete": "Please select a user to delete.",
+            "selectUserToDeactivate": "Please select a user to disable.",
+            "selectUserFromGridToDelete": "Delete User",
+            "selectUserFromGridToDisable": "Disable User",
+            "deleteTheFollowingUser":"Are you sure you want to delete the following users?",
+            "disableTheFollowingUser":"Are you sure you want to disable the following users?",
+            "alreadyDisabledUsers":"The following users are already disabled:",
+            "selectUserFromGridToEnable": "Enable User",
+            "enableTheFollowingUser":"Are you sure you want to enable the following users?",
+            "alreadyEnabledUsers":"The following users are already enabled:",
+            "retrainVoiceLog":"Retrain Voice Model",
+            "retrainVoiceLogTheFollowingUser":"Are you sure you want to retrain the following users voice models?",
+            "active":"Active",
+            "inactive":"Inactive",
+            "manualRefresh":"Refresh",
+            "unfilter":"Unfilter",
+            "totalItems":"Total items",
+            "selectedItems":"Selected",
+            "totalCount":"Total count",
+            "autoRefreshPaused":"automatic refresh paused",
+            "selectGroupToDelete": "Please select a group to delete.",
+            "selectGroupFromGridToDelete": "Delete Group",
+            "deleteTheFollowingGroups":"Are you sure you want to delete the following group?"
+        },
+
+        "groupAssignment": {
+            "groupName": "Group Name",
+            "amdPermissions": "AMD Permissions",
+            "workExecution": "Work Execution",
+            "enrollUsers": "Enroll Users",
+            "permissionCategories": "Permission Categories",
+            "availablePermissions": "Available Permissions",
+            "assignedPermissions": "Assigned Permissions",
+            "copyGroup" : "Copying Group...",
+            "newGroupName" : "New Group Name",
+            "newGroupDescription" : "Description",
+            "descriptionPlaceholder" : "add a group description"
+        },
+
+        "userGroup" : {
+            "userName" : "User Name",
+            "availableGroups" : "Available Groups",
+            "existingGroups" : "Existing Groups",
+            "selectedGroups" : "Selected Groups",
+            "resultantPermissions" : "Resultant Permissions",
+            "save": "Save",
+            "cancel": "Cancel",
+            "amd": "AMD",
+            "workExecution": "Work Execution"
+        },
+
+        "preferences": {
+            "myPreferences": "My Preferences",
+            "dateFormat": "Date Format",
+            "timeFormat": "Time Format",
+            "refreshFrequency": "Auto Refresh Interval (seconds)"
+        },
+
+        "createCanvas": {
+            "configureCanvas" : "Configure Canvas",
+            "shareCanvas" : "Share Canvas",
+            "name" : "New Canvas Name",
+            "selectLayout" : "Select Layout",
+            "loadWidget" : "Load Widget",
+            "canvasNameIsRequired":"Canvas name is required",
+            "canvasNameAlreadyExists": "Canvas name already exists"
+        },
+
+        "widgetsPallette": {
+            "search" : "Search",
+            "widgetsPallette": "Widgets pallette"
+        },
+
+        "selectCanvas": {
+            "private" : "My Private Canvases",
+            "company" : "Company Canvases",
+            "lucas" : "Lucas Canvases",
+            "available": "Available",
+            "open": "Open",
+            "permissionsRevoked": "Permissions Revoked"
+        },
+
+        "security" : {
+            "permissionCategories" : {
+                "canvas": "Canvas",
+                "EAI": "EAI",
+                "Equipment": "Equipment",
+                "canvas-management" : "Canvas Management",
+                "canvas-permissions" : "Canvas Permissions",
+                "data-export" : "Data Export",
+                "Groups" : "Groups",
+                "product-management" : "Product Management",
+                "user-management" : "User Management",
+                "Users" : "Users",
+                "widget-permissions" : "Widget Permissions"
+            }
+        },
+
+        "cloneCanvas": {
+            "name" : "New Canvas Name",
+            "canvasNameIsRequired":"Canvas name is required",
+            "canvasNameAlreadyExists": "Canvas name already exists"
+        },
+
+        "publishCanvas": {
+            "areYouSureYouWantToPublish": "Are you sure you want to publish"
+        },
+
+        "error" : {
+            "userNameMissing" : "Please enter a new Lucas Login",
+            "userAlreadyExists" : "Lucas Login already exists",
+            "userNotFound" : "User \"<i>{{user}}</i>\" not found",
+            "groupNameMissing": "Please enter a new Group Name",
+            "groupAlreadyExists": "Group Name already exists",
+            "groupNotFound" : "Group \"<i>{{group}}</i>\" not found",
+            "minimumValueExpected" : "minimum value of {{value}} required", 
+            "required": "This is required.", 
+            "pleaseSelectOption": "Please select an option."
+        },
+
+        "eai" : {
+            "eventHandlerRegistration" : "Event Handler Registration",
+            "eventHandlerName" : "Event Handler Name",
+            "transport" : "Transport",
+            "details" : "Details",
+            "eventHandlers" : "Event Handlers",
+            "type" : "Type",
+            "inboundMapping" : "Inbound Mapping",
+            "transportType" : "Transport Type",
+            "host" : "Host",
+            "portNumber" : "Port Number",
+            "remoteDirectory" : "Remote Directory",
+            "inboundDirectory" : "Inbound Directory",
+            "inboundFileName" : "Inbound File Name",
+            "pollingFrequency" : "Polling Frequency",
+            "deleteSourceFile" : "Delete Source File",
+            "eventDefinition" : "Event Definition",
+            "eventName" : "Event Name",
+            "addEvent" : "Add Event",
+            "source" : "Source"
+        },
+
+        "widgetInteractions": {
+            "whatDoesTheWidgetListenFor": "What does the widget listen for?",
+            "active": "Active",
+            "widgetInstance": "Widget Instance",
+            "data": "Data"
+        },
+
+        "constants" : {
+            "LOGOUT_SUCCESS" : "Logout Successful",
+            "FETCH_USER_DETAILS_ERROR" : "Failed to obtain user details"
+        }
+    },
+    "status": "",
+    "message": ""
+}

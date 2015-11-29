@@ -1,0 +1,24 @@
+<div id="enableUserConfirmation">
+	<div class="modal-body">
+		<h4 ng-if="activeUsers.length" translate="{{ 'user.enableTheFollowingUser' }}"></h4>
+		<ul class="list" ng-if="activeUsers.length<=5">
+        	    <li ng-repeat="user in activeUsers">{{user}}</li>
+        	</ul>
+        	<ul class="list" ng-if="activeUsers.length>5"> 
+		    <li ng-repeat="user in activeUsers | limitTo:5">{{user}}</li>
+		    <li>and {{activeUsers.length-5}} more...</li>
+		</ul>
+		<h4 ng-if="disabledUsers.length" translate="{{ 'user.alreadyEnabledUsers' }}"></h4>
+        	<ul class="list" ng-if="disabledUsers.length<=5">
+            		<li ng-repeat="user in disabledUsers">{{user}}</li>
+        	</ul>
+        	<ul class="list" ng-if="disabledUsers.length>5"> 
+		    <li ng-repeat="user in disabledUsers | limitTo:5">{{user}}</li>
+		    <li>and {{disabledUsers.length-5}} more...</li>
+		</ul>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" ng-if="activeUsers.length" id="btn-enable-confirmation" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-enable-close-confirmation" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

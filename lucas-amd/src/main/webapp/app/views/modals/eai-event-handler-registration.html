@@ -1,0 +1,112 @@
+<div id="eaiEventHandlerRegistration">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="text-center heading">
+                {{ 'eai.eventHandlerRegistration' | translate}}
+                <i class="glyphicon glyphicon-remove pull-right remove-icon" data-ng-click="closeModal()"></i>
+            </h4>
+        </div>
+        <div class="form-group">
+            <label for="eventHandlerName" class="col-sm-5 control-label">{{ 'eai.eventHandlerName' | translate}}</label>
+            <div class="col-sm-5">
+                <input id="eventHandlerName" type="text" required ng-model="details.name" class="form-control input-sm">
+            </div>
+        </div>
+        <div class="resizeTabSetContainer">
+
+            <tabset justified="true" menu-tabset="true" hideMenuHeadingIndex="1">
+                <!-- TAB Details -->
+                <tab heading="{{ 'eai.details' | translate }}" active="tabs[0]">
+                    <fieldset class="modal-body">
+                        <!-- Description-->
+                        <div class="form-group">
+                            <label for="password" class="col-sm-6 control-label">{{ 'core.description' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="description" type="text" required ng-model="details.details.description" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Type-->
+                        <div class="form-group">
+                            <label for="type" class="col-sm-6 control-label">{{ 'core.type' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="type" type="text" required ng-model="details.details.type" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Inbound Mapping-->
+                        <div class="form-group">
+                            <label for="inboundMapping" class="col-sm-6 control-label">{{ 'eai.inboundMapping' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="inboundMapping" type="text" required ng-model="details.details.inboundMapping" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- Transport Type-->
+                        <div class="form-group">
+                            <label for="transportType" class="col-sm-6 control-label">{{ 'eai.transportType' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="transportType" type="text" required ng-model="details.details.transportType" class="form-control input-sm">
+                            </div>
+                        </div>
+                    </fieldset>
+                </tab>
+
+                <!-- TAB Transport -->
+                <tab heading="{{ 'eai.transport' | translate }}" active="tabs[1]" >
+                    <fieldset class="modal-body">
+                        <div class="form-group">
+                            <div class="container-full-tab">
+                                <div class="row">
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <label for="host" class="col-sm-6 control-label" translate="{{ 'eai.host' }}"></label>
+                                            <input id="host" type="text" required ng-model="details.transport.host" class="width-100">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="portNumber" class="col-sm-6 control-label" translate="{{ 'eai.portNumber' }}"></label>
+                                            <input id="portNumber" type="text" required ng-model="details.transport.portNumber" class="width-100">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="userName" class="col-sm-6 control-label" translate="{{ 'user.userName' }}"></label>
+                                            <input id="userName" type="text" required ng-model="details.transport.userName" class="width-100">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password" class="col-sm-6 control-label" translate="{{ 'user.password' }}"></label>
+                                            <input id="password" type="text" required ng-model="details.transport.password" class="width-100">
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <div class="form-group">
+                                            <label for="remoteDirectory" class="control-label" translate="{{ 'eai.remoteDirectory' }}"></label>
+                                            <input id="remoteDirectory" type="text" required ng-model="details.transport.remoteDirectory" class="width-50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inboundDirectory" class="control-label" translate="{{ 'eai.inboundDirectory' }}"></label>
+                                            <input id="inboundDirectory" type="text" required ng-model="details.transport.inboundDirectory" class="width-50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="inboundFileName" class="control-label" translate="{{ 'eai.inboundFileName' }}"></label>
+                                            <input id="inboundFileName" type="text" required ng-model="details.transport.inboundFileName" class="width-50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="pollingFrequency" class="control-label" translate="{{ 'eai.pollingFrequency' }}"></label>
+                                            <input id="pollingFrequency" type="text" required ng-model="details.transport.pollingFrequency" class="width-50">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="deleteSourceFile" class="control-label" translate="{{ 'eai.deleteSourceFile' }}"></label>
+                                            <input id="deleteSourceFile" type="text" required ng-model="details.transport.deleteSourceFile" class="width-50">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </tab>
+            </tabset>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnOk"
+                data-ng-click="closeModal()"
+                translate="{{ 'core.save' }}"></button>
+    </div>
+</div>

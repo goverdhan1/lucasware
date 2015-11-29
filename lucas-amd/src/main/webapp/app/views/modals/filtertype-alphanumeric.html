@@ -1,0 +1,29 @@
+<div id="filtertype-alphanumeric">
+	<div class="modal-header">
+		<h4 class="text-center" translate="{{ 'user.customFilter' }}"></h4>
+	</div>
+
+	<div class="modal-body">
+		<form name="alphanumericForm" novalidate class="alphanumeric-form">
+		<div class="col-md-4 form-group">
+		<select class="form-control" name="alphaOption" ng-model="colFilter.alphaOption" required>
+		<option value=""></option>
+		<option value="STARTWITH" translate="user.alphaFilter.startWith"></option>
+		<option value="ENDSWITH" translate="user.alphaFilter.endsWith"></option>
+		<option value="CONTAINS" translate="user.alphaFilter.contains"></option>
+		<option value="MATCHES" translate="user.alphaFilter.matches"></option>
+	</select>
+	<span class="error" ng-if="!alphanumericForm.$pristine && alphanumericForm.alphaOption.$error.required" translate="error.pleaseSelectOption"></span>
+</div>
+<div class="col-md-8 form-group">
+<input type="text" class="form-control" ng-disabled="alphanumericForm.alphaOption.$error.required" ng-model="colFilter.alphaValue" name="alphaValue" required />
+	<span class="error" ng-if="!alphanumericForm.$pristine && alphanumericForm.alphaValue.$error.required" translate="error.required"></span>
+</div>	
+</form>
+<div class="clearfix"></div>	
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-success" id="btn-delete-user-confirmation" ng-disabled="alphanumericForm.$invalid" value="ok" data-ng-click="$close(action)" translate="{{ 'button.ok' }}"></button>
+		<button class="btn btn-warning" id="btn-delete-close-confirmation" value="cancel" data-ng-click="$dismiss('cancel')" translate="{{ 'button.cancel' }}"></button>
+	</div>
+</div>

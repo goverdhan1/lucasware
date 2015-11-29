@@ -1,0 +1,625 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.lucas.alps</groupId>
+	<artifactId>lucas-parent</artifactId>
+	<version>1.0.0.CI-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	<name>Lucas Parent</name>
+	<url>http://www.lucasware.com</url>
+	<inceptionYear>2013</inceptionYear>
+	<description>
+		<![CDATA[This project represents top level project for all lucasware development]]>
+	</description>
+	<properties>
+	    <java.jdk.version>1.7</java.jdk.version>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+
+		<spring.framework.version>4.0.6.RELEASE</spring.framework.version>
+		<spring.security.version>3.2.5.RELEASE</spring.security.version>
+		<spring.batch.version>3.0.1.RELEASE</spring.batch.version>
+		<spring.batch.admin.version>1.3.0.M1</spring.batch.admin.version>
+		<spring.integration.version>3.0.4.RELEASE</spring.integration.version>
+		<spring.amqp.version>1.1.3.RELEASE</spring.amqp.version>
+		<spring.retry.version>1.0.2.RELEASE</spring.retry.version>
+        <spring.test.version>4.0.6.RELEASE</spring.test.version>
+		<apache.poi.version>3.9</apache.poi.version>
+		<lowagie.version>4.2.1</lowagie.version>
+		<freemarker.version>2.3.15</freemarker.version>
+		<activiti.version>5.11</activiti.version>
+		<bouncycastle.version>1.46</bouncycastle.version>
+		<jasypt.version>1.9.0</jasypt.version>
+		<jasypt.spring.version>1.9.0</jasypt.spring.version>
+		<hibernate.version>3.6.0.Final</hibernate.version>
+		<hibernate.validator.version>4.1.0.Final</hibernate.validator.version>
+		<validation.version>1.0.0.GA</validation.version>
+		<junit.version>4.8.1</junit.version>
+		<mysql.version>5.1.22</mysql.version>
+		<h2.version>1.3.156</h2.version>
+		<slf4j.version>1.7.2</slf4j.version>
+		<log4j.version>1.2.16</log4j.version>
+		<inject.version>1</inject.version>
+		<mockito.version>1.9.0</mockito.version>
+		<easymock.version>2.3</easymock.version>
+		<powermock.version>1.4.12</powermock.version>
+		<groovy.version>2.0.4</groovy.version>
+		<activiti.designer.version>5.11.2</activiti.designer.version>
+		<aspectj.version>1.7.2</aspectj.version>
+		<jstl.version>1.2</jstl.version>
+		<joda.version>2.2</joda.version>
+		<commons.lang.version>3.1</commons.lang.version>
+		<commons.io.version>1.4</commons.io.version>
+		<jackson.version>2.3.3</jackson.version>
+		<commons.codec.version>1.4</commons.codec.version>
+		<commons.collections.version>3.2</commons.collections.version>
+		<hamcrest.version>1.3</hamcrest.version>
+		<springockito.version>1.0.5</springockito.version>
+		<commons.pool.version>1.6</commons.pool.version>
+		<commons.dbcp.version>1.4</commons.dbcp.version>
+		<pmd.version>4.2.4</pmd.version>
+		<jackson.core.version>2.3.3</jackson.core.version>
+		<servlet.api.version>3.0.1</servlet.api.version>
+		<servlet.version>3.0-alpha-1</servlet.version>
+
+		<skipTests>false</skipTests>
+		<skip.liquibase>true</skip.liquibase>
+		<test.include.pattern>**/*UnitTest*.java</test.include.pattern>
+		<hsqldb.version>1.8.0.7</hsqldb.version>
+
+		<maven.build.timestamp.format>yyyy-MM-dd-HH:mm:ss</maven.build.timestamp.format>
+		<beanstalk.versionLabel>${maven.build.timestamp}</beanstalk.versionLabel>
+		<selenium.version>2.43.1</selenium.version>
+		<org.json.version>20090211</org.json.version>
+		<p6spy.version>1.3</p6spy.version>
+        <liquibase.version>3.3.2</liquibase.version>
+        <liquibase-slf4j.version>1.2.1</liquibase-slf4j.version>
+        <liquibase-hibernate4.version>3.5</liquibase-hibernate4.version>
+        <dropFirst>true</dropFirst>
+
+	</properties>
+
+	<developers>
+		<developer>
+			<id>pankaj</id>
+			<email>tandon@lucasware.com</email>
+			<organization>Lucas Corp</organization>
+			<!-- PHX-104 Modified the timezone from EDT to America/Montreal to fix 
+				Warnings in the Maven Build -->
+			<timezone>America/Montreal</timezone>
+		</developer>
+		<developer>
+			<id>scooby</id>
+			<email>do@lucasware.com</email>
+			<organization>Some Corp</organization>
+			<!-- PHX-104 Modified the timezone from EDT to America/Montreal to fix 
+				Warnings in the Maven Build -->
+			<timezone>America/Montreal</timezone>
+		</developer>
+	</developers>
+
+
+	<build>
+		<defaultGoal>compile</defaultGoal>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.liquibase</groupId>
+					<artifactId>liquibase-maven-plugin</artifactId>
+					<version>${liquibase.version}</version>
+					<executions>
+						<execution>
+							<id>update-db</id>
+							<phase>compile</phase>
+							<goals>
+								<goal>update</goal>
+							</goals>
+							<configuration>
+								<promptOnNonLocalDatabase>false</promptOnNonLocalDatabase>
+								<skip>${skip.liquibase}</skip>
+							</configuration>
+						</execution>
+					</executions>
+                </plugin>
+
+				<plugin>
+					<groupId>org.codehaus.mojo</groupId>
+					<artifactId>exec-maven-plugin</artifactId>
+					<version>1.2.1</version>
+				</plugin>
+
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
+				<plugin>
+					<groupId>org.eclipse.m2e</groupId>
+					<artifactId>lifecycle-mapping</artifactId>
+					<version>1.0.0</version>
+					<configuration>
+						<lifecycleMappingMetadata>
+							<pluginExecutions>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.liquibase</groupId>
+										<artifactId>
+											liquibase-maven-plugin
+										</artifactId>
+										<versionRange>[2.0.5,)</versionRange>
+										<goals>
+											<goal>update</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+								<pluginExecution>
+									<pluginExecutionFilter>
+										<groupId>org.mortbay.jetty</groupId>
+										<artifactId>maven-jetty-plugin</artifactId>
+										<versionRange>[6.1.10,)	</versionRange>
+										<goals>
+											<goal>run-war</goal>
+											<goal>run-exploded</goal>
+										</goals>
+									</pluginExecutionFilter>
+									<action>
+										<ignore></ignore>
+									</action>
+								</pluginExecution>
+							</pluginExecutions>
+						</lifecycleMappingMetadata>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.0</version>
+				<configuration>
+					<source>${java.jdk.version}</source>
+					<target>${java.jdk.version}</target>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.14</version>
+				<configuration>
+                    <!-- This is a work around for the plugin error of java.lang.VerifyError: Expecting a stackmap frame at branch target -->
+                    <argLine>-XX:-UseSplitVerifier</argLine>
+					<testFailureIgnore>false</testFailureIgnore>
+					<skipTests>${skipTests}</skipTests>
+					<forkMode>once</forkMode>
+					<includes>
+						<include>${test.include.pattern}</include>
+					</includes>
+					<excludes>
+						<exclude>**/E2E*.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.2</version>
+				<configuration>
+					<instrumentation>
+						<excludes>
+							<exclude>/**/*.class</exclude>
+							<exclude>/**/*Test**.class</exclude>
+						</excludes>
+					</instrumentation>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>clean</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.3.1</version>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.doxia</groupId>
+						<artifactId>doxia-module-markdown</artifactId>
+						<version>1.3</version>
+					</dependency>
+				</dependencies>
+				<configuration>
+					<inputEncoding>UTF-8</inputEncoding>
+					<outputEncoding>UTF-8</outputEncoding>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>cobertura-maven-plugin</artifactId>
+				<version>2.5.2</version>
+				<configuration>
+					<formats>
+						<format>html</format>
+					</formats>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jxr-plugin</artifactId>
+				<version>2.1</version>
+				<configuration>
+					<aggregate>true</aggregate>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-pmd-plugin</artifactId>
+				<version>3.0.1</version>
+				<configuration>
+					<linkXref>true</linkXref>
+					<sourceEncoding>utf-8</sourceEncoding>
+					<minimumTokens>100</minimumTokens>
+					<targetJdk>${java.jdk.version}</targetJdk>
+					<rulesets>
+						<ruleset>${basedir}/../lucas-parent/src/main/resources/rulesets/rulesets.xml</ruleset>
+					</rulesets>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>2.9.1</version>
+				<configuration>
+					<linkXRef>true</linkXRef>
+					<!-- <configLocation>src/main/resources/rulesets/customrules-checkstyle.xml</configLocation> -->
+					<configLocation>src/main/resources/rulesets/checkstyle.xml</configLocation>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.3.1</version>
+				<reportSets>
+					<reportSet>
+						<reports>
+							<report>index</report>
+						</reports>
+					</reportSet>
+				</reportSets>
+				<configuration>
+					<dependencyLocationsEnabled>false</dependencyLocationsEnabled>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>2.9</version>
+			</plugin>
+		</plugins>
+	</reporting>
+	<profiles>
+
+		<!-- Module specific profiles -->
+		<profile>
+			<id>all</id>
+			<modules>
+				<module>../lucas-services</module>
+				<module>../lucas-services-clientxyz</module>
+				<module>../lucas-rest-api</module>
+				<module>../lucas-batch</module>
+				<module>../lucas-eai-file</module>
+				<module>../lucas-mq</module>
+				<!-- Placed lucas-amd AFTER lucas-processes because for some reason, 
+					if amd is placed BEFORE, modules downstream of it fail to build! -->
+				<!-- The process just dies after successfully building amd.. no error 
+					message. -->
+				<!-- Placing amd in the end, fixes the issue. Maybe something to do with 
+					the shutdown hook issued by the failsafe plugin (or jetty plugin) that runs -->
+				<!-- lucas-amd E2E tests. -->
+				<module>../lucas-processes</module>
+				<module>../lucas-designer-extension</module>
+				<module>../lucas-amd</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>eaiAll</id>
+			<modules>
+				<module>../lucas-services</module>
+				<module>../lucas-eai-file</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>amd</id>
+			<modules>
+				<module>../lucas-amd</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>restapi</id>
+			<modules>
+				<module>../lucas-services</module>
+				<module>../lucas-rest-api</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>batch</id>
+			<modules>
+				<module>../lucas-services</module>
+				<module>../lucas-batch</module>
+			</modules>
+		</profile>
+		<profile>
+			<id>process</id>
+			<modules>
+				<module>../lucas-services</module>
+				<module>../lucas-processes</module>
+				<module>../lucas-designer-extension</module>
+			</modules>
+		</profile>
+
+
+		<!-- env specific profiles -->
+		<profile>
+			<id>loc</id>
+			<activation>
+				<property>
+					<name>!non.existent.property</name>
+				</property>
+			</activation>
+			<properties>
+				<env>loc</env>
+				<liquibase.url>jdbc:mysql://localhost:3306/lucasdb</liquibase.url>
+				<liquibase.username>lucas</liquibase.username>
+				<liquibase.password>password</liquibase.password>
+				<logfile.location.amd>/tmp/logs/lucas-amd.log</logfile.location.amd>
+				<logfile.location.api>/tmp/logs/lucas-api.log</logfile.location.api>
+				<logfile.location.eai.file>/tmp/logs/lucas-eai-file.log</logfile.location.eai.file>
+				<logfile.location.batch>/tmp/logs/lucas-batch.log</logfile.location.batch>
+				<logfile.location.processes>/tmp/logs/lucas-processes.log</logfile.location.processes>
+				<lucas.cache.diskstore.path>/tmp/cache</lucas.cache.diskstore.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>dev</id>
+			<properties>
+				<env>dev</env>
+				<liquibase.url>jdbc:mysql://aa1ik2x3tsfkq1r.cdxaunipbbpa.us-east-1.rds.amazonaws.com:3306/lucasdb</liquibase.url>
+				<liquibase.username>lucasdevdbuser</liquibase.username>
+				<liquibase.password>${liquibase.password.cli}</liquibase.password>
+
+				<beanstalk.environment.name.api>lucas-api-dev</beanstalk.environment.name.api>
+				<beanstalk.cname.prefix.api>lucas-api-dev</beanstalk.cname.prefix.api>
+				<beanstalk.environment.name.amd>lucas-amd-dev</beanstalk.environment.name.amd>
+				<beanstalk.cname.prefix.amd>lucas-amd-dev</beanstalk.cname.prefix.amd>
+				<beanstalk.application.name.amd>lucas-amd</beanstalk.application.name.amd>
+				<beanstalk.application.name.api>lucas-api</beanstalk.application.name.api>
+
+				<logfile.location.amd>/tmp/logs/lucas-amd.log</logfile.location.amd>
+				<logfile.location.api>/tmp/logs/lucas-api.log</logfile.location.api>
+				<logfile.location.eai.file>/tmp/logs/lucas-eai-file.log</logfile.location.eai.file>
+				<logfile.location.batch>/tmp/logs/lucas-batch.log</logfile.location.batch>
+				<logfile.location.processes>/tmp/logs/lucas-processes.log</logfile.location.processes>
+				<lucas.cache.diskstore.path>/tmp/cache</lucas.cache.diskstore.path>
+			</properties>
+		</profile>
+		<profile>
+			<id>vpc</id>
+			<properties>
+				<env>vpc</env>
+				<liquibase.url>jdbc:mysql://aa1tunvcswm0k7b.cdxaunipbbpa.us-east-1.rds.amazonaws.com:3306/lucasdb</liquibase.url>
+				<liquibase.username>lucasdevdbuser</liquibase.username>
+				<liquibase.password>${liquibase.password.cli}</liquibase.password>
+
+				<beanstalk.environment.name.api>lucasvpc-api-dev</beanstalk.environment.name.api>
+				<beanstalk.cname.prefix.api>lucasvpc-api-dev</beanstalk.cname.prefix.api>
+				<beanstalk.environment.name.amd>lucasvpc-amd-dev</beanstalk.environment.name.amd>
+				<beanstalk.cname.prefix.amd>lucasvpc-amd-dev</beanstalk.cname.prefix.amd>
+				<beanstalk.application.name.amd>lucasvpc-amd</beanstalk.application.name.amd>
+				<beanstalk.application.name.api>lucasvpc-api</beanstalk.application.name.api>				
+
+				<logfile.location.amd>/tmp/logs/lucasvpc-amd.log</logfile.location.amd>
+				<logfile.location.batch>/tmp/logs/lucasvpc-batch.log</logfile.location.batch>
+				<logfile.location.processes>/tmp/logs/lucasvpc-processes.log</logfile.location.processes>
+			</properties>
+		</profile>
+		<profile>
+			<id>qas</id>
+			<properties>
+				<env>qas</env>
+				<logfile.location.amd>/a/qa/location/for/amd/logs</logfile.location.amd>
+				<logfile.location.processes>/a/qa/location/for/processes/logs</logfile.location.processes>
+			</properties>
+		</profile>
+		<profile>
+			<id>prd</id>
+			<properties>
+				<env>prd</env>
+				<liquibase.url>jdbc:mysql://192.168.100.74:3306/lucasdb</liquibase.url>
+				<liquibase.username>lucas</liquibase.username>
+				<liquibase.password>password</liquibase.password>
+				<logfile.location.amd>/a/prod/location/for/amd/logs</logfile.location.amd>
+				<logfile.location.batch>c:\\lucashealth\\batch\\logs\\lucas-batch.log</logfile.location.batch>
+				<logfile.location.processes>/a/prod/location/for/processes/logs</logfile.location.processes>
+			</properties>
+		</profile>
+		<profile>
+			<id>beanstalk</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>br.com.ingenieux</groupId>
+						<artifactId>beanstalk-maven-plugin</artifactId>
+						<version>0.2.9</version>
+						<configuration>
+							<region>us-east-1</region>
+							<s3Bucket>lucas-war-files</s3Bucket>
+							<s3Key>${project.artifactId}/${project.build.finalName}-${maven.build.timestamp}.war</s3Key>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+		<!-- Testing specific profiles -->
+		<profile>
+			<id>alltests</id>
+			<properties>
+			  <test.include.pattern>**/*Test*.java</test.include.pattern>
+			</properties>
+		</profile>
+		
+	</profiles>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<!-- Testing -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-core</artifactId>
+			<version>${mockito.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-api-mockito</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.powermock</groupId>
+			<artifactId>powermock-module-junit4</artifactId>
+			<version>${powermock.version}</version>
+			<scope>test</scope>
+		</dependency>
+
+		<!-- logging -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>pmd</groupId>
+			<artifactId>pmd</artifactId>
+			<version>${pmd.version}</version>
+			<exclusions>
+				<exclusion>
+					<artifactId>icu4j</artifactId>
+					<groupId>com.ibm.icu</groupId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>p6spy</groupId>
+			<artifactId>p6spy</artifactId>
+			<version>${p6spy.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!-- TODO: Add to Nexus -->
+	<repositories>
+        <repository>
+			<id>MavenCentral</id>
+			<name>Maven repository</name>
+			<url>http://repo1.maven.org/maven2</url>
+		</repository>
+		<repository>
+			<id>alfresco-public</id>
+			<url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>spring-milestones</id>
+			<name>Spring Maven Milestone Repository</name>
+			<url>http://s3.amazonaws.com/maven.springframework.org/milestone</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+
+		<!-- This snapshot repo should be removed eventually -->
+		<!-- Including it because we need some Spring batch-core features -->
+		<!-- that are just released (in 3.0.0.SNAPSHOT) and that is only available 
+			on the -->
+		<!-- snapshot repo. Dec 2013 -->
+		<repository>
+			<id>spring-milestone</id>
+			<name>Spring Milestone Repository</name>
+			<url>http://maven.springframework.org/release</url>
+		</repository>
+
+	</repositories>
+	<distributionManagement>
+		<site>
+			<id>${project.artifactId}-site</id>
+			<url>./</url>
+		</site>
+	</distributionManagement>
+</project>

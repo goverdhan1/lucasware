@@ -1,0 +1,83 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "grid": {
+            "1": {
+                "values": [
+                    ""
+                ]
+            },
+            "2": {
+                "values": [
+                    ""
+                ]
+            },
+            "3": {
+                "values": [
+                    "Dummy3 Product"
+                ]
+            },
+            "4": {
+                "values": [
+                    "Marked Out"
+                ]
+            },
+            "5": {
+                "values": [
+                    "No"
+                ]
+            },
+            "6": {
+                "values": [
+                    "Yes"
+                ]
+            },
+            "7": {
+                "values": [
+                    "Yes"
+                ]
+            },
+            "8": {
+                "values": [
+                    "Yes"
+                ]
+            },
+            "9": {
+                "values": [
+                    "Yes"
+                ]
+            },
+            "10": {
+                "values": [
+                    "Yes"
+                ]
+            },
+            "11": {
+                "values": [
+                    "No"
+                ]
+            },
+            "12": {
+                "values": [
+                    "dummy3 customer_SKU_nbr01"
+                ]
+            },
+            "13": {
+                "values": [
+                    "dummy3 manufacturer_item_nbr01"
+                ]
+            },
+            "14": {
+                "values": [
+                    "No"
+                ]
+            }
+        }
+    }
+}

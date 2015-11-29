@@ -1,0 +1,67 @@
+{
+  "status": "success",
+  "code": "200",
+  "message": "Request processed successfully",
+  "level": null,
+  "uniqueKey": null,
+  "token": null,
+  "explicitDismissal": null,
+  "data": [
+    {
+      "customClassificationName": "Brand",
+      "customClassificationFieldName": "custom_classification_1",
+      "customClassificationDefinition": {
+        "data": [
+          "Kellogg's",
+          "Nestle",
+          "Quaker"
+        ]
+      }
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_10",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": "Category",
+      "customClassificationFieldName": "custom_classification_2",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": "Sub-Category",
+      "customClassificationFieldName": "custom_classification_3",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_4",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_5",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_6",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_7",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_8",
+      "customClassificationDefinition": null
+    },
+    {
+      "customClassificationName": null,
+      "customClassificationFieldName": "custom_classification_9",
+      "customClassificationDefinition": null
+    }
+  ]
+}

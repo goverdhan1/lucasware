@@ -1,0 +1,77 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:batch="http://www.springframework.org/schema/batch" 
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/batch
+	http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
+	http://www.springframework.org/schema/jdbc 
+	http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+	
+    <import resource="classpath:/META-INF/spring/brokenout/datasource-context.xml"/> 
+
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp.PoolingDataSource" depends-on="resourcePoolableConnectionFactory">
+	    <constructor-arg ref="resourceDataSourcePool"/>
+	</bean>	
+		 
+	<bean id="resourceDataSourceConnectionFactory" class="org.apache.commons.dbcp.DataSourceConnectionFactory">
+	    <constructor-arg>
+			<bean class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+			    <property name="url" value="${batch.jdbc.url}" />
+			    <property name="username" value="${batch.jdbc.user}" />
+			    <property name="password" value="${batch.jdbc.password}" />
+			    <property name="driverClassName" value="${batch.jdbc.driver}" />
+			</bean>
+	    </constructor-arg>
+	</bean>
+	 
+	<bean id="resourceJdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	
+    <!-- JPA beans -->
+    <bean id="resourceEntityManagerFactory"
+        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="persistenceUnitName" value="resourceDomain"/>
+        <property name="jpaVendorAdapter" ref="hibernateAdapter" />
+		<property name="jpaDialect">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaDialect" />
+		</property>        
+    </bean>	
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+	    <property name="entityManagerFactory" ref="resourceEntityManagerFactory"/>
+	</bean> 		
+
+	
+	
+  <!-- Override this because Hibernate JPA Dialect does not support custom tx levels -->
+  <!-- Also replace with the existing datasource and txmanager -->	
+  <bean id="jobRepository"
+		class="org.springframework.batch.core.repository.support.JobRepositoryFactoryBean">
+		<property name="isolationLevelForCreate" value="ISOLATION_DEFAULT" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="transactionManager" ref="transactionManager" />
+  </bean>
+  
+  <bean id="hibernateAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="showSql" value="true"/>
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect"/>
+        <!-- EXPERIMENTAL: For lucas-batch we will let hibernate drive the db instead of liquibase -->
+        <property name="generateDdl" value="true"/>
+  </bean>     
+  
+  <!--  Initialise the database if enabled and ignores errors if the script is re-run -->
+  <jdbc:initialize-database data-source="dataSource" enabled="${batch.data.source.init}" ignore-failures="ALL">
+		<jdbc:script location="${batch.schema.script}"/>
+  </jdbc:initialize-database>  
+
+</beans>

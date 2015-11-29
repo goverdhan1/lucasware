@@ -1,0 +1,243 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "dataURL": {
+            "url": "/users/userlist/search",
+            "searchCriteria": {
+                "pageNumber": "0",
+                "pageSize": "10",
+                "searchMap": {},
+                "sortMap": {}
+            }
+        },
+        "id": 9,
+        "widgetActionConfig": {
+            "widget-access": {
+                "search-user-grid-widget-access": true
+            },
+            "widget-actions": {
+                "delete-user": true,
+                "disable-user": true
+            }
+        },
+        "broadcastList": [
+            "userName"
+        ],
+        "shortName": "SearchUser",
+        "title": "Search User",
+        "reactToMap": {
+            "userName": {
+                "url": "/users/userlist/search",
+                "searchCriteria": {
+                    "pageNumber": "0",
+                    "pageSize": "10",
+                    "searchMap": {
+                        "userName": [
+                            "$userName"
+                        ]
+                    }
+                }
+            }
+        },
+        "defaultViewConfig": {
+            "anchor": [
+                1,
+                363
+            ],
+            "minimumHeight": 375,
+            "minimumWidth": 485,
+            "listensForList": [
+                "userName"
+            ],
+             "deviceWidths": {
+		        "320": "mobile",
+		        "600": "tablet",
+		        "700": "desktop", 
+		        "1200": "wideScreen"
+		      },
+            "zindex": 1,
+            "gridColumns": {
+
+				"1": {
+			      "name": "User Name",
+			      "fieldName": "userName",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "1",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+				"2": {
+			      "name": "Host Login",
+			      "fieldName": "wmsuser.hostLogin",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "2",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "3": {
+			      "name": "First Name",
+			      "fieldName": "firstName",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "3",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "4": {
+			      "name": "Last Name",
+			      "fieldName": "lastName",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "4",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "5": {
+			      "name": "Skill",
+			      "fieldName": "skill",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "5",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "6": {
+			      "name": "Shifts",
+			      "fieldName": "shift.shiftName",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "6",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "7": {
+			      "name": "J2uLanguage",
+			      "fieldName": "j2uLanguage",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "7",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "8": {
+			      "name": "U2jLanguage",
+			      "fieldName": "u2jLanguage",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "8",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "9": {
+			      "name": "HhLanguage",
+			      "fieldName": "hhLanguage",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "9",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "10": {
+			      "name": "AmdLanguage",
+			      "fieldName": "amdLanguage",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "10",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "11": {
+			      "name": "Enable",
+			      "fieldName": "enable",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "1",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "12": {
+			      "name": "Employee Id",
+			      "fieldName": "employeeId",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "12",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "13": {
+			      "name": "Title",
+			      "fieldName": "title",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "13",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "14": {
+			      "name": "Start Date",
+			      "fieldName": "startDate",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "14",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "15": {
+			      "name": "Birth Date",
+			      "fieldName": "birthDate",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "15",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "16": {
+			      "name": "Mobile Number",
+			      "fieldName": "mobileNumber",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "16",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "17": {
+			      "name": "Email Address",
+			      "fieldName": "emailAddress",
+			      "visible": true,
+			      "allowFilter": true,
+			      "order": "17",
+			      "sortOrder": "1", 
+			      "width": 150
+			    },
+			    "18": {
+			      "name": "User Id",
+			      "fieldName": "userId",
+			      "visible": false,
+			      "allowFilter": true,
+			      "order": "18",
+			      "sortOrder": "1", 
+			      "width": 150
+			    }
+			  },
+            "dateFormat": {
+                "selectedFormat": "mm-dd-yyyy",
+                "availableFormats": [
+                    "mm-dd-yyyy",
+                    "MMM dd, yyyy",
+                    "dd-mm-yyyy"
+                ]
+
+            }
+        },
+        "defaultData": {},
+        "name": "search-user-grid-widget"
+    }
+}

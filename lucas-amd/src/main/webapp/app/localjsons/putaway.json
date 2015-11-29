@@ -1,0 +1,36 @@
+{
+	"data":[
+		{
+			"id":1,
+			"name":"first putaway",
+			"status":"waiting"
+		},
+		{
+			"id":2,
+			"name":"second putaway",
+			"status":"complete"
+		},
+		{
+			"id":4,
+			"name":"third putaway",
+			"status":"complete"
+		},
+		{
+			"id":8,
+			"name":"fifth putaway",
+			"status":"waiting"
+		},
+		{
+			"id":5,
+			"name":"another putaway",
+			"status":"in progress"
+		},
+		{
+			"id":14,
+			"name":"last putaway",
+			"status":"in progress"
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

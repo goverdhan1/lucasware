@@ -1,0 +1,528 @@
+{
+  "createdByUserName": "jack123",
+  "createdDateTime": "2015-03-09T14:45:33.000Z",
+  "updatedByUserName": null,
+  "updatedDateTime": null,
+  "canvasId": null,
+  "canvasName": "ABC",
+  "shortName": "Perishable",
+  "canvasType": "PRIVATE",
+  "canvasLayout": null,
+  "userSet": null,
+  "widgetInstanceList": [
+    {
+      "id": null,
+      "actualViewConfig": {
+        "anchor": [
+          275,
+          295
+        ],
+        "autoRefreshConfig": {
+          "enabled": false,
+          "interval": 0,
+          "globalOverride": false
+        },
+        "minimumWidth": 567,
+        "minimumHeight": 240,
+        "zindex": 1,
+        "position": 4,
+        "listensForList": [
+          "userName"
+        ],
+        "isMaximized": false,
+        "dateFormat": {
+          "selectedFormat": "mm-dd-yyyy",
+          "availableFormats": [
+            "mm-dd-yyyy",
+            "MMM dd, yyyy",
+            "dd-mm-yyyy"
+          ]
+        }
+      },
+      "widgetDefinition": {
+        "name": "create-or-edit-user-form-widget",
+        "id": 8
+      },
+      "delete": null,
+      "widgetInteractionConfig": [
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 1,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "userName"
+        },
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 3,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "groupName"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "actualViewConfig": {
+        "anchor": [
+          1,
+          363
+        ],
+        "autoRefreshConfig": {
+          "enabled": false,
+          "interval": 0,
+          "globalOverride": false
+        },
+        "minimumWidth": 485,
+        "minimumHeight": 375,
+        "zindex": 1,
+        "position": 2,
+        "listensForList": [
+          "userName"
+        ],
+        "gridColumns": {
+          "1": {
+            "name": "User Name",
+            "fieldName": "userName",
+            "visible": true,
+            "allowFilter": true,
+            "order": "1",
+            "sortOrder": "1"
+          },
+          "2": {
+            "name": "Host Login",
+            "fieldName": "wmsuser.hostLogin",
+            "visible": false,
+            "allowFilter": true,
+            "order": "2",
+            "sortOrder": "1"
+          },
+          "3": {
+            "name": "First Name",
+            "fieldName": "firstName",
+            "visible": true,
+            "allowFilter": true,
+            "order": "3",
+            "sortOrder": "1"
+          },
+          "4": {
+            "name": "Last Name",
+            "fieldName": "lastName",
+            "visible": true,
+            "allowFilter": true,
+            "order": "4",
+            "sortOrder": "1"
+          },
+          "5": {
+            "name": "Skill",
+            "fieldName": "skill",
+            "visible": true,
+            "allowFilter": true,
+            "order": "5",
+            "sortOrder": "1"
+          },
+          "6": {
+            "name": "Shifts",
+            "fieldName": "shift.shiftName",
+            "visible": true,
+            "allowFilter": true,
+            "order": "6",
+            "sortOrder": "1"
+          },
+          "7": {
+            "name": "J2uLanguage",
+            "fieldName": "j2uLanguage",
+            "visible": true,
+            "allowFilter": true,
+            "order": "7",
+            "sortOrder": "1"
+          },
+          "8": {
+            "name": "U2jLanguage",
+            "fieldName": "u2jLanguage",
+            "visible": true,
+            "allowFilter": true,
+            "order": "8",
+            "sortOrder": "1"
+          },
+          "9": {
+            "name": "HhLanguage",
+            "fieldName": "hhLanguage",
+            "visible": true,
+            "allowFilter": true,
+            "order": "9",
+            "sortOrder": "1"
+          },
+          "10": {
+            "name": "AmdLanguage",
+            "fieldName": "amdLanguage",
+            "visible": true,
+            "allowFilter": true,
+            "order": "10",
+            "sortOrder": "1"
+          },
+          "11": {
+            "name": "Enable",
+            "fieldName": "enable",
+            "visible": false,
+            "allowFilter": true,
+            "order": "11",
+            "sortOrder": "1"
+          },
+          "12": {
+            "name": "Employee Id",
+            "fieldName": "employeeId",
+            "visible": false,
+            "allowFilter": true,
+            "order": "12",
+            "sortOrder": "1"
+          },
+          "13": {
+            "name": "Title",
+            "fieldName": "title",
+            "visible": false,
+            "allowFilter": true,
+            "order": "13",
+            "sortOrder": "1"
+          },
+          "14": {
+            "name": "Start Date",
+            "fieldName": "startDate",
+            "visible": true,
+            "allowFilter": true,
+            "order": "14",
+            "sortOrder": "1"
+          },
+          "15": {
+            "name": "Birth Date",
+            "fieldName": "birthDate",
+            "visible": false,
+            "allowFilter": true,
+            "order": "15",
+            "sortOrder": "1"
+          },
+          "16": {
+            "name": "Mobile Number",
+            "fieldName": "mobileNumber",
+            "visible": false,
+            "allowFilter": true,
+            "order": "16",
+            "sortOrder": "1"
+          },
+          "17": {
+            "name": "Email Address",
+            "fieldName": "emailAddress",
+            "visible": true,
+            "allowFilter": true,
+            "order": "17",
+            "sortOrder": "1"
+          },
+          "18": {
+            "name": "User Id",
+            "fieldName": "userId",
+            "visible": false,
+            "allowFilter": true,
+            "order": "18",
+            "sortOrder": "1"
+          }
+        },
+        "dateFormat": {
+          "selectedFormat": "mm-dd-yyyy",
+          "availableFormats": [
+            "mm-dd-yyyy",
+            "MMM dd, yyyy",
+            "dd-mm-yyyy"
+          ]
+        }
+      },
+      "widgetDefinition": {
+        "name": "search-user-grid-widget",
+        "id": 9
+      },
+      "dataURL": {
+        "url": "/users/userlist/search",
+        "searchCriteria": {
+          "pageNumber": "2",
+          "pageSize": "10",
+          "searchMap": {},
+          "sortMap": {}
+        }
+      },
+      "delete": null,
+      "widgetInteractionConfig": [
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 1,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "userName"
+        },
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 3,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "groupName"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "actualViewConfig": {
+        "anchor": [
+          1,
+          2
+        ],
+        "autoRefreshConfig": {
+          "enabled": false,
+          "interval": 0,
+          "globalOverride": false
+        },
+        "minimumWidth": 500,
+        "minimumHeight": 300,
+        "zindex": 1,
+        "position": 3,
+        "orientation": {
+          "option": [
+            {
+              "legend": "horizontal",
+              "value": "h"
+            },
+            {
+              "legend": "vertical",
+              "value": "v"
+            }
+          ],
+          "selected": "h"
+        },
+        "dateFormat": {
+          "selectedFormat": "mm-dd-yyyy",
+          "availableFormats": [
+            "mm-dd-yyyy",
+            "MMM dd, yyyy",
+            "dd-mm-yyyy"
+          ]
+        }
+      },
+      "widgetDefinition": {
+        "name": "pickline-by-wave-barchart-widget",
+        "id": 10
+      },
+      "delete": null,
+      "widgetInteractionConfig": [
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 1,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "userName"
+        },
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 3,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "groupName"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "actualViewConfig": {
+        "anchor": [
+          2,
+          2
+        ],
+        "autoRefreshConfig": {
+          "enabled": false,
+          "interval": 0,
+          "globalOverride": false
+        },
+        "minimumWidth": 2,
+        "minimumHeight": 2,
+        "zindex": 2,
+        "position": 5
+      },
+      "widgetDefinition": {
+        "name": "group-maintenance-widget",
+        "id": 12
+      },
+      "delete": null,
+      "widgetInteractionConfig": [
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 1,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "userName"
+        },
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 3,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "groupName"
+        }
+      ]
+    },
+    {
+      "id": null,
+      "actualViewConfig": {
+        "anchor": [
+          1,
+          363
+        ],
+        "autoRefreshConfig": {
+          "enabled": false,
+          "interval": 0,
+          "globalOverride": false
+        },
+        "minimumWidth": 485,
+        "minimumHeight": 375,
+        "zindex": 1,
+        "position": 1,
+        "listensForList": [
+          "productName"
+        ],
+        "gridColumns": {
+          "1": {
+            "name": "Product Number",
+            "fieldName": "productNumber",
+            "visible": false,
+            "allowFilter": true,
+            "order": "1",
+            "sortOrder": "1"
+          },
+          "2": {
+            "name": "Description",
+            "fieldName": "description",
+            "visible": true,
+            "allowFilter": true,
+            "order": "2",
+            "sortOrder": "1"
+          },
+          "3": {
+            "name": "Status",
+            "fieldName": "status",
+            "visible": true,
+            "allowFilter": true,
+            "order": "3",
+            "sortOrder": "1"
+          },
+          "4": {
+            "name": "productName",
+            "fieldName": "productName",
+            "visible": true,
+            "allowFilter": true,
+            "order": "4",
+            "sortOrder": "1"
+          },
+          "5": {
+            "name": "Marked Out",
+            "fieldName": "markedOut",
+            "visible": true,
+            "allowFilter": true,
+            "order": "5",
+            "sortOrder": "1"
+          },
+          "6": {
+            "name": "Base Item",
+            "fieldName": "baseItem",
+            "visible": true,
+            "allowFilter": true,
+            "order": "6",
+            "sortOrder": "1"
+          },
+          "7": {
+            "name": "Base Item Threshold",
+            "fieldName": "baseItemThreshold",
+            "visible": true,
+            "allowFilter": true,
+            "order": "7",
+            "sortOrder": "1"
+          },
+          "8": {
+            "name": "UPC Check",
+            "fieldName": "upcCheck",
+            "visible": true,
+            "allowFilter": true,
+            "order": "8",
+            "sortOrder": "1"
+          },
+          "9": {
+            "name": "UPC Check Every X qty",
+            "fieldName": "upcCheckEveryXqty",
+            "visible": true,
+            "allowFilter": true,
+            "order": "9",
+            "sortOrder": "1"
+          },
+          "10": {
+            "name": "Capture Lot Number",
+            "fieldName": "captureLotNumber",
+            "visible": true,
+            "allowFilter": true,
+            "order": "10",
+            "sortOrder": "1"
+          },
+          "11": {
+            "name": "Capture Serial Number",
+            "fieldName": "captureSerialNumber",
+            "visible": true,
+            "allowFilter": true,
+            "order": "11",
+            "sortOrder": "1"
+          },
+          "12": {
+            "name": "Heads Up Messages",
+            "fieldName": "headsUpMessages",
+            "visible": true,
+            "allowFilter": true,
+            "order": "12",
+            "sortOrder": "1"
+          }
+        }
+      },
+      "widgetDefinition": {
+        "name": "search-product-grid-widget",
+        "id": 14
+      },
+      "dataURL": {
+        "url": "/products/productlist/search",
+        "searchCriteria": {
+          "pageNumber": "0",
+          "pageSize": "10",
+          "searchMap": {},
+          "sortMap": {}
+        }
+      },
+      "delete": null,
+      "widgetInteractionConfig": [
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 1,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "userName"
+        },
+        {
+          "active": true,
+          "widgetInstance": {
+            "id": 3,
+            "name": "SearchUser, 39"
+          },
+          "dataElement": "groupName"
+        }
+      ]
+    }
+  ]
+}

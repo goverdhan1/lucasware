@@ -1,0 +1,27 @@
+<div class="notification-panel alert alert-{{ notificationDetails.type }}"
+     role="alert"
+     ng-if="showNotification">
+
+    <button type="button"
+            class="close"
+            data-ng-click="dismissNotification()">
+		<span aria-hidden="true">&times;</span>
+	</button>
+
+    <!-- ERROR CODE -->
+    <p ng-if="notificationDetails.hasOwnProperty('errorCode')">
+        <strong translate="core.errorCode"></strong>
+        {{ notificationDetails.errorCode }}
+    </p>
+
+    <!-- UNIQUE REFERENCE-->
+    <p ng-if="notificationDetails.hasOwnProperty('uniqueKey')">
+        <strong translate="core.uniqueKey"></strong>
+        {{ notificationDetails.uniqueKey }}
+    </p>
+
+    <!-- NOTIFICATION MESSAGE -->
+    <p>
+        {{ notificationDetails.message }}
+    </p>
+</div>

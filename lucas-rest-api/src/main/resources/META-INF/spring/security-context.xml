@@ -1,0 +1,127 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:security="http://www.springframework.org/schema/security"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
+                   
+          
+    <security:http realm="Lucas API" use-expressions="true" auto-config="false" create-session="stateless" entry-point-ref="customAuthenticationEntryPoint">
+		<security:intercept-url pattern="/log/message" access="permitAll"/>
+        <security:intercept-url pattern="/mobileapp/setoptions/*" access="permitAll"/>
+    	<security:custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
+        <security:intercept-url pattern="/application" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/application/**" access="hasRole('authenticated-user')" />
+    	<security:intercept-url pattern="/authenticate" access="permitAll"/> 
+    	<security:intercept-url pattern="/logout" access="permitAll" method="POST"/>
+    	<security:intercept-url pattern="/home" access="permitAll"/>
+    	<security:intercept-url pattern="/about/buildinfo" access="permitAll"/>
+        <security:intercept-url pattern="/widgets/users/*/favoritecanvases" access="permitAll"/>
+        <security:intercept-url pattern="/widgets/*/definition" access="hasRole('authenticated-user')"/>
+    	<security:intercept-url pattern="/warehouse/**" access="hasRole('view-report-productivity')" />
+    	<security:intercept-url pattern="/region/**" access="hasAnyRole('view-report-productivity','configure-location','create-assignment')"/>
+
+        <security:intercept-url pattern="/groups" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/groups/**" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/shifts/**" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/shifts/names" access="hasRole('authenticated-user')" />
+
+		<security:intercept-url pattern="/configuration/image/**" access="permitAll"/>
+		
+		<security:intercept-url pattern="/canvasesbycategories" access="hasRole('authenticated-user')" />
+
+		<security:intercept-url pattern="/users/**" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/users/*/canvases/open" access="hasRole('authenticated-user')" />
+    	<security:intercept-url pattern="/users/*/favoritecanvases" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/users/enable" access="hasRole('enable-user')" />
+        <security:intercept-url pattern="/users/disable" access="hasRole('disable-user')" />
+        <security:intercept-url pattern="/users/delete" access="hasRole('delete-user')" />
+        <security:intercept-url pattern="/users/retrainvoice" access="hasRole('retrain-voice-model')" />
+    	<security:intercept-url pattern="/users/userlist/**" access="hasRole('authenticated-user')" />
+    	<security:intercept-url pattern="/users/groups/**" access="hasRole('authenticated-user')" method="POST"/>
+        <security:intercept-url pattern="/users/userlist/excel" access="hasRole('user-list-download-excel')" />
+        <security:intercept-url pattern="/users/userlist/pdf" access="hasRole('user-list-download-pdf')" />
+        <security:intercept-url pattern="/users/multiedit/save" access="hasRole('authenticated-user') and hasRole('edit-multi-user')" />
+        <security:intercept-url pattern="/users/multiedit/details" access="hasRole('authenticated-user') and hasRole('edit-multi-user')" />
+        <security:intercept-url pattern="/languages/**" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/wms/**" access="hasRole('authenticated-user')" />
+
+        <security:intercept-url pattern="/users/groups/permissionslist" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="users/canvases/save" access="hasRole('authenticated-user')" />
+
+
+        <security:intercept-url pattern="/languages/**" access="hasRole('authenticated-user')" />
+
+        <security:intercept-url pattern="/widgetdefinitions" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/widgetinstances" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/waves/picklines" access="hasRole('authenticated-user')" />
+
+		<security:intercept-url pattern="/products/**" access="hasRole('authenticated-user')" />
+		
+		<security:intercept-url pattern="/canvases/create" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/canvases/save" access="hasRole('authenticated-user')" />
+
+        <security:intercept-url pattern="/canvas/delete/**" access="hasRole('authenticated-user')" />
+
+        <security:intercept-url pattern="/canvases/**" access="hasRole('authenticated-user')" />
+        <security:intercept-url pattern="/canvas/widgetinstance/delete" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/canvases/widgetinstances" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/canvases/active/*" access="hasRole('authenticated-user')" />
+		<security:intercept-url pattern="/permissions" access="hasRole('authenticated-user')" />
+
+        <security:intercept-url pattern="/equipments/**" access="hasRole('authenticated-user')"/>
+        
+        <security:intercept-url pattern="/events/eventlist/**" access="hasRole('authenticated-user')" />
+
+		<security:intercept-url pattern="/segments/segmentlist/search" access="hasRole('authenticated-user')"/>
+	
+ 		<security:intercept-url pattern="/segments/**" access="hasRole('authenticated-user')"/>
+ 		<security:intercept-url pattern="/segments/segmentlist/search" access="hasRole('authenticated-user')"/>
+        <security:intercept-url pattern="/messages/**" access="hasRole('authenticated-user')"/>
+        <security:intercept-url pattern="/mappings/**" access="hasRole('authenticated-user')"/>
+		
+		<security:intercept-url pattern="/events/save" access="hasRole('authenticated-user')"/>
+		<security:intercept-url pattern="/events/delete" access="hasRole('authenticated-user')"/>
+		<security:intercept-url pattern="/events/**" access="hasRole('authenticated-user')"/>
+		<security:intercept-url pattern="/eventhandlers/delete" access="hasRole('authenticated-user')"/>
+		
+		   <security:intercept-url pattern="/mappings/**" access="hasRole('authenticated-user')"/>
+		<security:intercept-url pattern="/transports/transport" access="hasRole('authenticated-user')"/>
+		
+		<security:intercept-url pattern="/mappings/definitions/save" access="hasRole('authenticated-user')"/>
+		<security:intercept-url pattern="/eventhandlers/**" access="hasRole('authenticated-user')"/>
+
+    	<security:intercept-url pattern="/**" access="denyAll"/>
+
+    	<security:access-denied-handler ref="accessDeniedHandler"/>
+  	</security:http>
+  	
+  	<bean id="accessDeniedHandler" class="com.lucas.alps.api.AccessDeniedController"/>
+  	
+  	<bean id="customAuthenticationEntryPoint" class="com.lucas.alps.support.security.CustomAuthenticationEntryPoint" />
+	
+	<bean  id="authenticationTokenProcessingFilter" class="com.lucas.alps.support.security.AuthenticationTokenProcessingFilter">
+		<constructor-arg ref="authenticationManager" />
+	</bean>
+  	
+ 	<security:authentication-manager alias="authenticationManager">
+   	 	<security:authentication-provider ref="lucasApiAuthProvider"/>
+  	</security:authentication-manager>
+
+	<security:global-method-security access-decision-manager-ref="accessDecisionManager"/>
+
+    <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
+	    <property name="decisionVoters">
+	      <list>
+	        <bean class="org.springframework.security.access.vote.RoleVoter">
+	              <property name="rolePrefix" value=""/>
+	        </bean>
+	      </list>
+	    </property>
+    </bean>
+    
+  	<bean id="lucasApiAuthProvider" class="com.lucas.alps.support.security.LucasApiAuthProvider" />
+
+ 	<bean id="tokenProvider" class="com.lucas.alps.support.security.TokenProvider" />
+</beans>

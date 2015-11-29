@@ -1,0 +1,24 @@
+{
+	"data":[
+		{
+			"id":1,
+			"name":"first receiving",
+			"status":"complete",
+			"from":"walmart"
+		},
+		{
+			"id":2,
+			"name":"second receiving",
+			"status":"waiting",
+			"from":"ABC Corp"
+		},
+		{
+			"id":5,
+			"name":"fifth receiving",
+			"status":"waiting",
+			"from":"XYZ LLC"
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

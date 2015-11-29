@@ -1,0 +1,56 @@
+<div class="moveData">
+    <div class="col-xs-5">
+        <h4 translate="{{ widgetdetails.strAvailableItems  }}"></h4>
+        <select multiple
+                class="availableItems form-control input-sm"
+                data-ng-multiple="true"
+                data-ng-model="widgetdetails.selectedAvailableItems"
+                data-ng-options="availableItem for availableItem in widgetdetails.availableItems | filter: removeExistingDataFilter | orderBy:'toString()' "
+                data-ng-disabled="isDisabled">
+        </select>
+    </div>
+    <div class="col-xs-2 buttons">
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveOneToExistingData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveOneToAvailableData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveAllToExistingData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-forward"></span>
+            </button>
+        </div>
+        <div>
+            <button type="button"
+                    class="btn btn-sm btn-info"
+                    data-ng-click="moveAllToAvailableData()"
+                    data-ng-disabled="isDisabled">
+                <span class="glyphicon glyphicon-backward"></span>
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-5">
+        <h4 translate="{{ widgetdetails.strExistingItems }}"></h4>
+        <select multiple
+                class="existingItems form-control input-sm"
+                data-ng-multiple="true"
+                data-ng-model="widgetdetails.selectedExistingItems"
+                data-ng-options="existingItem for existingItem in widgetdetails.existingItems | orderBy:'toString()'"
+                data-ng-disabled="isDisabled">
+        </select>
+    </div>
+</div>

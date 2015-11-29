@@ -1,0 +1,32 @@
+<div class="col-xs-5 col-sm-4 col-md-4 col-lg-4 topright">
+    <div class="btn-group pull-right" dropdown>
+        <button type="button" class="btn btn-default btn-sm">
+            <span translate>{{ userName }}</span>
+        </button>
+        <button id="btn-user-menu" type="button" class="btn btn-default btn-sm dropdown-toggle">
+            <span class="caret"></span>
+            <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        
+        <ul class="dropdown-menu" role="menu">
+            <li id="load-widget" data-ng-if="activeCanvas && isCreateCanvas">
+                <a href="" data-ng-click="ShowWidgetsPopup()" translate="{{ 'menu.loadWidget' }}"></a>
+            </li>
+            <li data-ng-if="activeCanvas && isCreateCanvas">
+                <a id="btn-user-clone-canvas" href="" data-ng-click="cloneCanvas()" translate="{{ 'menu.cloneCanvas' }}"></a>
+            </li>
+            <li data-ng-if="activeCanvas && isPublishCanvas()">
+                <a id="btn-user-publish-canvas" href="" data-ng-click="publishCanvas()" translate="{{ 'menu.publishCanvas' }}"></a>
+            </li>
+            <li>
+                <a id="btn-set-as-default-canvases" href="" translate="{{ 'menu.setAsDefaultCanvases' }}"></a>
+            </li>
+            <li>
+                <a id="btn-my-preferences" href="" data-ng-click="myPreferences()" translate="{{ 'menu.myPreferences' }}"></a>
+            </li>
+            <li>
+                <a id="btn-logout" href="" data-ng-click="handleLogout()" translate="{{ 'menu.logout' }}"></a>
+            </li>
+        </ul>
+    </div>
+</div>

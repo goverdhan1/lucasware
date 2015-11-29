@@ -1,0 +1,97 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:batch="http://www.springframework.org/schema/batch" 
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:integration="http://www.springframework.org/schema/integration"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xsi:schemaLocation="http://www.springframework.org/schema/batch
+	http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
+	http://www.springframework.org/schema/integration
+	http://www.springframework.org/schema/integration/spring-integration.xsd
+	http://www.springframework.org/schema/integration/file
+	http://www.springframework.org/schema/integration/file/spring-integration-file.xsd	
+	http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+  
+  
+  	<!-- override these beans because.. -->
+	<bean id="batchMBeanExporter" class="java.lang.String"/>
+	<bean id="mbeanExporter" class="java.lang.String"/>
+	<bean id="cacheInterceptor" class="java.lang.String"/>
+	
+	
+  <file:inbound-channel-adapter id="filesIn" prevent-duplicates="true"
+		                              directory="${log.file.input.directory}"
+		                              filename-regex="${log.file.input.regex}"
+		                              >
+		    <integration:poller id="poller" fixed-rate="5000"/>
+  </file:inbound-channel-adapter>
+	  
+  <integration:service-activator input-channel="filesIn" output-channel="job-requests">
+			<bean class="org.springframework.batch.admin.integration.FileToJobLaunchRequestAdapter" xmlns="http://www.springframework.org/schema/beans">
+				<property name="job" ref="logPersistJob" />
+			</bean>
+  </integration:service-activator>	  
+  
+  <integration:logging-channel-adapter id="logger" level="DEBUG"/>
+								     
+  <bean id="logLine" class="com.lucas.entity.health.LogLine" scope="prototype" />
+ 
+  <batch:job id="logPersistJob">
+	<batch:step id="step1">
+	  <batch:tasklet transaction-manager="resourceTransactionManager">
+		<batch:chunk reader="logFileItemReader" writer="jpaItemWriter" processor="logFileItemProcessor"
+			commit-interval="2">
+		</batch:chunk>
+	  </batch:tasklet>
+	</batch:step>
+  </batch:job>
+
+ 
+  <bean id="logFileItemReader" class="org.springframework.batch.item.file.FlatFileItemReader" scope="step">
+	<property name="resource" value="#{jobParameters['input.file']}" />
+ 
+	 <property name="lineMapper">
+		<bean class="org.springframework.batch.item.file.mapping.PatternMatchingCompositeLineMapper">
+		    <property name="tokenizers">
+		        <map>
+		            <entry key="Log*" value-ref="logChunkStartedTokenizer" />
+		            <entry key="*" value-ref="logLineTokenizer" />
+		        </map>
+		    </property>
+		    <property name="fieldSetMappers">
+		        <map>
+		            <entry key="Log*" value-ref="beanWrapperFieldSetMapper" />
+		            <entry key="*" value-ref="beanWrapperFieldSetMapper" />
+		        </map>
+		    </property>
+		</bean>
+	 </property>
+  </bean>
+		
+
+  <bean id="logFileItemProcessor" class="com.lucas.batch.health.LogItemProcessor" />
+  
+  <bean id="logChunkStartedTokenizer"
+	      class="org.springframework.batch.item.file.transform.FixedLengthTokenizer">
+	    <property name="strict" value="false" />
+	    <property name="names" value="timestampDecoration" />
+	    <property name="columns" value="60-70" />
+  </bean>  
+  <bean id="logLineTokenizer"
+	      class="org.springframework.batch.item.file.transform.FixedLengthTokenizer">
+	    <property name="strict" value="false" />  
+	    <property name="names" value="relativeTimestamp, cpuUsagePercent, logRecordType, logSeverity, logData" />
+	    <property name="columns" value="1-9, 11-12, 14-16, 18, 21-"/>
+  </bean>   
+  
+  <bean id="passThruFieldMapper" class="org.springframework.batch.item.file.mapping.PassThroughFieldSetMapper" />
+
+  <bean id="beanWrapperFieldSetMapper" class="org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper">
+	<property name="prototypeBeanName" value="logLine" />
+  </bean>
+  
+  <bean id="jpaItemWriter" class="org.springframework.batch.item.database.JpaItemWriter">
+		<property name="entityManagerFactory" ref="resourceEntityManagerFactory" />
+  </bean>
+</beans>

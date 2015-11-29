@@ -1,0 +1,86 @@
+	{
+  "status": "success",
+  "code": "200",
+  "message": "Request processed successfully",
+  "level": null,
+  "uniqueKey": null,
+  "token": null,
+  "explicitDismissal": null,
+  "data": {
+    "EAI": [
+      "message-segments-widget-access",
+      "create-message-segment",
+      "edit-message-segment",
+      "delete-message-segment",
+      "messages-widget-access",
+      "create-message",
+      "edit-message",
+      "delete-message",
+      "message-mappings-widget-access",
+      "delete-message-mapping",
+      "event-handlers-widget-access",
+	  "create-event-handler",
+	  "edit-event-handler",
+	  "delete-event-handler",
+      "events-widget-access",
+      "create-event",
+      "edit-event",
+      "delete-event"
+    ],
+    "Equipment": [
+      "equipment-type-widget-access",
+      "equipment-management-widget-access",
+      "create-equipment-type",
+      "edit-equipment-type",
+      "delete-equipment-type",
+      "create-equipment",
+      "edit-equipment",
+      "delete-equipment",
+      "unassign-user",
+      "view-checklist"
+    ],
+    "Groups": [
+      "group-maintenance-widget-access",
+      "search-group-widget-access",
+      "create-group",
+      "edit-group",
+      "delete-group"
+    ],
+    "Users": [
+      "search-user-widget-access",
+      "create-edit-user-widget-access",
+      "create-user",
+      "edit-user",
+      "disable-user",
+      "delete-user",
+      "enable-user",
+      "retrain-voice-model"
+    ],
+    "canvas": [
+      "create-canvas",
+      "publish-canvas",
+      "edit-company-canvas"
+    ],
+    "data-export": [
+      "user-list-download-excel",
+      "user-list-download-pdf"
+    ],
+    "product-management": [
+      "create-product",
+      "view-product",
+      "edit-product",
+      "delete-product"
+    ],
+    "user-management": [
+      "create-assignment",
+      "view-report-productivity",
+      "configure-location",
+      "authenticated-user",
+      "edit-multi-user"
+    ],
+    "widget-permissions": [
+      "pickline-by-wave-widget-access",
+      "search-product-grid-widget-access"
+    ]
+  }
+}

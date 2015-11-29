@@ -1,0 +1,39 @@
+<h4 translate="{{ 'cog.changeListensForList' }}"></h4>
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+		<div class="pull-left" style="width: 45%;">
+			<p>
+				<strong>{{ 'cog.reactToMap.heading' | translate }}</strong>
+				<select id="reactToList" style="width: 100%; height: 140px;" multiple="multiple" data-ng-options="reactToValue as reactToValue for reactToValue in widgetinstance.actualViewConfig.reactToList" data-ng-model="selectedReactToValue"></select>
+			</p>
+		</div>
+		<div class="pull-left" style="width: 10%; text-align: center; margin: 20px 0 0 0">
+			<p>
+				<button class="btn-xs btn-success" id="moveItemsToListensForList" data-ng-click="moveItemsToListensForList(selectedReactToValue)" data-ng-show="selectedReactToValue.length > 0">
+					<span class="glyphicon glyphicon-arrow-right"></span>
+				</button>
+			</p>
+			<p>
+				<button class="btn-xs btn-success" id="moveItemsToReactToList" data-ng-click="moveItemsToReactToList(selectedListenForValue)" data-ng-show="selectedListenForValue.length > 0">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+				</button>
+			</p>
+			<p>
+				<button class="btn-xs btn-success" id="moveAllItemsToListensForList" data-ng-click="moveAllItemsToListensForList(widgetinstance.actualViewConfig.reactToList)" data-ng-show="widgetinstance.actualViewConfig.reactToList.length > 0">
+					<span class="glyphicon glyphicon-forward"></span>
+				</button>
+			</p>
+			<p>
+				<button class="btn-xs btn-success" id="moveAllItemsToReactToList" data-ng-click="moveAllItemsToReactToList(widgetinstance.actualViewConfig.listensForList)" data-ng-show="widgetinstance.actualViewConfig.listensForList.length > 0">
+					<span class="glyphicon glyphicon-backward"></span>
+				</button>
+			</p>
+		</div>
+		<div class="pull-left" style="width: 45%;">
+			<p>
+				<strong>{{ 'cog.listensForList.heading' | translate }}</strong>
+				<select style="width: 100%; height: 140px;" id="listensForList" multiple="multiple" data-ng-options="listensForValue as listensForValue for listensForValue in widgetinstance.actualViewConfig.listensForList" data-ng-model="selectedListenForValue"></select>
+			</p>
+		</div>
+	</div>
+</div>

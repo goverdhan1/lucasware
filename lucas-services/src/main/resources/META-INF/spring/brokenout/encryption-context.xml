@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.1.xsd">
+
+    <!-- encryptors -->
+    <!-- this is our string encryptor for all string values in db -->
+    <bean id="stringEncryptor" class="org.jasypt.encryption.pbe.StandardPBEStringEncryptor">
+        <property name="config" ref="envPBEConfig"/>
+    </bean>
+    
+    <!-- this is our password encoder -->
+    <bean id="passwordEncoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder"/>
+
+    <!-- For binary content -->
+    <bean id="byteEncryptor" class="org.jasypt.encryption.pbe.StandardPBEByteEncryptor">
+        <property name="config" ref="envPBEConfig"/>
+    </bean>
+
+    <!-- For integers -->
+    <bean id="bigIntegerEncryptor" class="org.jasypt.encryption.pbe.StandardPBEBigIntegerEncryptor">
+        <property name="config" ref="envPBEConfig"/> 
+    </bean>
+
+    <!-- for bigdecimals -->
+    <bean id="bigDecimalEncryptor" class="org.jasypt.encryption.pbe.StandardPBEBigDecimalEncryptor">
+        <property name="config" ref="envPBEConfig"/>
+    </bean>
+
+    <bean id="saltGenerator" class="org.jasypt.salt.RandomSaltGenerator"/>
+
+    <!-- Default provider -->
+    <bean id="encryptionProvider" class="org.bouncycastle.jce.provider.BouncyCastleProvider"/>
+
+    <!-- environment pbe config -->
+    <!-- This is the only bean where we cannot set values using the property placeholder as the place holder
+    uses this bean via the stringEncryptor -->
+    <bean id="envPBEConfig" class="org.jasypt.encryption.pbe.config.EnvironmentStringPBEConfig">
+        <property name="provider" ref="encryptionProvider"/>
+        <property name="algorithm" value="PBEWITHMD5ANDDES"/>
+        <property name="passwordSysPropertyName" value="LUCAS_ENCRYPTION_PASSWORD"/>
+        <property name="keyObtentionIterations" value="973"/>
+        <property name="saltGenerator">
+            <ref  bean="saltGenerator"/>
+        </property>
+    </bean>
+</beans>

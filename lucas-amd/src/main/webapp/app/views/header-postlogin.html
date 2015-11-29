@@ -1,0 +1,31 @@
+<header class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <ul class="nav nav-pills">
+                    <!--<li>
+                    <a href="" data-ng-click="EditCanvas()">Edit</a>
+                    </li>-->
+                    <li id="close-canvas">
+                        <a href="" data-ng-hide="activeCanvas==null" data-ng-click="CloseCanvas()" translate="{{ 'core.close' }}"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 text-center">
+                <p class="lead">
+                    {{CanvasName}}
+                </p>
+            </div>
+            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                <ul class="nav nav-pills pull-right">
+                    <li>
+                        <a href="#" translate="{{ 'menu.settings' }}"></a>
+                    </li>
+                    <li>
+                        <a href="" data-ng-click="handleLogout()" translate="{{ 'menu.logout' }}"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</header>

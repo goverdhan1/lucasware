@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:int="http://www.springframework.org/schema/integration"
+       xmlns:int-amqp="http://www.springframework.org/schema/integration/amqp"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:rabbit="http://www.springframework.org/schema/rabbit"
+       xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/integration/amqp
+                           http://www.springframework.org/schema/integration/amqp/spring-integration-amqp.xsd
+                           http://www.springframework.org/schema/integration
+                           http://www.springframework.org/schema/integration/spring-integration.xsd
+                           http://www.springframework.org/schema/rabbit
+                           http://www.springframework.org/schema/rabbit/spring-rabbit.xsd
+                           http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/task
+                           http://www.springframework.org/schema/task/spring-task.xsd">
+
+    <context:component-scan base-package="com.lucas.services.messaging">
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Service"/>
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Component"/>
+        <context:exclude-filter type="annotation" expression="java.lang.Deprecated"/>
+    </context:component-scan>
+
+
+    <!--*********************************From RabbitMQ*********************************-->
+
+    <int:channel id="fromRabbit">
+        <int:interceptors>
+            <int:wire-tap channel="loggingChannelFromRabbit"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int:logging-channel-adapter id="loggingChannelFromRabbit"
+                                 log-full-message="true"
+                                 level="INFO"/>
+
+    <task:executor id="lucasTaskExecutor"
+                   keep-alive="${lucas.mq.executor.alive}"
+                   pool-size="${lucas.mq.consumerChannelCacheSize}"
+                   queue-capacity="${lucas.mq.queue.capacity}"
+                   rejection-policy="CALLER_RUNS"/>
+
+    <!--Receive AMQP Messages sent to a given queue .-->
+    <int-amqp:inbound-channel-adapter channel="fromRabbit"
+                                      acknowledge-mode="AUTO"
+                                      queue-names="${lucas.mq.request.queue}"
+                                      auto-startup="true"
+                                      concurrent-consumers="${lucas.mq.concurrent.consumer}"
+                                      task-executor="lucasTaskExecutor"
+                                      mapped-request-headers="${lucas.mq.header.mapper}"
+                                      connection-factory="connectionFactory"/>
+
+    <int:service-activator input-channel="fromRabbit"
+                           ref="processorServiceImpl"
+                           method="processRequest"
+                           auto-startup="true"
+                           expression=""
+                           requires-reply="true"
+                           output-channel="toRabbit"
+                           send-timeout="10000"/>
+
+    <int:service-activator input-channel="fromRabbit"
+                           ref="processorServiceImpl"
+                           method="processRequest"
+                           auto-startup="true"
+                           requires-reply="true"
+                           output-channel="toRabbit"
+                           send-timeout="10000"/>
+
+    <int:service-activator input-channel="fromRabbit"
+                           ref="processorServiceImpl"
+                           method="processRequest"
+                           auto-startup="true"
+                           requires-reply="true"
+                           output-channel="toRabbit"
+                           send-timeout="10000"/>
+
+    <!--Rabbit Template for Publishing Data to Request Queue -->
+    <rabbit:template id="rabbitTemplateSendMessage"
+                     exchange="${lucas.mq.request.exchange}"
+                     immediate="true"
+                     routing-key="${lucas.mq.request.binding}"
+                     connection-factory="connectionFactory"/>
+
+    <!--Rabbit Published Queue for Service Request -->
+    <rabbit:queue id="publishRequestQueue"
+                  name="${lucas.mq.request.queue}"
+                  durable="true"/>
+
+    <!--Rabbit Exchange for Publishing Data on Queue -->
+    <rabbit:direct-exchange id="requestExchange"
+                            durable="true"
+                            auto-delete="${lucas.mq.queue.auto.delete}"
+                            name="${lucas.mq.request.exchange}">
+        <rabbit:bindings>
+            <rabbit:binding queue="${lucas.mq.request.queue}"
+                            key="${lucas.mq.request.binding}"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+
+    <!--*********************************To RabbitMQ*********************************-->
+    <int:channel id="toRabbit">
+        <int:interceptors>
+            <int:wire-tap channel="loggingChannelToRabbit"/>
+        </int:interceptors>
+    </int:channel>
+
+    <int:logging-channel-adapter id="loggingChannelToRabbit"
+                                 auto-startup="true"
+                                 log-full-message="true"
+                                 level="INFO"/>
+
+    <!--Subscribing an AMQP Message from the provided Exchange.-->
+    <int-amqp:outbound-channel-adapter channel="toRabbit"
+                                       amqp-template="rabbitTemplateReceiveMessage"
+                                       confirm-correlation-expression="headers['correlationId']"
+                                       mapped-request-headers="${lucas.mq.header.mapper}"
+                                       exchange-name="${lucas.mq.response.exchange}"
+                                       routing-key="${lucas.mq.response.binding}"/>
+
+    <rabbit:template id="rabbitTemplateReceiveMessage"
+                     queue="${lucas.mq.response.queue}"
+                     exchange="${lucas.mq.response.exchange}"
+                     routing-key="${lucas.mq.response.binding}"
+                     immediate="true"
+                     connection-factory="connectionFactory">
+    </rabbit:template>
+
+    <!--Rabbit Subscribing Queue for Response -->
+    <rabbit:queue id="subscribeResponseQueue"
+                  name="${lucas.mq.response.queue}"
+                  durable="true"/>
+
+    <!--Rabbit Exchange for Subscribing Data from Queue -->
+    <rabbit:direct-exchange durable="true"
+                            auto-delete="${lucas.mq.queue.auto.delete}"
+                            name="${lucas.mq.response.exchange}">
+        <rabbit:bindings>
+            <rabbit:binding queue="${lucas.mq.response.queue}"
+                            key="${lucas.mq.response.binding}"/>
+        </rabbit:bindings>
+    </rabbit:direct-exchange>
+    
+    <!-- The default file poller -->
+	<int:poller default="true" fixed-delay="${lucas.file.poller.fixed.delay}"
+		max-messages-per-poll="${lucas.file.max.messages.per.poll}"
+		task-executor="defaultPollerExecutor" />
+		
+	<task:executor id="defaultPollerExecutor" pool-size="${lucas.task.executor.pool.size}" />
+    
+    <!-- Outbound event configuration for user log-on -->
+	<!-- The channel used to take the outbound service output to rabbit -->
+	<int:channel
+		id="userOutboundInputChannel" >
+		<int:queue capacity="${lucas.file.channel.queue.capacity}" />
+		</int:channel>
+		
+	<!-- The adaptor which takes the output to rabbit -->
+	<int-amqp:outbound-channel-adapter
+		channel="userOutboundInputChannel"
+		amqp-template="amqpTemplate" exchange-name="${lucas.eai.file.exchange}"
+		routing-key="${lucas.file.userOutboundInput.binding}" />
+    
+    <!-- File messaging queues -->
+    <rabbit:template id="amqpTemplate" connection-factory="connectionFactory" />
+    
+    <rabbit:queue id = "userInboundExpressionTransformationQueue" 
+    			  name="${lucas.file.userExpressionTransformation.queue}" 
+    			  durable="true"/>
+	<rabbit:queue id = "usersImportInboundLucasServiceQueue" 
+				  name="${lucas.file.usersImportInboundLucasService.queue}" 
+				  durable = "true"/>
+	<rabbit:queue id = "userOutboundInputQueue" 
+				  name="${lucas.file.userOutboundInput.queue}" 
+				  durable = "true"/>
+	<rabbit:queue id = "usersExportOutboundLucasServiceQueue" 
+				  name="${lucas.file.usersExportOutboundLucasService.queue}" 
+				  durable = "true"/>
+    <!-- File inbound adapter -->
+	<rabbit:direct-exchange durable="true" 
+							auto-delete="${lucas.mq.queue.auto.delete}"
+							name="${lucas.eai.file.exchange}">
+		<rabbit:bindings>
+			<rabbit:binding
+				queue="${lucas.file.userExpressionTransformation.queue}" 
+				key="${lucas.file.userExpressionTransformation.binding}" />
+			<rabbit:binding queue="${lucas.file.usersImportInboundLucasService.queue}"
+				key="${lucas.file.usersImportInboundLucasService.binding}" />
+			<rabbit:binding queue="${lucas.file.userOutboundInput.queue}"
+				key="${lucas.file.userOutboundInput.binding}" />
+			<rabbit:binding queue="${lucas.file.usersExportOutboundLucasService.queue}"
+				key="${lucas.file.usersExportOutboundLucasService.binding}" />
+		</rabbit:bindings>
+	</rabbit:direct-exchange>
+    <!--*********************************RabbitMq Configuration*********************************-->
+
+    <!--Rabbit Admin -->
+    <rabbit:admin id="rabbitAdmin"
+                  auto-startup="true"
+                  connection-factory="connectionFactory"/>
+
+    <!--Rabbit Connection Factory -->
+    <rabbit:connection-factory id="connectionFactory"
+                               publisher-confirms="true"
+                               publisher-returns="true"
+                               host="${lucas.mq.host}"
+                               port="${lucas.mq.port}"
+                               username="${lucas.mq.username}"
+                               password="${lucas.mq.pwd}"/>
+
+    <bean id="clientConnectionFactory" class="com.rabbitmq.client.ConnectionFactory">
+        <property name="host" value="${lucas.mq.host}"/>
+        <property name="port" value="${lucas.mq.port}"/>
+        <property name="username" value="${lucas.mq.username}"/>
+        <property name="password" value="${lucas.mq.pwd}"/>
+    </bean>
+
+</beans>
+

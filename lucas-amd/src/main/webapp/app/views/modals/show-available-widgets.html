@@ -1,0 +1,26 @@
+<div class="showAvailableWidgetsModal">
+	<div class="modal-body">
+        <div data-ng-repeat="(key, prop) in availableWidgets">
+            <h4> {{ key | translate }} </h4>
+            <div class="list-group widget-group" data-ng-repeat="widget in prop">
+                <a href="" id="{{ widget.id }}"
+                   data-ng-click="selectWidget(widget.id, widget.name, widget.type, widget.subtype)"
+                   class="list-group-item">
+                    <div class="clearfix"></div>
+                    <p class="list-group-item-text pull-left col-lg-6">
+                        <img data-ng-src="{{getImagePath(widget)}}"
+                             class="list-icon"
+                             data-ng-hide="{{widget.type == null && widget.subtype == null}}"
+                             width="96" height="64"/>
+                    </p>
+                    <div class="pull-right col-lg-6">
+                        <h4 class="list-group-item-heading">{{ widget.title}}</h4>
+                    </div>
+                </a>
+            </div>
+        </div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+	</div>
+</div>

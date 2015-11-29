@@ -1,0 +1,91 @@
+<div id="eaiMessageSegmentDefinition">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="text-center heading">
+                Segment Definition
+                <i class="glyphicon glyphicon-remove pull-right remove-icon" data-ng-click="closeModal()"></i>
+            </h4>
+        </div>
+        <div class="row table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="4">Segment Name
+                            <input type="text" disabled ng-model="definition.segmentName">
+                        </th>
+                        <th colspan="5">Segment Description
+                            <input type="text" disabled ng-model="definition.segmentDescription">
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="9" class="center-aligned"><i>Segment Fields</i></th>
+                    </tr>
+                    <tr>
+                        <th>Seq</th>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th>Length</th>
+                        <th>Starts</th>
+                        <th>Ends</th>
+                        <th>Value</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr class="row-fluid bg-info" ng-repeat="row in definition.levels">
+                    <td width="40px;">
+                        <input type="text" class="width-25" ng-model="row.seq">
+                    </td>
+                    <td>
+                        <select ng-if="row.isSegment" ng-model="row.name">
+                            <option value="{{item.name}}" ng-repeat="item in messageSegments">{{item.name}}</option>
+                        </select>
+                        <input ng-if="!row.isSegment" type="text" class="width-50" ng-model="row.name">
+                    </td>
+                    <td>
+                        <select ng-model="row.Segment" ng-options="item.name for item in dataTypes"></select>
+                    </td>
+                    <td>
+                        <input type="text" class="width-50" ng-model="row.description">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="row.length">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="row.starts">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="row.ends">
+                    </td>
+                    <td>
+                        <input type="text" class="width-25" ng-model="row.value">
+                    </td>
+                    <td>
+                        <button class="btn-small btn-success" ng-if="!$first" data-ng-click="moveUp($index)"><i class="glyphicon glyphicon-arrow-up"></i></button>
+                        <button ng-if="$first" class="btn-small fade"><i class="glyphicon"></button>
+                        <button class="btn-small btn-success" ng-if="!$last" data-ng-click="moveDown($index)"><i class="glyphicon glyphicon-arrow-down"></i></button>
+                        <button ng-if="$last" class="btn-small fade"><i class="glyphicon"></button>
+                        <button class="btn-small btn-danger" data-ng-click="deleteRow($index)"><i class="glyphicon glyphicon-remove-sign"></i></button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-success"
+                id="btnAddLevel"
+                data-ng-click="addLevel()"
+                translate="{{ 'button.addLevel' }}"></button>
+        <button class="btn btn-success"
+                id="btnOk"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.ok' }}"></button>
+        <button class="btn btn-warning"
+                id="btnCancel"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+    </div>
+</div>

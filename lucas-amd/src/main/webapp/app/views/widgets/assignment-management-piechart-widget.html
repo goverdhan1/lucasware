@@ -1,0 +1,12 @@
+<div data-ng-controller="AssignmentManagementController">
+	<div data-ng-if="widgetdetails.isMaximized === true">
+		<div nvd3-pie-chart height="{{(chartHeight/2) - 10}}" id="pieChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="piechartData" x="xFunctionPie()" y="yFunctionPie()" showLegend="true" tooltips="true" pieLabelsOutside="false" labelType="value" showLabels="true"></div>
+		<div nvd3-pie-chart height="{{(chartHeight/2) - 10}}" id="donutChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="piedonutchartData" x="xFunctionPie()" y="yFunctionPie()" showLegend="true" tooltips="true" donut="true" donutLabelsOutside="false" donutRatio="0.15" labelType="value" showLabels="true"></div>
+	</div>
+	<div data-ng-if="widgetdetails.isMaximized === false">
+		<div nvd3-pie-chart width="{{widgetdetails.actualViewConfig.width}}" height="{{(widgetdetails.actualViewConfig.height/2) - 10}}" id="pieChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="piechartData" x="xFunctionPie()" y="yFunctionPie()" showLegend="true" tooltips="true" pieLabelsOutside="false" labelType="value" showLabels="true"></div>
+		<div nvd3-pie-chart width="{{widgetdetails.actualViewConfig.width}}" height="{{(widgetdetails.actualViewConfig.height/2) - 10}}" id="donutChart{{widgetdetails.clientId + widgetdetails.canvasId}}" data="piedonutchartData" x="xFunctionPie()" y="yFunctionPie()" showLegend="true" tooltips="true" donut="true" donutLabelsOutside="false" donutRatio="0.15" labelType="value" showLabels="true"></div>
+	</div>
+	<listener listen-info="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+	<sender sendinfo="widgetdetails.widgetDefinition"></sender>
+</div>

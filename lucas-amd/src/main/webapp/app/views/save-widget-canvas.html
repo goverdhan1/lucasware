@@ -1,0 +1,27 @@
+<accordion close-others="true">
+	<div data-ng-repeat="canvas in canvasListToBeSaved track by $index">
+		<accordion-group>
+			<accordion-heading>
+				<div>
+					<button class="btn btn-primary btn-xs pull-right" value="yes" data-ng-click="SaveCanvas(canvas, $event)">
+						<span class="badge"> {{ canvas.widgetInstanceList.length + canvas.widgetInstanceListDeleted.length }}</span>
+						{{ 'button.saveCanvas' | translate }}
+					</button>
+				</div>
+				<div>
+					{{ canvas.canvasName }}
+				</div>
+			</accordion-heading>
+			<h4 data-ng-if="canvas.widgetInstanceList.length>0">Updated widgets</h4>
+			<p data-ng-repeat="updatedwidget in canvas.widgetInstanceList" data-ng-if="updatedwidget.updateWidget">
+				<button class="btn btn-primary btn-xs pull-right" value="yes" data-ng-click="SaveWidget(updatedwidget, canvas.canvasName, canvas.canvasId)" translate="{{ 'button.saveWidget' }}"></button>
+				{{ updatedwidget.widgetDefinition.name }}, {{ updatedwidget.clientId }}?
+			</p>
+			<h4 data-ng-if="canvas.widgetInstanceListDeleted.length>0">Deleted widgets</h4>
+			<p data-ng-repeat="deletedwidget in canvas.widgetInstanceListDeleted" data-ng-if="deletedwidget.updateWidget">
+				<button class="btn btn-primary btn-xs pull-right" value="yes" data-ng-click="SaveWidget(deletedwidget, canvas.canvasName, canvas.canvasId)" translate="{{ 'button.saveWidget' }}"></button>
+				{{ deletedwidget.widgetDefinition.name }}, {{ deletedwidget.clientId }}?
+			</p>
+		</accordion-group>
+	</div>
+</accordion>

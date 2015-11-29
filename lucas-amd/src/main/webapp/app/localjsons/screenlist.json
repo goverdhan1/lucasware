@@ -1,0 +1,95 @@
+{
+	"data": [
+		{
+			"responseId": "123",
+			"payload": {
+				"AvailableCanvasList": [
+					{
+						"title": "My Favorite Canvases",
+						"canvasList": [
+							{
+								"id": "10",
+								"name": "Pick Monitoring"
+							}, {
+								"id": "20",
+								"name": "Assignment Management"
+							}, {
+								"id": "30",
+								"name": "Pick Monitoring Alternate"
+							}
+						]
+					}, {
+						"title": "My Saved Canvases",
+						"canvasList": [
+							{
+								"id": "40",
+								"name": "Overview Warehouse1"
+							}, {
+								"id": "50",
+								"name": "Overview Warehouse2"
+							}, {
+								"id": "60",
+								"name": "Performance"
+							}, {
+								"id": "70",
+								"name": "Performance East"
+							}, {
+								"id": "80",
+								"name": "Performance South"
+							}, {
+								"id": "90",
+								"name": "Performance North"
+							}
+						]
+					}, {
+						"title": "My Company Canvases",
+						"canvasList": [
+							{
+								"id": "100",
+								"name": "QC Metrics Overview"
+							}, {
+								"id": "110",
+								"name": "User Performance"
+							}, {
+								"id": "120",
+								"name": "Pick Density"
+							}, {
+								"id": "130",
+								"name": "Productivity"
+							}, {
+								"id": "140",
+								"name": "Throughput"
+							}, {
+								"id": "150",
+								"name": "Movement Analysis"
+							}, {
+								"id": "160",
+								"name": "Movement Analysis"
+							}, {
+								"id": "170",
+								"name": "User Performance"
+							}, {
+								"id": "180",
+								"name": "Pick Density"
+							}, {
+								"id": "190",
+								"name": "Productivity"
+							}, {
+								"id": "200",
+								"name": "Throughput"
+							}, {
+								"id": "210",
+								"name": "Movement Analysis"
+							}, {
+								"id": "220",
+								"name": "Movement Analysis"
+							}
+						]
+					}
+				]
+			}
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

@@ -1,0 +1,1 @@
+mvn clean install -DLUCAS_ENCRYPTION_PASSWORD=Hn4UKcorcdoQIFyby1BAs7ZQVmBm+NRk -f lucas-parent/pom.xml -Pall

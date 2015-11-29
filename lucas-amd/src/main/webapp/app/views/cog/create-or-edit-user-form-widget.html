@@ -1,0 +1,18 @@
+<div class="showCogmenuWidgetModal">
+	<div class="modal-header">
+		<h4> {{ cogWidgetInstance.widgetDefinition.name }} </h4>
+	</div>
+	<div class="modal-body">
+		<div data-widget-interactions 
+			 data-widget-id="{{cogWidgetInstance.id}}"
+		     data-listen-to="['userName']"
+		     data-listen-to-widgets="['SearchUser']"
+		     data-widget-interaction-config="cogWidgetInstance.widgetInteractionConfig">
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-danger" data-ng-hide="!isReset" data-ng-click="resetCogSettings(cogWidgetInstance)" translate="{{ 'core.resetToFactory' }}"></button>
+		<button class="btn btn-success btn-save" data-ng-hide="!isInstanceModified" data-ng-click="saveCogSettings(cogWidgetInstance)" translate="{{ 'core.save' }}"></button>
+		<button class="btn btn-warning" data-ng-click="cancel()" translate="{{ 'core.cancel' }}"></button>
+	</div>
+</div>

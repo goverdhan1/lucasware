@@ -1,0 +1,45 @@
+<div data-ng-controller="UserGroupFormController" class="user-group-widget">
+    <form name="form" class="form-horizontal" role="form">
+        <div class="container-full">
+            <div class="row">
+                <div class="col-xs-6">
+                    <h3 translate="{{ 'userGroup.userName' }}"></h3>
+
+                    <div class="col-xs-4">
+                        <input type="text"
+                               data-ng-model="widgetdetails.selectedItemName"
+                               typeahead-on-select="updateSelectedUser(widgetdetails.selectedItemName)"
+                               typeahead="userName.name for userName in widgetdetails.userNames | filter:$viewValue"
+                               class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container-full">
+            <div class="row">
+                <move-data/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-xs-6">
+                <h3 translate="{{ 'userGroup.resultantPermissions' }}"></h3>
+                <div class="list-group">
+                    <div class="list-group-item" data-ng-repeat="permission in widgetdetails.resultantPermissions">
+                        {{permission}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-warning" translate="{{ 'userGroup.cancel' }}"></button>
+            <button class="btn btn-success" translate="{{ 'userGroup.save' }}"></button>
+        </div>
+
+
+    </form>
+    <listener listeninfo="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+    <sender sendinfo="widgetdetails.widgetDefinition"></sender>
+</div>

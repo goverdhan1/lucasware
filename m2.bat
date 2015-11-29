@@ -1,0 +1,1 @@
+mvn clean install -DskipTests=true -f lucas-parent/pom.xml -Pall

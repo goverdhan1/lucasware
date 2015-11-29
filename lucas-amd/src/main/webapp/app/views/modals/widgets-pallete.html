@@ -1,0 +1,17 @@
+<div id="widgetsPallette">
+    <div class="modal-body">
+        <div class="row">
+            <h4 class="pull-left heading" translate>
+                {{'widgetsPallette.widgetsPallette'}}
+            </h4>
+        </div>
+        <widgets-pallete widgets="availableWidgets" on-select="selectWidget(selectedWidget)"></widgets-pallete>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-warning"
+                id="btn-cancel-widgets-pallete"
+                value="cancel"
+                data-ng-click="closeModal()"
+                translate="{{ 'button.cancel' }}"></button>
+    </div>
+</div>

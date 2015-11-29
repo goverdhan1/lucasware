@@ -1,0 +1,16 @@
+{
+	"data":[
+		{
+			"id":11,
+			"name":"Best Buy Warehouse",
+			"regionId":1
+		},
+		{
+			"id":12,
+			"name":"Wallmart, Durham",
+			"regionId":1
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

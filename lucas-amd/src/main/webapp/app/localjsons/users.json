@@ -1,0 +1,14 @@
+{
+	"data":[
+		{
+			"id":1,
+			"name":"North Carolina"
+		},
+		{
+			"id":2,
+			"name":"Virginia"
+		}
+	],
+	"status": "success",
+	"code": "200"
+}

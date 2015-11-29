@@ -1,0 +1,319 @@
+<div data-ng-controller="CreateEditUserFormController" class="createEditUserForm">
+
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-8 col-xs-8">
+            <div class="input-group">
+                <input type="text"
+                       class="form-control input-sm"
+                       placeholder="{{ 'user.login' | translate }}"
+                       typeahead="user for user in users | filter:$viewValue | limitTo:5"
+                       typeahead-on-select="searchUser($item)"
+                       typeahead-focus-first="true"
+                       ng-model="fields.username"
+                       ng-disabled="!lucasLoginEnabled"
+                       ng-change="lucasLoginWatcher()"
+                       ng-keypress="enterKeySearch($event)">
+                <span class="input-group-btn">
+                    <button class="btn btn-info btn-sm"
+                            type="button"
+                            ng-if="searchButtonVisible"
+                            ng-click="searchUser(fields.username)"
+                            ng-disabled="!searchButtonEnabled">
+                        <span class="glyphicon glyphicon-search"></span>
+                    </button>
+                    <button class="btn btn-danger btn-sm"
+                            type="button"
+                            ng-if="clearButtonVisible"
+                            ng-click="clear()"
+                            ng-disabled="!clearButtonEnabled">
+                        <span class="glyphicon glyphicon-arrow-left"></span>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-4 col-xs-4">
+            <label class="pull-right"
+                   translate="{{ 'core.saving' }}"
+                   ng-if="MODE_SAVE">
+            </label>
+            <label class="pull-right"
+                   ng-style="{color:'red'}"
+                   translate="{{ 'error.userNotFound' }}"
+                   translate-values="{user : fields.username}"
+                   ng-if="userNotFound">
+            </label>
+        </div>
+    </div>
+    <br>
+    <form name="form" class="form-horizontal" novalidate>
+    <div class="resizeTabSetContainer">
+
+        <tabset justified="true" menu-tabset="true" hideMenuHeadingIndex="3">
+            <!-- TAB LOGIN INFORMATION -->
+            <tab heading="{{ 'user.loginInfo' | translate }}" active="tabs[0]">
+                    <fieldset class="modal-body" data-ng-disabled="!formFieldsEnabled">
+                        <!-- PASSWORD-->
+                        <div class="form-group">
+                            <label for="password" class="col-sm-4 control-label">{{ 'user.password' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="password" 
+                                       data-ng-disabled="!formFields.passwordEnabled"
+                                type="password" required ng-model="fields.password"  class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- CONFIRM PASSWORD -->
+                        <div class="form-group">
+                            <label for="confirm_password" class="col-sm-4 control-label">{{ 'user.confirmPassword' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input type="password"
+                                       data-ng-disabled="!formFields.confirmPasswordEnabled"
+                                       ng-model="fields.confirmPassword" 
+                                       class="form-control input-sm"  
+                                       id="confirm_password" 
+                                       name="confirm_password">
+                        
+                            <span ng-style="{'color':'red'}"
+                                  ng-if="!validatePasswords()"
+                                  translate="{{ 'user.passwordsDoNotMatch' }}">
+                            </span>
+
+                            </div>
+                        </div>
+                        <!-- HOST LOGIN -->
+                        <div class="form-group">
+                            <label for="host_login" class="col-sm-4 control-label">{{ 'user.hostLogin' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="host_login" 
+                                       data-ng-disabled="!formFields.hostLoginEnabled"
+                                       type="text" ng-model="fields.hostLogin" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- HOST PASSWORD -->
+                        <div class="form-group">
+                            <label for="host_password" class="col-sm-4 control-label">{{ 'user.hostPassword' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="host_password" 
+                                       data-ng-disabled="!formFields.hostPassswordEnabled"
+                                       type="password" ng-model="fields.hostPassword" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- SKILL -->
+                        <div class="form-group">
+                            <label for="skill" class="col-sm-4 control-label" translate="{{ 'user.skill'}}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="skill"
+                                        data-ng-disabled="!formFields.skillEnabled"
+                                        data-ng-model="fields.skill"
+                                        ng-options="skill.key as ('user.skills.' + skill.value) | translate for skill in skills">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- SHIFT -->
+                        <div class="form-group">
+                            <label for="shift" class="col-sm-4 control-label" translate="{{ 'user.shift'}}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="shift"
+                                        data-ng-model="fields.shift"
+                                        data-ng-disabled="!formFields.shiftEnabled"
+                                        ng-options="shift.shiftId as (shift.shiftName + ' (' + shift.startTime + ' - ' + shift.endTime + ')') for shift in shifts">
+                                </select>
+                            </div>
+                        </div>
+
+                    </fieldset>
+            </tab>
+
+            <!-- TAB LANGUAGES -->
+            <tab heading="{{ 'user.languages' | translate}}" active="tabs[1]" >
+                    <fieldset class="modal-body" data-ng-disabled="!formFieldsEnabled">
+                        <!-- JEN TO USER-->
+                        <div class="form-group">
+                            <label for="jen_to_user_language" class="col-sm-4 control-label" translate="{{ 'user.jenniferToUser' }}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="jen_to_user_language"
+                                        data-ng-model="fields.j2uLanguage"
+                                        data-ng-disabled="!formFields.j2uLanguageEnabled"
+                                        ng-options="language as ('locale.ISOLanguageCodes.' + language) | translate for language in languages.j2u">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- USER TO JEN -->
+                        <div class="form-group">
+                            <label for="user_to_jen_language" class="col-sm-4 control-label" translate="{{ 'user.userToJennifer'}}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="user_to_jen_language"
+                                        data-ng-model="fields.u2jLanguage"
+                                        data-ng-disabled="!formFields.u2jLanguageEnabled"
+                                        ng-options="language as ('locale.ISOLanguageCodes.' + language) | translate for language in languages.u2j">
+                                </select>
+                            </div>
+                        </div>
+                        <!-- HANDHELD-->
+                        <div class="form-group">
+                            <label for="handheld_language" class="col-sm-4 control-label" translate="{{ 'user.handheldScreenLanguage' }}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="handheld_language"
+                                        data-ng-model="fields.hhLanguage"
+                                        data-ng-disabled="!formFields.hhLanguageEnabled"
+                                        ng-options="language as ('locale.ISOLanguageCodes.' + language) | translate for language in languages.hh">
+                                </select>
+
+                            </div>
+                        </div>
+                        <!-- AMD-->
+                        <div class="form-group">
+                            <label for="amd_language" class="col-sm-4 control-label" translate="{{ 'user.AMDLanguage' }}"></label>
+                            <div class="col-sm-6">
+                                <select class="form-control input-sm"
+                                        id="amd_language"
+                                        data-ng-model="fields.amdLanguage"
+                                        data-ng-disabled="!formFields.amdLanguageEnabled"
+                                        ng-options="language as ('locale.ISOLanguageCodes.' + language) | translate for language in languages.amd">
+                                </select>
+                            </div>
+                        </div>
+                    </fieldset>
+            </tab>
+
+            <!-- TAB OPTIONAL -->
+            <tab heading="{{ 'user.optional' | translate }}" active="tabs[2]">
+                    <fieldset class="modal-body" data-ng-disabled="!formFieldsEnabled">
+                        <!-- EMPLOYEE NO -->
+                        <div class="form-group">
+                            <label for="employee_no" class="col-sm-4 control-label">{{ 'user.employeeNumber' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="employee_no" type="text" 
+                                       data-ng-disabled="!formFields.employeeNumberEnabled"
+                                       ng-model="fields.employeeNumber" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- START DATE -->
+                        <div class="form-group">
+                            <label for="start_date" class="col-sm-4 control-label" translate="{{ 'user.startDate' }}"></label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text"
+                                           id="start_date"
+                                           name="start_date"
+                                           class="form-control input-sm"
+                                           datepicker-popup="{{format}}"
+                                           datepicker-options="dateOptions"
+                                           is-open="datepickers.startDate"
+                                           ng-model="fields.startDate"
+                                           data-ng-disabled="!formFields.startDateEnabled" />
+                                  <span class="input-group-btn">
+                                    <button data-ng-disabled="!formFields.startDateEnabled"
+                                            class="btn btn-default btn-sm" ng-click="open($event,'startDate')">
+                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- FIRST NAME -->
+                        <div class="form-group">
+                            <label for="first_name" class="col-sm-4 control-label">{{ 'user.firstName' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="first_name" 
+                                       data-ng-disabled="!formFields.firstNameEnabled"
+                                       type="text" ng-model="fields.firstName" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- LAST NAME -->
+                        <div class="form-group">
+                            <label for="last_name" class="col-sm-4 control-label">{{ 'user.lastName' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="last_name" 
+                                       data-ng-disabled="!formFields.lastNameEnabled"
+                                       type="text" ng-model="fields.lastName" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- BIRTH DATE -->
+                        <div class="form-group">
+                            <label for="birth_date" class="col-sm-4 control-label" translate="{{ 'user.birthDate' }}"></label>
+                            <div class="col-sm-6">
+                                <div class="input-group">
+                                    <input type="text"
+                                           id="birth_date"
+                                           data-ng-disabled="!formFields.birthDateEnabled"
+                                           name="birth_date"
+                                           class="form-control input-sm"
+                                           datepicker-popup="{{format}}"
+                                           datepicker-options="dateOptions"
+                                           is-open="datepickers.birthDate"
+                                           ng-model="fields.birthDate"/>
+                                  <span class="input-group-btn">
+                                    <button class="btn btn-default btn-sm"
+                                            data-ng-disabled="!formFields.birthDateEnabled"
+                                            ng-click="open($event,'birthDate')">
+                                        <i class="glyphicon glyphicon-calendar"></i></button>
+                                  </span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- MOBILE NO -->
+                        <div class="form-group">
+                            <label for="mobile_no" class="col-sm-4 control-label">{{ 'user.mobileNumber' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="mobile_no" type="text" 
+                                       data-ng-disabled="!formFields.mobileNumberEnabled"
+                                       ng-model="fields.mobileNumber" class="form-control input-sm">
+                            </div>
+                        </div>
+                        <!-- EMAIL -->
+                        <div class="form-group">
+                            <label for="email" class="col-sm-4 control-label">{{ 'user.emailAddress' | translate}}</label>
+                            <div class="col-sm-6">
+                                <input id="email" 
+                                       data-ng-disabled="!formFields.emailAddressEnabled"
+                                type="text" ng-model="fields.emailAddress" class="form-control input-sm">
+                            </div>
+                        </div>
+                    </fieldset>
+            </tab>
+
+            <!-- TAB GROUPS -->
+            <tab heading="{{ 'user.groups' | translate }}" active="tabs[3]" >
+                    <fieldset class="modal-body">
+                        <div class="form-group">
+                            <div class="container-full-tab">
+                                <div class="row">
+                                    <move-data is-disabled="{{!formFieldsEnabled || !formFields.moveDataEnabled}}"></move-data>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+            </tab>
+        </tabset>
+
+    </div>
+    
+    <!-- Form Footer -->
+    <div class="modal-footer">
+        <button id="button_saveAs"
+                type="button"
+                class="btn btn-success"
+                data-ng-disabled="!enableSaveAsButton()"
+                data-ng-click="copy()"
+                translate="{{ 'core.saveAs' }}">
+        </button>
+        <button id="button_save"
+                type="submit"
+                class="btn btn-success"
+                data-ng-disabled="!enableSaveButton()"
+                data-ng-click="save()"
+                translate="{{ 'core.save' }}">
+        </button>
+    </div>
+    </form>
+
+    <!-- 
+    <listener listen-info="widgetdetails.actualViewConfig.listensForList" received-info="receivedInfo"></listener>
+    <sender sendinfo="widgetdetails.widgetDefinition"></sender> 
+    -->
+
+</div>

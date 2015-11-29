@@ -1,0 +1,170 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+    	"totalRecords": 3,
+        "grid": {
+            "1": {
+                "values": [
+                    "admin123",
+                    "jack123",
+                    "jill123"
+                ]
+            },
+            "2": {
+                "values": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "3": {
+                "values": [
+                    "Admin",
+                    "Jack",
+                    "Jill"
+                ]
+            },
+            "4": {
+                "values": [
+                    "User",
+                    "User2",
+                    "User1"
+                ]
+            },
+            "5": {
+                "values": [
+                    null,
+                    null,
+                    null
+                ]
+            },
+            "6": {
+                "values": [
+                    "morning",
+                    "morning",
+                    "morning"
+                ]
+            },
+            "7": {
+                "values": [
+                    "",
+                    "",
+                    "EN_US"
+                ]
+            },
+            "8": {
+                "values": [
+                    "",
+                    "",
+                    "FR_FR"
+                ]
+            },
+            "9": {
+                "values": [
+                    "",
+                    "",
+                    "DE_DE"
+                ]
+            },
+            "10": {
+                "values": [
+                    "",
+                    "",
+                    "EN_US"
+                ]
+            },
+            "11": {
+                "values": [
+                    "1",
+                    "1",
+                    "1"
+                ]
+            },
+            "12": {
+                "values": [
+                    "",
+                    "",
+                    "1072"
+                ]
+            },
+            "13": {
+                "values": [
+                    "",
+                    "",
+                    "MRS"
+                ]
+            },
+            "14": {
+                "values": [
+                    "2014-01-01T00:00:00.000Z",
+                    "2014-01-01T00:00:00.000Z",
+                    "2014-01-01T00:00:00.000Z"
+                ]
+            },
+            "15": {
+                "values": [
+                    "",
+                    "",
+                    "2014-01-01T00:00:00.000Z"
+                ]
+            },
+            "16": {
+                "values": [
+                    "",
+                    "",
+                    "1234567890"
+                ]
+            },
+            "17": {
+                "values": [
+                    "admin@user.com",
+                    "user2@normal.com",
+                    "user1@normal.com"
+                ]
+            },
+            "18": {
+                "values": [
+                    "2",
+                    "4",
+                    "3"
+                ]
+            },
+            "19": {
+                "values": []
+            },
+            "20": {
+                "values": []
+            },
+            "21": {
+                "values": []
+            },
+            "22": {
+                "values": []
+            },
+            "23": {
+                "values": []
+            },
+            "24": {
+                "values": []
+            },
+            "25": {
+                "values": []
+            },
+            "26": {
+                "values": []
+            },
+            "27": {
+                "values": []
+            },
+            "28": {
+                "values": []
+            }
+        }
+    }
+}

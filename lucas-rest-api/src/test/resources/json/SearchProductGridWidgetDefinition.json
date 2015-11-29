@@ -1,0 +1,199 @@
+{
+    "status": "success",
+    "code": "200",
+    "message": "Request processed successfully",
+    "level": null,
+    "uniqueKey": null,
+    "token": null,
+    "explicitDismissal": null,
+    "data": {
+        "name": "search-product-grid-widget",
+        "id": 14,
+        "defaultViewConfig": {
+            "gridColumns": {
+                "1": {
+                    "name": "Product Code",
+                    "order": "1",
+                    "visible": false,
+                    "fieldName": "productCode",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "2": {
+                    "name": "Product Name",
+                    "order": "2",
+                    "visible": true,
+                    "fieldName": "name",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "3": {
+                    "name": "Description",
+                    "order": "3",
+                    "visible": true,
+                    "fieldName": "description",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "4": {
+                    "name": "Status",
+                    "order": "4",
+                    "visible": true,
+                    "fieldName": "productStatusCode",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "5": {
+                    "name": "2nd Validation",
+                    "order": "5",
+                    "visible": true,
+                    "fieldName": "performSecondValidation",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "6": {
+                    "name": "Capture Lot Nbr",
+                    "order": "6",
+                    "visible": true,
+                    "fieldName": "captureLotNumber",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "7": {
+                    "name": "Capture Serial Nbr",
+                    "order": "7",
+                    "visible": true,
+                    "fieldName": "captureSerialNumber",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "8": {
+                    "name": "Base Item",
+                    "order": "8",
+                    "visible": true,
+                    "fieldName": "isBaseItem",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "9": {
+                    "name": "Capture Catch Weight",
+                    "order": "9",
+                    "visible": true,
+                    "fieldName": "captureCatchWeight",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "10": {
+                    "name": "HeadsUp Messages",
+                    "order": "10",
+                    "visible": true,
+                    "fieldName": "headsUpMessages",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "11": {
+                    "name": "Haz Material",
+                    "order": "11",
+                    "visible": true,
+                    "fieldName": "hazardousMaterial",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "12": {
+                    "name": "Customer SKU Number",
+                    "order": "12",
+                    "visible": true,
+                    "fieldName": "customerSkuNbr",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "13": {
+                    "name": "Manufacturer Item Number",
+                    "order": "13",
+                    "visible": true,
+                    "fieldName": "manufacturerItemNbr",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                },
+                "14": {
+                    "name": "Expiration Date Check",
+                    "order": "14",
+                    "visible": true,
+                    "fieldName": "captureExpirationDate",
+                    "allowFilter": true,
+                    "sortOrder": "1", 
+                    "width": 150
+                }
+            },
+            "listensForList": [
+                "productName"
+            ],
+            "minimumWidth": 485,
+            "minimumHeight": 375,
+            "anchor": [
+                1,
+                363
+            ],
+             "deviceWidths": {
+		        "320": "mobile",
+		        "540": "tablet",
+		        "800": "desktop", 
+		        "1200": "wideScreen"
+		      },
+            "zindex": 1
+        },
+        "dataURL": {
+            "url": "/products/productlist/search",
+            "searchCriteria": {
+                "pageNumber": "0",
+                "pageSize": "10",
+                "searchMap": {},
+                "sortMap": {}
+            }
+        },
+        "shortName": "SearchProduct",
+        "title": "Search Product",
+        "reactToMap": {
+            "productName": {
+                "url": "/products/productlist/search",
+                "searchCriteria": {
+                    "pageNumber": "0",
+                    "pageSize": "10",
+                    "searchMap": {
+                        "productName": [
+                            "$productName"
+                        ]
+                    }
+                }
+            }
+        },
+        "broadcastList": [
+            "productName"
+        ],
+        "widgetActionConfig": {
+            "widget-access": {
+                "search-product-grid-widget-access": true
+            },
+            "widget-actions": {
+                "edit-product": true,
+                "create-product": true,
+                "delete-product": true,
+                "view-product": true
+            }
+        },
+        "defaultData": {}
+    }
+}

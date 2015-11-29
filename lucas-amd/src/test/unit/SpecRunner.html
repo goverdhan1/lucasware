@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<title>Jasmine Test Runner</title>
+	
+		<!-- Jasmine stylesheet -->
+		<link rel="stylesheet" type="text/css" href="../styles/jasmine.css">
+	
+		<!-- Jasmine core and HTML -->
+		<script type="text/javascript" src="../lib/jasmine.js"></script>
+		<script type="text/javascript" src="../lib/jasmine-html.js"></script>
+		<script type="text/javascript" src="../lib/jasmine.async.js"></script>
+
+		<!-- JavaScript libraries on which source depends -->
+		<script type="text/javascript" src="../lib/console.js"></script>
+		<script type="text/javascript" src="../lib/jquery-1.8.3.js"></script>
+        <script type="text/javascript" src="../lib/jasmine-jquery-1.4.2.js"></script>
+        <script type="text/javascript" src="../lib/jasmine.console_reporter.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular/angular-ui-router.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular-ui/ui-bootstrap-tpls-0.10.0.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/lib/angular-ui/ui-grid-3.0.0-RC.18.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular/angular-translate.min.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/lib/angular/angular-translate-loader-static-files.min.js"></script>
+		
+		<script type="text/javascript" src="../../main/webapp/app/lib/ui.sortable.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/ngDraggable.js"></script>
+
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular/angular-animate.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/d3/d3.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/d3/nv.d3.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/d3/angularjs-nvd3-directives.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/lib/jquery/jquery-ui.min.js"></script>
+			
+		<script type="text/javascript" src="../lib/angular/angular-mocks.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/angular/restangular.min.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/lib/underscore/underscore-min.js"></script> 
+	
+		<!-- Script source to test and other files on which source depends -->
+		<script type="text/javascript" src="../../main/webapp/app/js/app.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/CommonServices.js"></script>  
+		<script type="text/javascript" src="../../main/webapp/app/js/services/RestApiService.js"></script> 
+		<script type="text/javascript" src="../../main/webapp/app/js/services/SessionService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/SelectCanvasService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/UtilsService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/LocalStoreService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/HomeCanvasListService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/AboutService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/WidgetService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/LangKeyStoreService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/LocaleLoader.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/WidgetGridService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/GroupGridWidgetService.js"></script>		
+		<script type="text/javascript" src="../../main/webapp/app/js/services/WidgetChartService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/AuthTokenService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/WidgetDefinitionService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/ShowAvailableWidgetsService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/UserService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/CreateEditUserFormService.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/services/LogoutAlertService.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/services/SearchUserGridService.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/services/LoginService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/SecurityService.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/services/CanvasService.js"></script>
+
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/lcchart.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/lcform.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/dragandresize.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/widgetloader.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/lcwidget.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/listener.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/sender.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/directives/saveWidgetCanvas.js"></script>
+		
+		
+		<script type="text/javascript" src="../../main/webapp/app/js/interceptors/NotificationsInterceptor.js"></script>
+		
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/FooterController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/LoginController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/SelectCanvasController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/CanvasDetailController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/CanvasEditController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/CanvasCloseController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/SessionController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/AboutLucasController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/WidgetDetailController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/LocaleController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/BarChartController.js"></script>
+		<script type="text/javascript" src="../../main/webapp/app/js/controllers/ShowAvailableWidgetsController.js"></script>		
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/LoginModalController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/PieChartController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/TopCenterController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/TopLeftController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/TopRightController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/WidgetGridFilterController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/CreateEditUserFormController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/LogoutAlertController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/LogoutConfirmationModalController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/AssignmentManagementController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/SearchUserGridController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/CreateEditUserFormController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/ShowAvailableWidgetsController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/PicklineByWaveController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/ShowCogmenuWidgetController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/WidgetController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/DeleteWidgetController.js"></script>
+        <script type="text/javascript" src="../../main/webapp/app/js/controllers/ResetWidgetController.js"></script>
+	<script type="text/javascript" src="../../main/webapp/app/js/directives/FormValidation.js"></script>
+        
+
+
+		<!-- Test scripts -->
+
+        <script type="text/javascript" src="appSpec.js"></script>
+                <script type="text/javascript" src="services/GroupGridWidgetServiceSpec.js"></script>
+
+ 		<script type="text/javascript" src="controllers/LoginControllerSpec.js"></script>
+		<script type="text/javascript" src="controllers/SelectCanvasControllerSpec.js"></script>
+		<script type="text/javascript" src="controllers/FooterControllerSpec.js"></script>
+		<script type="text/javascript" src="controllers/AboutLucasControllerSpec.js"></script>
+		<script type="text/javascript" src="controllers/LocaleControllerSpec.js"></script>
+		<script type="text/javascript" src="controllers/ShowAvailableWidgetsControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/LoginModalControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/PieChartControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/TopCenterControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/TopLeftControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/TopRightControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/WidgetGridFilterControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/SessionControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/WidgetDetailControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/CreateEditUserFormControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/WidgetDetailControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/LogoutAlertControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/CreateEditUserFormControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/ShowAvailableWidgetsControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/AssignmentManagementControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/PicklineByWaveControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/SearchUserGridControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/ShowCogmenuWidgetControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/WidgetControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/LogoutConfirmationModalControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/PackFactorHierarchyControllerSpec.js"></script>
+        <script type="text/javascript" src="controllers/SearchGroupControllerSpec.js"></script>
+		
+        
+		<script type="text/javascript" src="services/RestApiServiceSpec.js"></script>
+        <script type="text/javascript" src="services/SelectCanvasServiceSpec.js"></script>
+        <script type="text/javascript" src="services/UtilsServiceSpec.js"></script>
+        <script type="text/javascript" src="services/AboutServiceSpec.js"></script>        
+        <script type="text/javascript" src="services/WidgetGridServiceSpec.js"></script>
+        <script type="text/javascript" src="services/WidgetChartServiceSpec.js"></script>
+        <script type="text/javascript" src="services/UserServiceSpec.js"></script>
+        <script type="text/javascript" src="services/WidgetDefinitionServiceSpec.js"></script>
+        <script type="text/javascript" src="services/ShowAvailableWidgetsServiceSpec.js"></script>
+        <script type="text/javascript" src="services/WidgetServiceSpec.js"></script>        
+        <script type="text/javascript" src="services/CreateEditUserFormServiceSpec.js"></script>
+        <script type="text/javascript" src="services/PackFactorServiceSpec.js.js"></script>
+
+
+        <script type="text/javascript" src="services/LoginServiceSpec.js"></script>
+        <script type="text/javascript" src="services/WidgetServiceSpec.js"></script>
+        <script type="text/javascript" src="services/LogoutAlertServiceSpec.js"></script>
+        
+        <script type="text/javascript" src="directives/DragAndResizeSpec.js"></script>
+        <script type="text/javascript" src="directives/lcwidgetSpec.js"></script>
+        <script type="text/javascript" src="directives/widgetloaderSpec.js"></script>
+        <script type="text/javascript" src="directives/uiGridFilterInputSpec.js"></script>
+	<script type="text/javascript" src="directives/formValidationSpec.js"></script>
+
+
+ 		<script type="text/javascript" src="controllers/EAIMessagesGridControllerSpec.js"></script>
+
+
+
+    </head>
+	<body>
+		<script type="text/javascript">
+			jasmine.getEnv().addReporter(new jasmine.TrivialReporter());
+			jasmine.getEnv().execute();
+		</script>
+	</body>
+</html>
